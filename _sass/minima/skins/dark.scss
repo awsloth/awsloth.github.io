@@ -1,2 +1,5 @@
-minima:
-  skin: auto
+@charset "utf-8";
+
+$color-scheme-auto: false;
+$color-scheme-dark: true;
+@import "minima/skins/auto";
