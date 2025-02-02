@@ -4,12 +4,10 @@
   <div class="wrapper">
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name">
-            {%- if site.email -%}
-			<li>{{ site.email }}</li>
-            {%- endif -%}
-        </ul>
+		{%- if site.email -%}
+		<p>{{ site.email }}</p>
+		{%- endif -%}
+
       </div>
 
       <div class="footer-col footer-col-2">
@@ -17,7 +15,7 @@
       </div>
 
       <div class="footer-col footer-col-3">
-        <p>{{- site.description | escape -}}</p>
+		  <a href="https://deltzabar.github.io/">Other Bozo</a>  |  <a href="https://deltzabar.github.io/">Sof Wolf</a>
       </div>
     </div>
 
