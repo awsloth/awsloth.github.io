@@ -4,4 +4,4 @@ title: Reads
 permalink: /reads/
 ---
 
-I will list recent read here, particularly articles and sometimes papers (when I'm feeling adventurous).
+I will list recent reads here, mostly articles and sometimes papers (when I'm feeling adventurous).

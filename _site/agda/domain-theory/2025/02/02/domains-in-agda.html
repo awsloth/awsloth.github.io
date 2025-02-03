@@ -1,4 +1,40 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-02-03T00:00:15+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Anna Williams</title><entry><title type="html">Basic Domain Theory in Agda</title><link href="http://localhost:4000/agda/domain-theory/2025/02/02/domains-in-agda.html" rel="alternate" type="text/html" title="Basic Domain Theory in Agda" /><published>2025-02-02T23:40:35+00:00</published><updated>2025-02-02T23:40:35+00:00</updated><id>http://localhost:4000/agda/domain-theory/2025/02/02/domains-in-agda</id><content type="html" xml:base="http://localhost:4000/agda/domain-theory/2025/02/02/domains-in-agda.html"><![CDATA[<p>Being honest I really didn’t know what to post first, so I just thought I might as well post something I’m currently trying to learn. After all, isn’t one of the best ways you can learn to teach it to others?</p>
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/assets/main.css">
+  <script type="text/javascript" id="MathJax-script" async
+	src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Anna Williams" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Anna Williams</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/reads/">Reads</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Basic Domain Theory in Agda</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-02-02T23:40:35+00:00" itemprop="datePublished">Feb 2, 2025
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Being honest I really didn’t know what to post first, so I just thought I might as well post something I’m currently trying to learn. After all, isn’t one of the best ways you can learn to teach it to others?</p>
 
 <p>In this post I look at formalising some very basic domain theory definitions, namely that of a partially ordered set (or poset for short). I do not claim this to be the best way, but it was the way that made sense to me as I was writing it. I have all the code in the page, but do not explain some of it as it is either self explanatory or can be explored elsewhere for a better explanation than mine. With that said, let’s jump in shall we?</p>
 
@@ -125,4 +161,32 @@ anti-symmetric {A} (_R_) = {x y : A} → x R y → y R x → x ≡ y
 </code></pre>
 <h2 id="end-notes">End Notes</h2>
 
-<p>This has been quite a short post, but hopefully it was a worthwhile read (and hopefully it will spur me on to write some more in depth pieces).</p>]]></content><author><name></name></author><category term="agda" /><category term="domain-theory" /><summary type="html"><![CDATA[Being honest I really didn’t know what to post first, so I just thought I might as well post something I’m currently trying to learn. After all, isn’t one of the best ways you can learn to teach it to others? In this post I look at formalising some very basic domain theory definitions, namely that of a partially ordered set (or poset for short). I do not claim this to be the best way, but it was the way that made sense to me as I was writing it. I have all the code in the page, but do not explain some of it as it is either self explanatory or can be explored elsewhere for a better explanation than mine. With that said, let’s jump in shall we? Basic Definitions Small note: Although Set is a type, as done in the module I take on Type Theory, I prefer to alias it to Type for clarity of reading. Type = Set Before we jump into any of the mathematics, we first have to define some types to allows us to define and reason about mathematics. We can do this using the standard library but I prefer to start from a clean slate. We define the natural numbers in the usual way, which serve as a nice example as we go through this post. data ℕ : Type where zero : ℕ suc : ℕ → ℕ We also define equality in the usual way, along with ap as a helper function. data _≡_ {A : Type} : A → A → Type where refl : (x : A) → x ≡ x ap : {A B : Type} {x y : A} (f : A → B) → x ≡ y → f x ≡ f y ap f (refl _) = refl (f _) Relations We first start by looking at the mathematical definition of a relation. A relation on a set \(X\) is a subset \(\sim \: \subseteq (X \times X)\). We write \(x \sim y\) to mean that \((x, y) \in \: \sim\). I omit defining this in Agda simply because a subset is a bit subtle to define and involves using the Fin type (while this looks to be a simple type, it is one that can be confusing to understand at first and is not the main focus of this post). Instead we define a relation as an inductive type, where we restrict the set to only the relations we want. To define the relation \(\leq\) for the natural numbers, we give two constructors: z≤n - this is the constructor that says any natural number, \(n\), satisfies \(0 \leq n\). sn&lt;sm - this is the constructor that says if we have a pair of natural numbers \(n, m\) satisfying \(n \leq m\), then we can also say that \(\text{suc}\: n ≤ \text{suc}\: m\), or equivalently \(n + 1 \leq m + 1\). data _≤_ : ℕ → ℕ → Type where z≤n : (n : ℕ) → zero ≤ n sn≤sm : {m n : ℕ} → (n ≤ m) → (suc n) ≤ (suc m) Properties of Relations There are some interesting properties of relations that often crop up, the ones we will focus on here are reflexivity, transitivity, and anti-symmetry. Reflexivity We call a relation, \(\sim\), on a set \(X\) reflexive, if for all \(x \in X\) we have \(x \sim x\). We can define this using a dependent type as follows. Our underlying set is A and our relation is R. We then use this definition to show that \(\leq\) is reflexive. reflexive : {A : Set} → (A → A → Type) → Type reflexive {A} (_R_) = (x : A) → x R x ≤-refl : reflexive (_≤_) ≤-refl zero = z≤n zero ≤-refl (suc n) = sn≤sm (≤-refl n) Transitivity We call a relation, \(\sim\), on a set \(X\) transitive, for all \(x, y, z \in X\) satisfying (x \sim y) and (y \sim z), we have \(x \sim z\). Similarly to the reflexivity case, we can define transitivity, however we make \(x, y\) and \(z\) here implicit so that then using this definition is more clear later on. This works in this case because the values can be inferred by the relations x R y and y R z. transitive : {A : Type} → (A → A → Type) → Type transitive {A} (_R_) = {x y z : A} → x R y → y R z → x R z ≤-trans : transitive (_≤_) ≤-trans (z≤n _) q = z≤n _ ≤-trans (sn≤sm p) (sn≤sm q) = sn≤sm (≤-trans p q) Anti-Symmetry We call a relation, \(\sim\), on a set \(X\) anti-symmetric, if for all \(x, y \in X\), we have that if \(x \sim y\) and \(y \sim x\), then \(x = y\). As with the other two cases, we define anti-symmetry, also making \(x\) and \(y\) implicit like in transitivity. We see the first use of ap here in the proof that \(\leq\) is symmetric, this allows us prove that x ≡ y to show that suc x ≡ suc y, which we can do using recursion. anti-symmetric : {A : Type} → (A → A → Type) → Type anti-symmetric {A} (_R_) = {x y : A} → x R y → y R x → x ≡ y ≤-anti-sym : anti-symmetric (_≤_) ≤-anti-sym (z≤n _) (z≤n .zero) = refl zero ≤-anti-sym (sn≤sm p) (sn≤sm q) = ap suc (≤-anti-sym p q) Defining an ordering Combining these three properties together we form what is a partial order on a set. A partial order on a set is a relation that is reflexive, transitive and anti-symmetric. We usually shorten partial order to poset. To combine these conditions into one we require that data Poset (A : Type) (_f_ : A → A → Type) : Set₁ where poset-axioms : (re : reflexive _f_) → (tr : transitive _f_) → (as : anti-symmetric _f_) → Poset A (_f_) For example, the natural numbers with \(\leq\) as we have defined is a poset. We use our earlier proofs to show that \(\leq\) satisfies the required properties. ℕ-≤-poset : Poset ℕ (_≤_) ℕ-≤-poset = poset-axioms ≤-refl ≤-trans ≤-anti-sym End Notes This has been quite a short post, but hopefully it was a worthwhile read (and hopefully it will spur me on to write some more in depth pieces).]]></summary></entry></feed>
+<p>This has been quite a short post, but hopefully it was a worthwhile read (and hopefully it will spur me on to write some more in depth pieces).</p>
+
+
+  </div><a class="u-url" href="/agda/domain-theory/2025/02/02/domains-in-agda.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1"><p>awsloth (at) gmail (dot) com</p><p class="rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a></p>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/awsloth"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">awsloth</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+		  <a href="https://piturnah.xyz/">Peter Hebden</a>  |  <a href="https://deltzabar.github.io/">Sof Wolf</a>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

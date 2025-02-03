@@ -5,3 +5,8 @@ github_username:  awsloth
 plugins:
   - jekyll-feed
 
+markdown: kramdown
+highligher : rouge
+
+exclude:
+    - "*.agdai"
