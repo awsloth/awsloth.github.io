@@ -119,4 +119,4 @@ For example, the natural numbers with \\(\leq\\) as we have defined is a poset. 
 ```
 ## End Notes
 
-This has been quite a short post, but hopefully it was a worthwhile read (and hopefully it will spur me on to write some more in depth pieces).
+This has been quite a short post, but hopefully it was a worthwhile read (and hopefully it will spur me on to write some more in depth pieces). Thank you for reading and hopefully see you in another post soon!
