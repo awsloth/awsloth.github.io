@@ -44,6 +44,18 @@ $on-laptop:        800px !default;
   font-size: $base-font-size * $ratio;
 }
 
+mastodon-comments {
+  --font-color: $text-color;
+  --font-size: $base-font-size;
+
+  --block-border-width: 1px;
+  --block-border-radius: 3px;
+  --block-border-color: $background-color;
+  --block-background-color: $grey-color;
+
+  --comment-indent: 40px;
+}
+
 // Import partials.
 @import
   "minima/base",
