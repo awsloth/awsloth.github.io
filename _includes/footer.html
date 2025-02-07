@@ -3,7 +3,7 @@
 
   <div class="wrapper">
     <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
+      <div class="footer-col footer-col-1" align="left">
 
 		{%- if site.email -%}
 		<p>{{ site.email }}</p>
@@ -12,12 +12,13 @@
 		<p class="rss-subscribe">Subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
       </div>
 
-      <div class="footer-col footer-col-2">
-        {%- include social.html -%}
+      <div class="footer-col footer-col-2" align="center">
+		{%- include social.html -%}
+		<a href="https://ko-fi.com/s/4662b19f61"><img src="{{ "assets/neverbyai.svg" | relative_url }}" alt="A tag with a picture of a cat on the left and text which reads never by ai."/></a>
       </div>
 
-      <div class="footer-col footer-col-3">
-		  <a href="https://piturnah.xyz/">Peter Hebden</a>  |  webring  |  <a href="https://www.akpain.net/">Abi Pain</a>
+      <div class="footer-col footer-col-3" align="right">
+		  <p><a href="https://piturnah.xyz/">Peter Hebden</a>  |  webring  |  <a href="https://www.akpain.net/">Abi Pain</a></p>
       </div>
     </div>
 
