@@ -116,8 +116,8 @@ a:hover {
  * Blockquotes
  */
 blockquote {
-  color: #828282;
-  border-left: 4px solid rgb(66.25, 66.25, 66.25);
+  color: #989898;
+  border-left: 4px solid rgb(88.25, 88.25, 88.25);
   padding-left: 15px;
   font-size: 18px;
   letter-spacing: -1px;
@@ -133,7 +133,7 @@ blockquote > :last-child {
 pre,
 code {
   font-size: 15px;
-  border: 1px solid rgb(66.25, 66.25, 66.25);
+  border: 1px solid rgb(88.25, 88.25, 88.25);
   border-radius: 3px;
   background-color: #eef;
 }
@@ -188,7 +188,7 @@ pre > code {
   width: 16px;
   height: 16px;
   display: inline-block;
-  fill: #828282;
+  fill: #989898;
   padding-right: 5px;
   vertical-align: text-top;
 }
@@ -206,21 +206,21 @@ table {
   text-align: left;
   color: white;
   border-collapse: collapse;
-  border: 1px solid rgb(66.25, 66.25, 66.25);
+  border: 1px solid rgb(88.25, 88.25, 88.25);
 }
 table tr:nth-child(even) {
-  background-color: rgb(81.55, 81.55, 81.55);
+  background-color: rgb(103.55, 103.55, 103.55);
 }
 table th, table td {
   padding: 9.999999999px 15px;
 }
 table th {
-  background-color: rgb(73.9, 73.9, 73.9);
-  border: 1px solid rgb(56.05, 56.05, 56.05);
-  border-bottom-color: rgb(35.65, 35.65, 35.65);
+  background-color: rgb(95.9, 95.9, 95.9);
+  border: 1px solid rgb(78.05, 78.05, 78.05);
+  border-bottom-color: rgb(57.65, 57.65, 57.65);
 }
 table td {
-  border: 1px solid rgb(66.25, 66.25, 66.25);
+  border: 1px solid rgb(88.25, 88.25, 88.25);
 }
 
 /**
@@ -228,7 +228,7 @@ table td {
  */
 .site-header {
   border-top: 5px solid #F08A4B;
-  border-bottom: 1px solid rgb(66.25, 66.25, 66.25);
+  border-bottom: 1px solid rgb(88.25, 88.25, 88.25);
   min-height: 55.95px;
   position: relative;
 }
@@ -242,7 +242,7 @@ table td {
   float: left;
 }
 .site-title, .site-title:visited {
-  color: #e8e8e8;
+  color: #fefefe;
 }
 
 .site-nav {
@@ -268,7 +268,7 @@ table td {
     top: 9px;
     right: 15px;
     background-color: #222;
-    border: 1px solid rgb(66.25, 66.25, 66.25);
+    border: 1px solid rgb(88.25, 88.25, 88.25);
     border-radius: 5px;
     text-align: right;
   }
@@ -290,7 +290,7 @@ table td {
     text-align: center;
   }
   .site-nav .menu-icon > svg {
-    fill: #e8e8e8;
+    fill: #fefefe;
   }
   .site-nav input ~ .trigger {
     clear: both;
@@ -314,7 +314,7 @@ table td {
  * Site footer
  */
 .site-footer {
-  border-top: 1px solid rgb(66.25, 66.25, 66.25);
+  border-top: 1px solid rgb(88.25, 88.25, 88.25);
   padding: 30px 0;
 }
 
@@ -331,7 +331,7 @@ table td {
 
 .footer-col-wrapper {
   font-size: 15px;
-  color: #828282;
+  color: #989898;
   margin-left: -15px;
 }
 
@@ -400,7 +400,7 @@ table td {
 
 .post-meta {
   font-size: 14px;
-  color: #828282;
+  color: #989898;
 }
 
 .post-link {
