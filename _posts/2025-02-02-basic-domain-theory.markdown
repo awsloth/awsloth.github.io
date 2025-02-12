@@ -6,4 +6,4 @@ categories: agda domain-theory
 ---
 {% include code/agda/Domain.lagda.md %}
 
-<mastodon-comments host="mathstodon.xyz" user="awsloth" tootId="113952675465635441" style="width : 1024px"></mastodon-comments>
+<mastodon-comments host="mathstodon.xyz" user="awsloth" tootId="113952675465635441" style="width : 100%"></mastodon-comments>
