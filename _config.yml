@@ -5,9 +5,6 @@ github_username:  awsloth
 baseurl: ""
 url: "https://anna-maths.xyz"
 
-plugins:
-  - jekyll-feed
-
 markdown: kramdown
 highligher : rouge
 
