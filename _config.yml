@@ -10,3 +10,6 @@ highligher : rouge
 
 exclude:
     - "*.agdai"
+
+plugins:
+  - jekyll-regex-replace
