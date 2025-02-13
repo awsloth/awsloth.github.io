@@ -2,7 +2,7 @@
 
 require "jekyll"
 require "fileutils"
-require "jekyll-feed/generator"
+require_relative "jekyll-feed/generator"
 
 module JekyllFeed
   autoload :MetaTag,          "jekyll-feed/meta-tag"

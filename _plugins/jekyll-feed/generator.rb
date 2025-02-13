@@ -9,11 +9,11 @@ module JekyllFeed
     def generate(site)
       @site = site
       if disabled_in_development?
-        Jekyll.logger.info "Jekyll Feed:", "Skipping feed generation in development"
+        Jekyll.logger.info "Jekyll Feeder:", "Skipping feed generation in development"
         return
       end
       collections.each do |name, meta|
-        Jekyll.logger.info "Jekyll Feed:", "Generating feed for #{name}"
+        Jekyll.logger.info "Jekyll Feeder:", "Generating feed for #{name}"
         (meta["categories"] + [nil]).each do |category|
           path = feed_path(:collection => name, :category => category)
           next if file_exists?(path)
