@@ -22,7 +22,7 @@ A particularly interesting analysis of women in Greek myths, one which gives an 
 
 > Category Theory - Steve Awodey
 
-A textbook on basics of Category Theory, one which is supposedly an easier read than "Category Theory for the Working Mathematician" by Saunder MacLane. While I agree with this, it really doesn't say much considering MacLane is notoriously hard to read (I have only really been able to understand the content post understanding the concepts from elsewhere). I think this book while good in places (particularly in the exponentials chapter) also focuses on concepts that can be confusing far too early (e.g. freely generated categories from graphs) and misses interesting contents that could be covered earlier, such as natural transformations. Overall I am enjoying it so far and it has become my primary source of learning for Category Theory, with supplements from elsewhere when the text gets too confusing.
+A textbook on basics of Category Theory, one which is supposedly an easier read than "Category Theory for the Working Mathematician" by Saunders Mac Lane. While I agree with this, it really doesn't say much considering Mac Lane is notoriously hard to read (I have only really been able to understand the content post understanding the concepts from elsewhere). I think this book while good in places (particularly in the exponentials chapter) also focuses on concepts that can be confusing far too early (e.g. freely generated categories from graphs) and misses interesting contents that could be covered earlier, such as natural transformations. Overall I am enjoying it so far and it has become my primary source of learning for Category Theory, with supplements from elsewhere when the text gets too confusing.
 
 ## Music
 
