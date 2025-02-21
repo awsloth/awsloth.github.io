@@ -40,6 +40,10 @@ One song I am currently really enjoying is "I've Never Met Anyone I Thought I Co
 
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0o2JLyPbVzGDVGSZ3MhPb7?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
+To see an archive of the songs I have previously added, see here:
+
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3fbq2MJ5qVj6IfPwzSaj2F?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
 ## Films and TV
 
 I have recently been enjoying:
