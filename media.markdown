@@ -4,7 +4,7 @@ title: Media
 permalink: /media/
 ---
 
-I will list my (very uninformed) opinions on current media I am currently interacting with (Last updated 25/02/25).
+I will list my (very uninformed) opinions on current media I am currently interacting with (Last updated 24/02/25).
 
 ## Literature
 
