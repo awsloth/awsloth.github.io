@@ -4,7 +4,7 @@ title: Media
 permalink: /media/
 ---
 
-I will list my (very uninformed) opinions on current media I am currently interacting with.
+I will list my (very uninformed) opinions on current media I am currently interacting with (Last updated 25/02/25).
 
 ## Literature
 
@@ -16,9 +16,9 @@ Current papers I am looking at include:
 
 The books I am currently reading include:
 
-> Pandora's Jar - Natalie Haynes
+> Around the World in 80 Games - Marcus du Sautoy
 
-A particularly interesting analysis of women in Greek myths, one which gives an interesting insight into greek sources.
+Although I haven't read much of this book, the section I have read has been captivating and interesting.
 
 > Category Theory - Steve Awodey
 
@@ -36,9 +36,13 @@ A textbook on basics of Category Theory, one which is supposedly an easier read 
 
 ### Song of the Week
 
-One song I am currently really enjoying is "I've Never Met Anyone I Thought I Could Really Love (Until I Met You)" by Westside Cowboy. I love the way the voices of the main singers intertwine, it's really just a shame that this song isn't longer. It gives similar vibes to [Divorce](https://open.spotify.com/artist/0YMVzWF9HWGbV4DZHfCyKo?si=Eo4u5WoAR8u_WpVKoAZCsg) (who I have also been really enjoying). I look forward to more songs they put out!
+The song of the week this week comes from a band called "Mandrake Handshake". I discovered this band about 3 years ago now (funnily enough from a [t-shirt](https://assets.bigcartel.com/product_images/299058000/WhatsApp+Image+2021-03-16+at+09.36.49.jpeg?auto=format&fit=max&h=1200&w=1200) I bought from their label at the time) and have loved their groovy, psychedelic noise ever since. They are formed of 10 (yes ten) members which is honestly crazy to me, I do not know how they fit on any stages.
 
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0o2JLyPbVzGDVGSZ3MhPb7?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+Just last Friday they released their 50 minute debut album [Earth-Sized Worlds](https://open.spotify.com/album/4cLeoigCgulrTWiYszW61K?si=CVe3aRTTQ8uLr0pritXo2w), which I cannot recommend enough, and is where the track of the week comes from. Also last Friday came Sam Fender's third studio album [People Watching](https://open.spotify.com/album/6Abecbed8BYAdHy9RaVoY7?si=mHSqnUxqT8uHrOoNvxqVNg), also a great album and one which made it difficult to pick my favourite song this week. I particularly like [Nostalgia's Lie](https://open.spotify.com/track/10MJWoKUV6AthUYR323MqB?si=8711c08855b4409c), but felt that it did not best the track I have selected. See you next week, where I look forward to hearing Sports Team's new album "Boys these Days" (the single [Bang Bang Bang](https://open.spotify.com/track/6SZiBRJYG3rd3yiU4PDsxZ?si=45a24f6883fa4e73) is simply amazing), I particularly look forward to the track "Maybe When We're Thirty" which was incredibly to hear live in a hometown venue back in November.
+
+The track of the week:
+
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5svMP7Pgb5FKbybJy7tq1J?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
 To see an archive of the songs I have previously added, see here:
 
