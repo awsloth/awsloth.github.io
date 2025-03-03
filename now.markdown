@@ -2,6 +2,7 @@
 layout: page
 title: Now
 permalink: /now/
+menu: main
 ---
 
 Currently I am:

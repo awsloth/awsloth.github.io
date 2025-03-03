@@ -3,6 +3,7 @@ layout: post
 title:  "Basic Domain Theory in Agda"
 author: Anna Williams
 date:   2025-02-02 23:58:35 +0000
+tags: agda domain-theory
 categories: agda domain-theory
 ---
 {% include code/agda/Domain.lagda.md %}
