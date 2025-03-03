@@ -4,7 +4,7 @@ title: Media
 permalink: /media/
 ---
 
-I will list my (very uninformed) opinions on current media I am currently interacting with (Last updated 24/02/25).
+I will list my (very uninformed) opinions on current media I am currently interacting with (Last updated 03/03/25).
 
 ## Literature
 
@@ -36,15 +36,15 @@ A textbook on basics of Category Theory, one which is supposedly an easier read 
 
 ### Song of the Week
 
-The song of the week this week comes from a band called "Mandrake Handshake". I discovered this band about 3 years ago now (funnily enough from a [t-shirt](https://assets.bigcartel.com/product_images/299058000/WhatsApp+Image+2021-03-16+at+09.36.49.jpeg?auto=format&fit=max&h=1200&w=1200) I bought from their label at the time) and have loved their groovy, psychedelic noise ever since. They are formed of 10 (yes ten) members which is honestly crazy to me and I do not know how they fit on any stages.
+This weeks track comes from Honeyglaze's second album [Real Deal](https://open.spotify.com/album/20QRMueqfMw1nHWOfXZGOL?si=qFAp0UNWQqW7hOxgizlbBw). This album was released last year and is one which I don't think I appreciated enough at the time of release (albeit I listened to 'Pretty Girls' a hell of a lot - it was one of my top 20 songs in 2024). The other day as I was walking to the climbing gym, listening to my [stupidly long playlist](https://open.spotify.com/playlist/70VLAlhpQ1goYABjtaWsIU?si=4a8a67fc0c884ba3) on shuffle the song I have picked came on. It is such a great song to round off the album, as the song rounds off you are left with a sort of reminiscent and retrospective feeling.
 
-Just last Friday they released their 50 minute debut album [Earth-Sized Worlds](https://open.spotify.com/album/4cLeoigCgulrTWiYszW61K?si=CVe3aRTTQ8uLr0pritXo2w), which I cannot recommend enough, and is where the track of the week comes from. Also last Friday came Sam Fender's third studio album [People Watching](https://open.spotify.com/album/6Abecbed8BYAdHy9RaVoY7?si=mHSqnUxqT8uHrOoNvxqVNg), another great album and one which made it difficult to pick my favourite song this week. My favourite of the non-singles is [Nostalgia's Lie](https://open.spotify.com/track/10MJWoKUV6AthUYR323MqB?si=8711c08855b4409c), but felt that it did not best the track I have selected.
+As mentioned last week I thought that Sports Team's album "Boys these days" was going to release Friday, unfortunately Wikipedia lied to me. Instead their single "Maybe When We Are 30" was released, while this song was a contender it felt sort of cliché to name a song and choose it, unless it was particularly outstanding.
 
-See you next week, where I look forward to hearing Sports Team's new album "Boys these Days" (the single [Bang Bang Bang](https://open.spotify.com/track/6SZiBRJYG3rd3yiU4PDsxZ?si=45a24f6883fa4e73) is simply amazing), I particularly look forward to the track "Maybe When We're Thirty" which was incredible to hear live in a hometown venue back in November.
+Next week I really looking forward to Divorce's debut album "Drive to Goldenhammer", I have thoroughly enjoyed the singles being released up to this point, in particular [Pill](https://open.spotify.com/track/4SqWJA9Yq8PGqhaXcLlENN?si=4fabf2c3f5e34f82). Another album coming out next week is that of HotWax, namely "Hot Shock". See you next week!
 
 The track of the week:
 
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5svMP7Pgb5FKbybJy7tq1J?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2RTZ724K7mKoIQKjeh9bpL?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
 To see an archive of the songs I have previously added, see here:
 

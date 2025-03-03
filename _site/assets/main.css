@@ -204,7 +204,7 @@ table {
   margin-bottom: 30px;
   width: 100%;
   text-align: left;
-  color: white;
+  color: hsl(53.3333333333, 47.3684210526%, 110.5490196078%);
   border-collapse: collapse;
   border: 1px solid rgb(88.25, 88.25, 88.25);
 }
