@@ -7,7 +7,7 @@ tags: walking
 categories: walking
 ---
 
-Apart from Duke of Edinburgh and expeditions I did with Scouts, this was one of the first long walks I ever did. I was originally supposed to do the Penine Way, a walk pretty local to me and a walk I still intend to complete at some point, but I ended up getting covid beforehand and only recovered to do the last day.
+Apart from Duke of Edinburgh and expeditions I did with Scouts, this was one of the first long walks I ever did. I was originally supposed to do the Dales Way, a walk pretty local to me and a walk I still intend to complete at some point, but I ended up getting covid beforehand and only recovered to do the last day.
 
 For this walk, my friend Bram and I had planned to go to the Lake District. After looking through the generally walked ways, we eventually decided that none really fit what we wanted and just decided to plot our own route. This, rather stupidly, involved us spending a couple hours on OS Maps website with their route making tool and plotting to interesting places on the map. This led to a lot of beautiful sights along the way, but also some other problems (subtle foreshadowing).
 
