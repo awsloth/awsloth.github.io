@@ -72,7 +72,7 @@ reflexive {A} (_R_) = (x : A) → x R x
 
 #### Transitivity
 
-> We call a relation, \\(\sim\\), on a set \\(X\\) _transitive_, for all \\(x, y, z \in X\\) satisfying \(x \sim y\) and \(y \sim z\), we have \\(x \sim z\\).
+> We call a relation, \\(\sim\\), on a set \\(X\\) _transitive_, for all \\(x, y, z \in X\\) satisfying \\(x \sim y\\) and \\(y \sim z\\), we have \\(x \sim z\\).
 
 Similarly to the reflexivity case, we can define transitivity, however we make \\(x, y\\) and \\(z\\) here implicit so that then using this definition is more clear later on. This works in this case because the values can be inferred by the relations `x R y` and `y R z`. 
 ```agda
