@@ -141,7 +141,7 @@ $$
 \end{align}
 $$
 
-Now to work out the square root by hand, a fun game of closing upper and lower bounds by hand. I ended up with an approximate value of 13.64 with an error of 0.0486. This gives the final value for pi as \\(\pi \approx \frac{13.64}{4} = 4.31\\).
+Now to work out the square root by hand, a fun game of closing upper and lower bounds by hand. I ended up with an approximate value of 13.64 with an error of 0.0486. This gives the final value for pi as \\(\pi \approx \frac{13.64}{4} = 3.41\\).
 
 ![Maths on a whiteboard. Two columns of pairs of integers that are and are not coprime, calculations for working out the square root of 13.64 and a final calculation for pi.](/assets/pi-calculation.jpg)
 
