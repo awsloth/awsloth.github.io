@@ -1,4 +1,153 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-03-03T21:01:46+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Anna Williams</title><entry><title type="html">Number Theory with Lean and Agda</title><link href="http://localhost:4000/proof-assistants/2025/02/27/sum-of-squares.html" rel="alternate" type="text/html" title="Number Theory with Lean and Agda" /><published>2025-02-27T16:58:35+00:00</published><updated>2025-02-27T16:58:35+00:00</updated><id>http://localhost:4000/proof-assistants/2025/02/27/sum-of-squares</id><content type="html" xml:base="http://localhost:4000/proof-assistants/2025/02/27/sum-of-squares.html"><![CDATA[<h1 id="obtaining-the-form-of-sums-of-squares">Obtaining the form of sums of squares</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-03-14T16:46:32+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Anna Williams</title><entry><title type="html">Celebrating Pi Day</title><link href="http://localhost:4000/pi-day/2025/03/14/pi-day.html" rel="alternate" type="text/html" title="Celebrating Pi Day" /><published>2025-03-14T16:45:00+00:00</published><updated>2025-03-14T16:45:00+00:00</updated><id>http://localhost:4000/pi-day/2025/03/14/pi-day</id><content type="html" xml:base="http://localhost:4000/pi-day/2025/03/14/pi-day.html"><![CDATA[<p>I’ve been thinking for a while about what activity I would like to do for pi day. Unfortunately the ideas kind of got lost in the mess of university work I’ve been doing this semester, so all plans went out the window. It was as I was walking home last night that I decided to commit to one of my ideas and I asked my friends to give me two integers between 1 and 500.</p>
+
+<h2 id="the-method">The Method</h2>
+
+<p>In preparation for pi day I was searching for strange places where \(\pi\) shows up, in particular ones that could be approximated by hand (admittedly not very accurately, but that’s part of the fun). There are of course a couple famous ones, my favourite being Buffon’s needle problem (see this <a href="https://www.wikihow.com/Calculate-Pi-by-Throwing-Frozen-Hot-Dogs">wikihow article</a> - well worth a read). I did also find a <a href="https://arxiv.org/abs/1404.1499">paper</a> about estimating pi using a shotgun, quite the overkill version of the dartboard method and surprisingly not in SIGBOVIK.</p>
+
+<p>One place I found really surprising, was when looking at coprimality of two randomly chosen numbers. Coprimality is the property that given a random pair of integers do the numbers share any factors or not? It turns out that the probability of being coprime is actually \(\frac{6}{\pi^2}\), surprising right?</p>
+
+<h3 id="why-does-this-work">Why does this work?</h3>
+
+<p>As I’ve been taking a course in number theory recently, this seemed far too interesting to <em>not</em> look at. It turns out that this is related to the Basel problem and this is where our mysterious \(\pi\) comes from. So what is the Basel problem?</p>
+
+<p>The <strong>Basel problem</strong> asks for the precise value of the following sum</p>
+
+<p>\[
+    \sum_{n=1}^\infty \frac{1}{n^2} = \frac{1}{1^2} + \frac{1}{2^2} + \frac{1}{3^2} + \cdots
+\]</p>
+
+<p>We know that the value is in fact \(\frac{\pi^2}{6}\). There is a great explanation from <a href="https://youtu.be/d-o3eB9sfls?si=6Agp5SPZ8QseJ7Yx">3b1b</a> explaining why pi is involved. In this video he uses the inverse square law for light and imagines these on circles. I will instead prove this using Euler’s original (slightly less rigorous) solution.</p>
+
+<p>Assuming we can model \(\sin(x)\) by the roots of the function we can express it as the following</p>
+
+\[\begin{align}
+    \sin(x) &amp;= \cdots \left(1 - \frac{x}{-2\pi}\right) \left(1 - \frac{x}{-\pi}\right) x \left(1 - \frac{x}{\pi}\right) \left(1 - \frac{x}{2\pi}\right) \cdots \\
+            &amp;= x \left(1 - \frac{x^2}{\pi^2}\right) \left(1 - \frac{x^2}{4\pi^2}\right) \left(1 - \frac{x^2}{9\pi^2}\right) \cdots \\
+            &amp;= x \prod_{n = 1}^\infty \left(1 - \frac{x^2}{n^2\pi^2}\right)
+\end{align}\]
+
+<p>We now consider the Maclaurin series for \(\sin(x)\), which is given by the following
+\[
+    \sin(x) = x - \frac{x^3}{3!} + \frac{x^5}{5!} + \cdots.
+\]</p>
+
+<p>The final key step to this is to compare the coefficients for \(x^3\).</p>
+
+\[\begin{align}
+    -\frac{1}{3!} &amp;= -\left(\frac{1}{1\pi^2} + \frac{1}{2^2\pi^2} + \frac{1}{3^2\pi^2} + \cdots \right) \\
+    \frac{1}{6}  &amp;= \frac{1}{\pi^2} \left(1 + \frac{1}{2^2} + \frac{1}{3^2} + \cdots \right) \\
+    \frac{\pi^2}{6} &amp;= 1 + \frac{1}{2^2} + \frac{1}{3^2} + \cdots
+\end{align}\]
+
+<p>That is</p>
+
+<p>\[
+    \sum_{n=1}^\infty \frac{1}{n^2} = \frac{1}{1^2} + \frac{1}{2^2} + \frac{1}{3^2} + \cdots = \frac{\pi^2}{6}.
+\]</p>
+
+<p>Now we look at why this even shows up in our calculation. Intuitively, any integer is divisible by some prime \(p\) with a probability of \(\frac{1}{p}\), because every \(p\)-th integer is a multiple of \(p\). Therefore the probability of any pair being divisible by any given prime is \(\frac{1}{p^2}\) and the probability that at least one is not divisible by this prime is \(1 - \frac{1}{p^2}\) i.e. the probability that not both are divisible by the prime.</p>
+
+<p>Now consider divisibility by two primes \(p\) and \(q\) for some integer \(n\), the probability of \(n\) being divisible by \(p\) and \(q\) is \(\frac{1}{p}\) and \(\frac{1}{q}\) respectively and the probability of \(n\) being divisible by \(pq\) is therefore given by \(\frac{1}{pq}\) as expected (i.e. the events are independent). We can therefore combine multiple prime divisibility probabilities to obtain the total probability of being coprime. Let \(P\) be the set of all primes, then we have that the probability of coprimality (with some assumptions<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup>) is given by</p>
+
+<p>\[
+    \prod_{p \in P}^\infty \left(1 - \frac{1}{p^2}\right)
+\]</p>
+
+<p>So how do we link this with the Basel problem? Through the Riemann zeta function!</p>
+
+<p>Let us first define the Riemann zeta function at \(s\),</p>
+
+<p>\[
+    \zeta(s) = \sum_{n = 1}^\infty \frac{1}{n^2} = 1 + \frac{1}{2^2} + \frac{1}{3^2} + \cdots.
+\]</p>
+
+<p>We now consider removing every fraction with an even base, that is, the terms given by</p>
+
+<p>\[
+    \frac{1}{2^s} \zeta(s) = \frac{1}{2^s} + \frac{1}{4^s} + \frac{1}{6^s} + \cdots.
+\]</p>
+
+<p>Then</p>
+
+<p>\[
+    \left(1 - \frac{1}{2^s}\right) \zeta(s) = 1 + \frac{1}{3^2} + \frac{1}{5^2} + \cdots.
+\]</p>
+
+<p>Notice that \(1 - \frac{1}{2^s}\) looks very familiar to the probability that two integers are not both divisible by 2 if \(s = 2\). Now repeat this process for 3:</p>
+
+<p>\[
+    \frac{1}{3^s} (1 - \frac{1}{2^s}) \zeta(s) = \frac{1}{3^s} + \frac{1}{6^s} + \frac{1}{9^s} + \cdots
+\]</p>
+
+<p>and thus</p>
+
+<p>\[
+    (1 - \frac{1}{3^s}) (1 - \frac{1}{2^s}) \zeta(s) = 1 + \frac{1}{5^s} + \frac{1}{7^s} + \frac{1}{11^s} + \cdots.
+\]</p>
+
+<p>Then doing this over all primes,</p>
+
+<p>\[
+    \prod_{p \in P}^\infty \left(1 - \frac{1}{p^s}\right) \zeta(s) = 1.
+\]</p>
+
+<p>Thus</p>
+
+<p>\[
+    \prod_{p \in P}^\infty \left(1 - \frac{1}{p^s}\right)= \frac{1}{\zeta(s)}.
+\]</p>
+
+<p>To link it all together, consider \(\zeta(2)\). Notice that by the above, we have that
+\[
+    \prod_{p \in P} \left(1 - \frac{1}{p^2}\right) = \frac{1}{\zeta(2)}.
+\]</p>
+
+<p>Then by the Basel problem, we have that 
+\[
+    \zeta(2) = \frac{\pi^2}{6}.
+\]</p>
+
+<p>That is</p>
+
+<p>\[
+    \prod_{p \in P} \left(1 - \frac{1}{p^2}\right) = \frac{1}{\zeta(2)} = \frac{6}{\pi^2}.
+\]</p>
+
+<h2 id="the-calculation">The Calculation</h2>
+
+<p>So now that we have looked at the maths, how close can I get with my estimation? To set the expectations, we are looking for around 61% of numbers to be coprime ideally. I got to work on the whiteboard in my close by study area. Calculating whether each pair was either coprime or not (some a little more complex than others). I got to the end and excitedly counted up the number in each column: 16 and 15 - not too bad but I didn’t feel too confident.</p>
+
+<p>So now to calculate pi we equate our approximation \(\frac{16}{31}\) with \(\frac{6}{\pi^2}\). So</p>
+
+\[\begin{align}
+    \frac{16}{31} &amp;= \frac{6}{\pi^2} \\
+    \pi^2 &amp;= \frac{6 \cdot 31}{16} \\
+    \pi &amp;= \frac{\sqrt{186}}{4} \\
+\end{align}\]
+
+<p>Now to work out the square root by hand, a fun game of closing upper and lower bounds by hand. I ended up with an approximate value of 13.64 with an error of 0.0486. This gives the final value for pi as \(\pi \approx \frac{13.64}{4} = 4.31\).</p>
+
+<p><img src="/assets/pi-calculation.jpg" alt="Maths on a whiteboard. Two columns of pairs of integers that are and are not coprime, calculations for working out the square root of 13.64 and a final calculation for pi." /></p>
+
+<h2 id="so-pi-is-now-341">So pi is now 3.41?</h2>
+
+<p>Well no, not really, there are many error factors here, mainly lack of sample size but also human bias in selecting random numbers. I’ve plotted the numbers below, putting the smaller number before the larger:</p>
+
+<p><img src="/assets/graph-numbers.png" alt="Graph showing the spread of people's given pairs" /></p>
+
+<p>From the graph we can see there is a big bias towards smaller numbers and that not many people went with a pair of two big numbers, often pairing bigger numbers with a smaller counterpart.</p>
+
+<p>I hope you enjoyed this read, I certainly enjoyed researching this (instead of catching up on lectures - oops). Maybe next year I will get a more accurate approximation, who knows? I guess you will have to wait until then.</p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1">
+      <p>Obviously for all primes \(p &gt; n\) the chance that \(p\) divides \(n\) is 0, but as \(n\) gets larger and \(p\) becomes larger, this becomes negligible. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+]]></content><author><name>Anna Williams</name></author><category term="pi-day" /><category term="pi-day" /><category term="number-theory" /><summary type="html"><![CDATA[I’ve been thinking for a while about what activity I would like to do for pi day. Unfortunately the ideas kind of got lost in the mess of university work I’ve been doing this semester, so all plans went out the window. It was as I was walking home last night that I decided to commit to one of my ideas and I asked my friends to give me two integers between 1 and 500.]]></summary></entry><entry><title type="html">Number Theory with Lean and Agda</title><link href="http://localhost:4000/proof-assistants/2025/02/27/sum-of-squares.html" rel="alternate" type="text/html" title="Number Theory with Lean and Agda" /><published>2025-02-27T16:58:35+00:00</published><updated>2025-02-27T16:58:35+00:00</updated><id>http://localhost:4000/proof-assistants/2025/02/27/sum-of-squares</id><content type="html" xml:base="http://localhost:4000/proof-assistants/2025/02/27/sum-of-squares.html"><![CDATA[<h1 id="obtaining-the-form-of-sums-of-squares">Obtaining the form of sums of squares</h1>
 
 <p>In the course I am taking currently on number theory, we looked at numbers which are the sum of two squares, that is</p>
 
@@ -26,6 +175,11 @@ data ℤ : Type where
   pos : ℕ → ℤ
   -[_]-1 : ℕ → ℤ
 
+_$_ : {A B : Type} (f : A → B) (a : A) → B
+f $ a = f a
+
+infix 1 _$_
+
 {-# BUILTIN NATURAL ℕ #-}
 {-# BUILTIN INTEGER        ℤ    #-}
 {-# BUILTIN INTEGERPOS     pos    #-}
@@ -45,13 +199,45 @@ ap f (refl _) = refl _
 sym : {A : Type} {x y : A} → x ≡ y → y ≡ x
 sym (refl _) = refl _
 
+_≡⟨_⟩_ : {A : Type} → (p : A) {y z : A} → p ≡ y → y ≡ z → p ≡ z
+p ≡⟨ q ⟩ r = trans q r
+
+_∎ : {A : Type} → (a : A) → a ≡ a
+a ∎ = refl a
+
+infixr 0 _≡⟨_⟩_
+infix 1 _∎
+
+_∘_ : {A B C : Type} → (f : B → C) → (g : A → B) → A → C
+_∘_ f g x = f (g x)
+
 _ℕ+_ : ℕ → ℕ → ℕ
 zero ℕ+ b = b
 suc a ℕ+ b = suc (a ℕ+ b)
 
+_ℕ*_ : ℕ → ℕ → ℕ
+zero ℕ* b = zero
+suc a ℕ* b = (a ℕ* b) ℕ+ b
+
+ℕ+1-is-suc : (n : ℕ) → n ℕ+ 1 ≡ suc n
+ℕ+1-is-suc zero = refl 1
+ℕ+1-is-suc (suc n) = ap suc (ℕ+1-is-suc n)
+
 ℕ+-right-cancel : (n : ℕ) → n ℕ+ 0 ≡ n
 ℕ+-right-cancel zero = refl _
 ℕ+-right-cancel (suc n) = ap suc (ℕ+-right-cancel n)
+
+ℕ+-step : (n m : ℕ) → n ℕ+ suc m ≡ suc (n ℕ+ m)
+ℕ+-step zero m = refl (suc m)
+ℕ+-step (suc n) m = ap suc (ℕ+-step n m)
+
+ℕ+-comm : (n m : ℕ) → n ℕ+ m ≡ m ℕ+ n
+ℕ+-comm zero m = sym $ ℕ+-right-cancel m
+ℕ+-comm (suc n) m = (suc n ℕ+ m) ≡⟨ refl _ ⟩
+                    suc (n ℕ+ m) ≡⟨ sym $ ℕ+-step n m ⟩
+                    (n ℕ+ suc m) ≡⟨ ℕ+-comm n (suc m) ⟩
+                    (suc m ℕ+ n) ≡⟨ sym $ ℕ+-step m n  ⟩
+                    (m ℕ+ suc n) ∎
 
 data Bool : Type where
   true false : Bool
@@ -65,6 +251,14 @@ if_then_else_ : {A : Type} → Bool → A → A → A
 if true then a else _ = a
 if false then _ else b = b
 
+regardless : {A : Type} {b : Bool} {a a' p : A}  → (a ≡ p) → (a' ≡ p) → if b then a else a' ≡ p 
+regardless {b = true} p q = p
+regardless {b = false} p q = q
+
+passforward : {A : Type} → (b : Bool) → (b ≡ true → A) → (b ≡ false → A) → A
+passforward true l r = l (refl true)
+passforward false l r = r (refl false)
+
 _∸_ : ℕ → ℕ → ℕ
 a ∸ zero = a
 zero ∸ suc b = zero
@@ -75,12 +269,26 @@ suc a ∸ suc b = a ∸ b
 -ℕ suc a = -[ a ]-1
 
 -_ : ℤ → ℤ
-- pos zero = pos zero
-- pos (suc x) = -[ x ]-1
+- (pos x) = -ℕ x
 - -[ x ]-1 = pos (suc x)
+
+double-neg : (x : ℤ) → x ≡ - (- x)
+double-neg (pos zero) = refl (pos 0)
+double-neg (pos (suc x)) = refl (pos (suc x))
+double-neg -[ x ]-1 = refl (-[ x ]-1)
 
 _⊝_ : ℕ → ℕ → ℤ
 a ⊝ b = if (a ≤b b) then (-ℕ (b ∸ a)) else pos (a ∸ b) 
+
+ℕ-minus-flips : (a b : ℕ) → - (a ⊝ b) ≡ b ⊝ a
+ℕ-minus-flips zero zero = refl (pos 0)
+ℕ-minus-flips (suc a) zero = refl (-[ a ]-1)
+ℕ-minus-flips zero (suc b) = refl (pos (suc b))
+ℕ-minus-flips (suc a) (suc b) = ℕ-minus-flips a b
+
+minus-self-zero : (a : ℕ) → a ⊝ a ≡ pos 0
+minus-self-zero zero = refl (pos 0)
+minus-self-zero (suc a) = minus-self-zero a
 
 _+_ : ℤ → ℤ → ℤ
 pos a + pos b = pos (a ℕ+ b)
@@ -101,14 +309,33 @@ pos (suc x) * b = (pos x) * b + b
 -[ zero ]-1 * -[ x ]-1 = pos (suc x)
 -[ suc x ]-1 * b = -[ x ]-1 * b - b
 
++-left-cancel : (z : ℤ) → (pos 0) + z ≡ z
++-left-cancel (pos x) = refl (pos x)
++-left-cancel -[ x ]-1 = refl (-[ x ]-1)
+
 +-right-cancel : (z : ℤ) → z + (pos 0) ≡ z
 +-right-cancel (pos x) = ap pos (ℕ+-right-cancel x)
 +-right-cancel -[ x ]-1 = refl _
+
++-comm : (a b : ℤ) → a + b ≡ b + a
++-comm (pos a) (pos b) = ap pos (ℕ+-comm a b)
++-comm (pos a) -[ b ]-1 = refl (pos a + -[ b ]-1)
++-comm -[ a ]-1 (pos b) = refl (-[ a ]-1 + pos b)
++-comm -[ a ]-1 -[ b ]-1 = ap (λ p → -[ suc p ]-1) (ℕ+-comm a b)
 
 neg-right-cancel : (z : ℤ) → z - (pos 0) ≡ z
 neg-right-cancel (pos zero) = refl _
 neg-right-cancel (pos (suc x)) = refl _
 neg-right-cancel -[ x ]-1 = ap -[_]-1 (ℕ+-right-cancel x)
+
+neg-plus-cancel : (z : ℤ) → (- z) + z ≡ pos 0
+neg-plus-cancel (pos zero) = refl (pos 0)
+neg-plus-cancel (pos (suc x)) = minus-self-zero (suc x)
+neg-plus-cancel -[ x ]-1 = minus-self-zero (suc x)
+
+neg-plus-minus-one-neg : (x : ℕ) → (-ℕ x) + -[ 0 ]-1 ≡ -[ x ]-1
+neg-plus-minus-one-neg zero = refl -[ 0 ]-1
+neg-plus-minus-one-neg (suc x) = ap (-[_]-1 ∘ suc) (ℕ+-right-cancel x) 
 
 *-right-cancel : (z : ℤ) → z * (pos 0) ≡ (pos 0)
 *-right-cancel (pos zero) = refl _
@@ -116,17 +343,94 @@ neg-right-cancel -[ x ]-1 = ap -[_]-1 (ℕ+-right-cancel x)
 *-right-cancel -[ zero ]-1 = refl _
 *-right-cancel -[ suc x ]-1 = trans (neg-right-cancel (-[ x ]-1 * pos 0)) (*-right-cancel -[ x ]-1)
 
+*-left-neg : (z : ℤ) → -[ 0 ]-1 * z ≡ - z
+*-left-neg (pos x) = refl (-ℕ x)
+*-left-neg -[ x ]-1 = refl (pos (suc x))
+
+*-right-neg : (z : ℤ) → z * -[ 0 ]-1 ≡ - z
+*-right-neg (pos zero) = refl (pos zero)
+*-right-neg (pos (suc x)) = pos (suc x) * -[ 0 ]-1 ≡⟨ ap (_+ -[ 0 ]-1) (*-right-neg (pos x)) ⟩
+                            (- pos x) + -[ 0 ]-1 ≡⟨ neg-plus-minus-one-neg x ⟩
+                            (- pos (suc x)) ∎
+*-right-neg -[ zero ]-1 = refl (pos 1)
+*-right-neg -[ suc x ]-1 = -[ suc x ]-1 * -[ 0 ]-1 ≡⟨ ap (_- -[ 0 ]-1) (*-right-neg -[ x ]-1) ⟩
+                           (- -[ x ]-1) - -[ 0 ]-1 ≡⟨ ap (pos ∘ suc) (ℕ+1-is-suc x) ⟩
+                           (- -[ suc x ]-1) ∎
+
+
+neg-is-+-neg : (x y : ℤ) → x - y ≡ x + (- y)
+neg-is-+-neg (pos zero) (pos zero) = refl (pos 0)
+neg-is-+-neg (pos (suc x)) (pos zero) = sym $ ap (pos ∘ suc) (ℕ+-right-cancel x)
+neg-is-+-neg (pos zero) (pos (suc y)) = refl (pos zero - pos (suc y))
+neg-is-+-neg (pos (suc x)) (pos (suc y)) = refl (pos (suc x) - pos (suc y))
+neg-is-+-neg -[ x ]-1 (pos zero) = ap -[_]-1 (ℕ+-right-cancel x)
+neg-is-+-neg -[ x ]-1 (pos (suc y)) = ap -[_]-1 (ℕ+-step x y)
+neg-is-+-neg (pos zero) -[ y ]-1 = refl (pos zero - -[ y ]-1)
+neg-is-+-neg (pos (suc x)) -[ y ]-1 = refl (pos (suc x) - -[ y ]-1)
+neg-is-+-neg -[ x ]-1 -[ y ]-1 = refl (-[ x ]-1 - -[ y ]-1)
+
+neg-distrib : (a b : ℤ) → - (a + b) ≡ (- a) + (- b)
+neg-distrib (pos zero) (pos b) = sym $ +-left-cancel (- pos b)
+neg-distrib (pos (suc a)) (pos zero) = ap (-[_]-1) (ℕ+-right-cancel a)
+neg-distrib (pos (suc a)) (pos (suc b)) = ap (-[_]-1) (ℕ+-step a b)
+neg-distrib (pos zero) -[ b ]-1 = refl (pos (suc b))
+neg-distrib (pos (suc a)) -[ b ]-1 = ℕ-minus-flips a b
+neg-distrib -[ a ]-1 (pos zero) = sym $ ap (pos ∘ suc) (ℕ+-right-cancel a) 
+neg-distrib -[ a ]-1 (pos (suc b)) = ℕ-minus-flips b a
+neg-distrib -[ a ]-1 -[ b ]-1 = ap (λ y → pos (suc y)) (sym $ ℕ+-step a b)
+
 neg-times-right : (a b : ℤ) → (a * (- b)) ≡ (- (a * b))
-neg-times-right a (pos zero) = trans (*-right-cancel a) (ap -_ (sym (*-right-cancel a)))
-neg-times-right a (pos (suc zero)) = {!!}
-neg-times-right a (pos (suc (suc x))) = {!!}
-neg-times-right a -[ x ]-1 = {!!}
+neg-times-right (pos zero) b = refl (pos zero)
+neg-times-right (pos (suc x)) b = pos (suc x) * (- b)     ≡⟨ refl _ ⟩
+                                  pos x * (- b) + (- b)   ≡⟨ ap (_+ (- b)) (neg-times-right (pos x) b)  ⟩
+                                  (- (pos x * b)) + (- b) ≡⟨ sym $ neg-distrib (pos x * b) b ⟩
+                                  (- (pos x * b + b))     ≡⟨ refl _ ⟩
+                                  (- (pos (suc x) * b))   ∎
+neg-times-right -[ zero ]-1 b = -[ zero ]-1 * (- b) ≡⟨ *-left-neg (- b) ⟩
+                                (- (- b)) ≡⟨ sym $ ap (-_) (*-left-neg b) ⟩
+                                (- (-[ zero ]-1 * b)) ∎
+neg-times-right -[ suc x ]-1 b = -[ suc x ]-1 * (- b) ≡⟨ refl _ ⟩
+                                 -[ x ]-1 * (- b) - (- b) ≡⟨ neg-is-+-neg (-[ x ]-1 * (- b)) (- b) ⟩
+                                 -[ x ]-1 * (- b) + (- (- b)) ≡⟨ ap (λ p → p + (- (- b))) (neg-times-right -[ x ]-1 b) ⟩
+                                 (- (-[ x ]-1 * b)) + (- (- b)) ≡⟨ sym $ neg-distrib (-[ x ]-1 * b) (- b) ⟩
+                                 (- (-[ x ]-1 * b + (- b))) ≡⟨ sym $ ap (-_) (neg-is-+-neg (-[ x ]-1 * b) b) ⟩
+                                 (- (-[ x ]-1 * b - b)) ≡⟨ refl _ ⟩
+                                 (- (-[ suc x ]-1 * b)) ∎
 
 neg-times-left : (a b : ℤ) → ((- a) * b) ≡ (- (a * b))
 neg-times-left (pos zero) b = refl _
-neg-times-left (pos (suc zero)) b = {!!}
-neg-times-left (pos (suc (suc x))) b = {!!}
-neg-times-left -[ x ]-1 b = {!!}
+neg-times-left (pos (suc a)) b = {!!}
+neg-times-left -[ zero ]-1 b = pos 0 + b ≡⟨ +-left-cancel b ⟩
+                               b ≡⟨ double-neg b ⟩
+                               (- (- b)) ≡⟨ ap -_ (sym $ *-left-neg b) ⟩
+                               (- (-[ zero ]-1 * b)) ∎
+neg-times-left -[ suc x ]-1 b = {!!}
+
+*-comm : (a b : ℤ) → a * b ≡ b * a
+*-comm (pos zero) (pos b) = sym $ *-right-cancel (pos b)
+*-comm (pos (suc a)) (pos b) = {!!}
+*-comm (pos zero) -[ b ]-1 = sym $ *-right-cancel (-[ b ]-1)
+*-comm (pos (suc a)) -[ b ]-1 = {!!}
+*-comm -[ zero ]-1 (pos b) = {!*-left-neg!}
+*-comm -[ suc a ]-1 (pos b) = {!!}
+*-comm -[ zero ]-1 -[ b ]-1 = {!!}
+*-comm -[ suc a ]-1 -[ b ]-1 = {!!}
+
+ℕ+-homo : (a b : ℕ) → pos a + pos b ≡ pos (a ℕ+ b)
+ℕ+-homo a b = refl _
+
+ℕ*-homo : (a b : ℕ) → pos a * pos b ≡ pos (a ℕ* b)
+ℕ*-homo zero b = refl (pos zero)
+ℕ*-homo (suc a) b = pos a * pos b + pos b ≡⟨ ap (_+ pos b) (ℕ*-homo a b) ⟩
+                    pos (a ℕ* b) + pos b ≡⟨ refl (pos (a ℕ* b) + pos b) ⟩
+                    pos ((a ℕ* b) ℕ+ b) ≡⟨ sym (ℕ+-homo (a ℕ* b) b) ⟩
+                    pos (a ℕ* b) + pos b ∎
+
+forced-one : (p z : ℤ) → p * z ≡ p → z ≡ pos 1
+forced-one p (pos zero) q = {!!}
+forced-one p (pos (suc zero)) q = refl (pos 1)
+forced-one p (pos (suc (suc z))) q = {!trans (sym q) (*-comm p (pos (suc (suc z))))!}
+forced-one p -[ x ]-1 q = {!!}
 
 record Σ {A : Type } (B : A → Type) : Type  where
  constructor
@@ -149,7 +453,10 @@ data _∔_ (A B : Type) : Type where
   inl : (a : A) → A ∔ B
   inr : (b : B) → A ∔ B
 
-infixl 2 _∔_
+infixr 2 _∔_
+
+data _×_ (A B : Type) : Type where
+  _,_ : A → B → A × B
 
 _≡_mod_ : ℤ → ℤ → ℕ → Type
 a ≡ b mod p = Σ k ꞉ ℤ , a ≡ b + k * (pos p)
@@ -158,8 +465,31 @@ infixr 5 _*_
 infixr 4 _+_
 infixr 3 _-_
 
+prime : ℤ → Type
+prime p = (a : ℤ) → (Σ b ꞉ ℤ , a * b ≡ p) → (a ≡ pos 1) ∔ (a ≡ - (pos 1)) ∔ (a ≡ p) ∔ (a ≡ - p)
+
+_≤_ : ℤ → ℤ → Type
+a ≤ b = Σ k ꞉ ℕ , a + (pos k) ≡ b
+
+squares-are-non-negative : (a : ℤ) → (pos 0) ≤ (a * a)
+squares-are-non-negative (pos x) = (x ℕ* x) , sym $ ℕ*-homo x x
+squares-are-non-negative -[ zero ]-1 = 1 , refl (pos 1)
+squares-are-non-negative -[ suc x ]-1 = (((x ℕ* x) ℕ+ (2 ℕ* x)) ℕ+ 1) , {!!}
+  where
+    IH : pos 0 ≤ (-[ x ]-1 * -[ x ]-1)
+    IH = squares-are-non-negative -[ x ]-1
+
+    diff : ℕ
+    diff = fst IH
+
+    proof : pos 0 + pos (diff) ≡ -[ x ]-1 * -[ x ]-1
+    proof = snd IH
+
 data ℤ[i] : Type where
   _+[_]i : ℤ → ℤ → ℤ[i]
+
+piecewise : {a b c d : ℤ} → a ≡ c → b ≡ d → a +[ b ]i ≡ c +[ d ]i
+piecewise (refl _) (refl _) = refl _
 
 -- Need to rename these
 _+i_ : ℤ[i] → ℤ[i] → ℤ[i]
@@ -171,6 +501,9 @@ _-i_ : ℤ[i] → ℤ[i] → ℤ[i]
 _*i_ : ℤ[i] → ℤ[i] → ℤ[i]
 (a +[ b ]i) *i (c +[ d ]i) = (a * c - b * d) +[ (a * d + b * c) ]i 
 
+_∣_ : ℤ[i] → ℤ[i] → Type
+a ∣ b = Σ s ꞉ ℤ[i] , a *i s ≡ b
+
 comp_ : ℤ[i] → ℤ[i]
 comp (a +[ b ]i) = (a +[ (- b) ]i)
 
@@ -178,17 +511,38 @@ comp (a +[ b ]i) = (a +[ (- b) ]i)
 
 <p>The norm function</p>
 
-<pre><code class="language-agda">N_ : ℤ[i] → ℤ[i]
-N (a +[ b ]i) = (a +[ b ]i) *i (a +[ (- b) ]i)
+<pre><code class="language-agda">N' : ℤ[i] → ℤ[i]
+N' (a +[ b ]i) = (a +[ b ]i) *i (a +[ (- b) ]i)
 
-N-simp : ℤ[i] → ℤ[i]
-N-simp (a +[ b ]i) = (a * a + b * b) +[ pos 0 ]i
+N : ℤ[i] → ℤ
+N (a +[ b ]i) = (a * a + b * b)
 
-norm-simp-lemma : (z : ℤ[i]) → N z ≡ N-simp z
-norm-simp-lemma (a +[ b ]i) = {!!}
+norm-is-non-negative : (z : ℤ[i]) → (pos 0) ≤ N z
+norm-is-non-negative (pos a +[ pos b ]i) = (a ℕ* a) ℕ+ (b ℕ* b) , pos ((a ℕ* a) ℕ+ (b ℕ* b)) ≡⟨ refl _ ⟩
+                                                                  pos (a ℕ* a) + pos (b ℕ* b) ≡⟨ sym $ ap (pos (a ℕ* a) +_) (ℕ*-homo b b) ⟩
+                                                                  pos (a ℕ* a) + pos b * pos b  ≡⟨ sym $ ap (_+ pos b * pos b) (ℕ*-homo a a) ⟩
+                                                                  pos a * pos a + pos b * pos b ∎
+norm-is-non-negative (pos a +[ -[ b ]-1 ]i) = {!!} , {!!}
+norm-is-non-negative (-[ a ]-1 +[ pos b ]i) = {!!} , {!!}
+norm-is-non-negative (-[ a ]-1 +[ -[ b ]-1 ]i) = {!!} , {!!}
 
-N-is-homomorphism : (x y : ℤ[i]) → N (x *i y) ≡ (N x) *i (N y)
-N-is-homomorphism (a +[ b ]i) (c +[ d ]i) = {!!}
+norm-simp-lemma : (z : ℤ[i]) → N' z ≡ ((N z) +[ pos 0 ]i)
+norm-simp-lemma (a +[ b ]i) = piecewise real complex
+  where
+    real : a * a - b * (- b) ≡ a * a + b * b
+    real = a * a - b * (- b) ≡⟨ neg-is-+-neg (a * a) (b * (- b)) ⟩
+           a * a + (- (b * (- b))) ≡⟨ ap (λ p → a * a + (- p)) (neg-times-right b b)  ⟩
+           a * a + (- (- (b * b))) ≡⟨ ap (a * a +_) (sym $ double-neg (b * b)) ⟩
+           a * a + b * b ∎
+
+    complex : a * (- b) + b * a ≡ pos 0
+    complex = a * (- b) + b * a ≡⟨ ap (_+ b * a) (neg-times-right a b) ⟩
+              (- (a * b)) + b * a ≡⟨ ap (- (a * b) +_) (*-comm b a) ⟩
+              (- (a * b)) + a * b ≡⟨ neg-plus-cancel (a * b) ⟩
+              pos 0 ∎
+
+N-is-homomorphism : (x y : ℤ[i]) → N (x *i y) ≡ (N x) * (N y)
+N-is-homomorphism x@(a +[ b ]i) y@(c +[ d ]i) = {!!}
 </code></pre>
 
 <p>We say a number is a unit if it is a divisor of 1.</p>
@@ -208,11 +562,24 @@ u-i = (pos 0) +[ -[ 0 ]-1 ]i , refl _
 u-neg-i : unit ((pos 0) +[ -[ 0 ]-1 ]i)
 u-neg-i = ((pos 0) +[ (pos 1) ]i) , refl _
 
-norm-1-unit : (u : ℤ[i]) → N u ≡ ((pos 1) +[ (pos 0) ]i) → unit u
-norm-1-unit (a +[ b ]i) p = (a +[ - b ]i) , p
+norm-1-unit : {u : ℤ[i]} → N u ≡ pos 1 → unit u
+norm-1-unit {a +[ b ]i} p = (a +[ - b ]i) , piecewise real complex
+  where
+    real : a * a - b * (- b) ≡ pos 1
+    real = a * a - b * (- b) ≡⟨ neg-is-+-neg (a * a) (b * (- b)) ⟩
+           a * a + (- (b * (- b))) ≡⟨ ap (λ y → a * a + - y) (neg-times-right b b) ⟩
+           a * a + (- (- (b * b))) ≡⟨ ap (a * a +_) (sym $ double-neg (b * b)) ⟩
+           N (a +[ b ]i) ≡⟨ p ⟩
+           pos 1 ∎
 
-unit-norm-1 : (u : ℤ[i]) → unit u → N u ≡ ((pos 1) +[ (pos 0) ]i)
-unit-norm-1 (a +[ b ]i) ((c +[ d ]i) , q) = {!!}
+    complex : a * (- b) + b * a ≡ pos 0
+    complex = a * (- b) + b * a ≡⟨ ap (_+ b * a) (neg-times-right a b) ⟩
+              - (a * b) + b * a ≡⟨ ap (- (a * b) +_) (*-comm b a) ⟩
+              - (a * b) + a * b ≡⟨ neg-plus-cancel (a * b) ⟩
+              pos 0 ∎
+
+unit-norm-1 : (u : ℤ[i]) → unit u → N u ≡ pos 1
+unit-norm-1 u@(a +[ b ]i) ((c +[ d ]i) , q) = {!!}
 
 all-units : (u : ℤ[i]) → unit u → (u ≡ ((pos 1) +[ (pos 0) ]i))
                                 ∔ (u ≡ (-[ 0 ]-1 +[ (pos 0) ]i))
@@ -220,9 +587,27 @@ all-units : (u : ℤ[i]) → unit u → (u ≡ ((pos 1) +[ (pos 0) ]i))
                                 ∔ (u ≡ ((pos 0) +[ -[ 0 ]-1 ]i))
 all-units u (y , p) = {!!}
 
+associate : ℤ[i] → ℤ[i] → Type
+associate a b = Σ u ꞉ ℤ[i] , (unit u) × (b ≡ a *i u)
+
+irreducible : ℤ[i] →  Type
+irreducible z = (a : ℤ[i]) → (a ∣ z) → (unit a) ∔ (associate a z)
+
+big-theorem : (z : ℤ[i]) (p : ℤ) → prime p → N z ≡ p → irreducible z
+big-theorem z p pr-p n-eq a (b , q) = expand $ pr-p (N a) (N b , equality)
+  where
+    equality = sym (trans (sym n-eq) (trans (ap N (sym q)) (N-is-homomorphism a b)))
+
+    expand : (N a ≡ pos 1) ∔ (N a ≡ (- pos 1)) ∔ (N a ≡ p) ∔ (N a ≡ (- p)) → unit a ∔ associate a z
+    expand (inl x) = inl (norm-1-unit x)
+    expand (inr (inl x)) = {!norm-is-non-negative a!}
+    expand (inr (inr (inl x))) = inr (b , ({!!} , sym q))
+    expand (inr (inr (inr x))) = {!norm-is-non-negative a!}
+
+
 </code></pre>
 
-]]></content><author><name>Anna Williams</name></author><category term="proof-assistants" /><category term="agda" /><category term="lean" /><category term="number-theory" /><summary type="html"><![CDATA[Obtaining the form of sums of squares In the course I am taking currently on number theory, we looked at numbers which are the sum of two squares, that is \(z \in \mathbb{N}\) such that \(a^2 + b^2 = z\) for \(a, b \in \mathbb{Z}\). Like a lot of questions in number theory, the connection between such numbers feels quite hidden (and to me that’s what makes the subject interesting). The key idea here, that makes the connection jump out is instead inspecting the Guassian integers (\(\mathbb{Z}[i]\) - numbers of the form \(a + bi\) for \(a, b \in \mathbb{Z}\)) and the norm function. The norm function over the Guassian integers is defined as follows \(N(a + bi) = (a + bi)(a - bi) = a^2 + b^2\). Aha! Therefore the numbers which are sums of two squares are exactly those which are the ‘length’ of Guassian integers. ℤ Type = Set data ℕ : Type where zero : ℕ suc : ℕ → ℕ data ℤ : Type where pos : ℕ → ℤ -[_]-1 : ℕ → ℤ {-# BUILTIN NATURAL ℕ #-} {-# BUILTIN INTEGER ℤ #-} {-# BUILTIN INTEGERPOS pos #-} {-# BUILTIN INTEGERNEGSUC -[_]-1 #-} data _≡_ {A : Type} : (x y : A) → Type where refl : (x : A) → x ≡ x infix 0 _≡_ trans : {A : Type} {x y z : A} → x ≡ y → y ≡ z → x ≡ z trans (refl _) q = q ap : {A B : Type} {x y : A} → (f : A → B) → x ≡ y → f x ≡ f y ap f (refl _) = refl _ sym : {A : Type} {x y : A} → x ≡ y → y ≡ x sym (refl _) = refl _ _ℕ+_ : ℕ → ℕ → ℕ zero ℕ+ b = b suc a ℕ+ b = suc (a ℕ+ b) ℕ+-right-cancel : (n : ℕ) → n ℕ+ 0 ≡ n ℕ+-right-cancel zero = refl _ ℕ+-right-cancel (suc n) = ap suc (ℕ+-right-cancel n) data Bool : Type where true false : Bool _≤b_ : ℕ → ℕ → Bool zero ≤b b = true suc a ≤b zero = false suc a ≤b suc b = a ≤b b if_then_else_ : {A : Type} → Bool → A → A → A if true then a else _ = a if false then _ else b = b _∸_ : ℕ → ℕ → ℕ a ∸ zero = a zero ∸ suc b = zero suc a ∸ suc b = a ∸ b -ℕ_ : ℕ → ℤ -ℕ zero = pos zero -ℕ suc a = -[ a ]-1 -_ : ℤ → ℤ - pos zero = pos zero - pos (suc x) = -[ x ]-1 - -[ x ]-1 = pos (suc x) _⊝_ : ℕ → ℕ → ℤ a ⊝ b = if (a ≤b b) then (-ℕ (b ∸ a)) else pos (a ∸ b) _+_ : ℤ → ℤ → ℤ pos a + pos b = pos (a ℕ+ b) pos a + -[ b ]-1 = a ⊝ (suc b) -[ a ]-1 + pos b = b ⊝ (suc a) -[ a ]-1 + -[ b ]-1 = -[ suc (a ℕ+ b) ]-1 _-_ : ℤ → ℤ → ℤ pos a - pos b = a ⊝ b -[ a ]-1 - pos b = -[ a ℕ+ b ]-1 pos a - -[ b ]-1 = pos a + pos (suc b) -[ a ]-1 - -[ b ]-1 = b ⊝ a _*_ : ℤ → ℤ → ℤ pos zero * b = pos zero pos (suc x) * b = (pos x) * b + b -[ zero ]-1 * pos x = -ℕ x -[ zero ]-1 * -[ x ]-1 = pos (suc x) -[ suc x ]-1 * b = -[ x ]-1 * b - b +-right-cancel : (z : ℤ) → z + (pos 0) ≡ z +-right-cancel (pos x) = ap pos (ℕ+-right-cancel x) +-right-cancel -[ x ]-1 = refl _ neg-right-cancel : (z : ℤ) → z - (pos 0) ≡ z neg-right-cancel (pos zero) = refl _ neg-right-cancel (pos (suc x)) = refl _ neg-right-cancel -[ x ]-1 = ap -[_]-1 (ℕ+-right-cancel x) *-right-cancel : (z : ℤ) → z * (pos 0) ≡ (pos 0) *-right-cancel (pos zero) = refl _ *-right-cancel (pos (suc x)) = trans (+-right-cancel (pos x * pos 0)) (*-right-cancel (pos x)) *-right-cancel -[ zero ]-1 = refl _ *-right-cancel -[ suc x ]-1 = trans (neg-right-cancel (-[ x ]-1 * pos 0)) (*-right-cancel -[ x ]-1) neg-times-right : (a b : ℤ) → (a * (- b)) ≡ (- (a * b)) neg-times-right a (pos zero) = trans (*-right-cancel a) (ap -_ (sym (*-right-cancel a))) neg-times-right a (pos (suc zero)) = {!!} neg-times-right a (pos (suc (suc x))) = {!!} neg-times-right a -[ x ]-1 = {!!} neg-times-left : (a b : ℤ) → ((- a) * b) ≡ (- (a * b)) neg-times-left (pos zero) b = refl _ neg-times-left (pos (suc zero)) b = {!!} neg-times-left (pos (suc (suc x))) b = {!!} neg-times-left -[ x ]-1 b = {!!} record Σ {A : Type } (B : A → Type) : Type where constructor _,_ field fst : A snd : B fst open Σ public infixr 0 _,_ Sigma : (A : Type) (B : A → Type) → Type Sigma A B = Σ {A} B syntax Sigma A (λ x → b) = Σ x ꞉ A , b infix -1 Sigma data _∔_ (A B : Type) : Type where inl : (a : A) → A ∔ B inr : (b : B) → A ∔ B infixl 2 _∔_ _≡_mod_ : ℤ → ℤ → ℕ → Type a ≡ b mod p = Σ k ꞉ ℤ , a ≡ b + k * (pos p) infixr 5 _*_ infixr 4 _+_ infixr 3 _-_ data ℤ[i] : Type where _+[_]i : ℤ → ℤ → ℤ[i] -- Need to rename these _+i_ : ℤ[i] → ℤ[i] → ℤ[i] (a +[ b ]i) +i (c +[ d ]i) = (a + b) +[ (c + d) ]i _-i_ : ℤ[i] → ℤ[i] → ℤ[i] (a +[ b ]i) -i (c +[ d ]i) = (a - b) +[ (c - d) ]i _*i_ : ℤ[i] → ℤ[i] → ℤ[i] (a +[ b ]i) *i (c +[ d ]i) = (a * c - b * d) +[ (a * d + b * c) ]i comp_ : ℤ[i] → ℤ[i] comp (a +[ b ]i) = (a +[ (- b) ]i) The norm function N_ : ℤ[i] → ℤ[i] N (a +[ b ]i) = (a +[ b ]i) *i (a +[ (- b) ]i) N-simp : ℤ[i] → ℤ[i] N-simp (a +[ b ]i) = (a * a + b * b) +[ pos 0 ]i norm-simp-lemma : (z : ℤ[i]) → N z ≡ N-simp z norm-simp-lemma (a +[ b ]i) = {!!} N-is-homomorphism : (x y : ℤ[i]) → N (x *i y) ≡ (N x) *i (N y) N-is-homomorphism (a +[ b ]i) (c +[ d ]i) = {!!} We say a number is a unit if it is a divisor of 1. unit : ℤ[i] → Type unit u = Σ y ꞉ ℤ[i] , u *i y ≡ ((pos 1) +[ (pos 0) ]i) u-one : unit ((pos 1) +[ (pos 0) ]i) u-one = (((pos 1) +[ (pos 0) ]i) , refl _) u-neg-one : unit (-[ 0 ]-1 +[ (pos 0) ]i) u-neg-one = (-[ 0 ]-1 +[ (pos 0) ]i) , refl _ u-i : unit ((pos 0) +[ (pos 1) ]i) u-i = (pos 0) +[ -[ 0 ]-1 ]i , refl _ u-neg-i : unit ((pos 0) +[ -[ 0 ]-1 ]i) u-neg-i = ((pos 0) +[ (pos 1) ]i) , refl _ norm-1-unit : (u : ℤ[i]) → N u ≡ ((pos 1) +[ (pos 0) ]i) → unit u norm-1-unit (a +[ b ]i) p = (a +[ - b ]i) , p unit-norm-1 : (u : ℤ[i]) → unit u → N u ≡ ((pos 1) +[ (pos 0) ]i) unit-norm-1 (a +[ b ]i) ((c +[ d ]i) , q) = {!!} all-units : (u : ℤ[i]) → unit u → (u ≡ ((pos 1) +[ (pos 0) ]i)) ∔ (u ≡ (-[ 0 ]-1 +[ (pos 0) ]i)) ∔ (u ≡ ((pos 0) +[ (pos 1) ]i)) ∔ (u ≡ ((pos 0) +[ -[ 0 ]-1 ]i)) all-units u (y , p) = {!!}]]></summary></entry><entry><title type="html">Basic Domain Theory in Agda</title><link href="http://localhost:4000/agda/domain-theory/2025/02/02/basic-domain-theory.html" rel="alternate" type="text/html" title="Basic Domain Theory in Agda" /><published>2025-02-02T23:58:35+00:00</published><updated>2025-02-02T23:58:35+00:00</updated><id>http://localhost:4000/agda/domain-theory/2025/02/02/basic-domain-theory</id><content type="html" xml:base="http://localhost:4000/agda/domain-theory/2025/02/02/basic-domain-theory.html"><![CDATA[<p>Being honest I really didn’t know what to post first, so I just thought I might as well post something I’m currently trying to learn. After all, isn’t one of the best ways you can learn to teach it to others?</p>
+]]></content><author><name>Anna Williams</name></author><category term="proof-assistants" /><category term="agda" /><category term="lean" /><category term="number-theory" /><summary type="html"><![CDATA[Obtaining the form of sums of squares In the course I am taking currently on number theory, we looked at numbers which are the sum of two squares, that is \(z \in \mathbb{N}\) such that \(a^2 + b^2 = z\) for \(a, b \in \mathbb{Z}\). Like a lot of questions in number theory, the connection between such numbers feels quite hidden (and to me that’s what makes the subject interesting). The key idea here, that makes the connection jump out is instead inspecting the Guassian integers (\(\mathbb{Z}[i]\) - numbers of the form \(a + bi\) for \(a, b \in \mathbb{Z}\)) and the norm function. The norm function over the Guassian integers is defined as follows \(N(a + bi) = (a + bi)(a - bi) = a^2 + b^2\). Aha! Therefore the numbers which are sums of two squares are exactly those which are the ‘length’ of Guassian integers. ℤ Type = Set data ℕ : Type where zero : ℕ suc : ℕ → ℕ data ℤ : Type where pos : ℕ → ℤ -[_]-1 : ℕ → ℤ _$_ : {A B : Type} (f : A → B) (a : A) → B f $ a = f a infix 1 _$_ {-# BUILTIN NATURAL ℕ #-} {-# BUILTIN INTEGER ℤ #-} {-# BUILTIN INTEGERPOS pos #-} {-# BUILTIN INTEGERNEGSUC -[_]-1 #-} data _≡_ {A : Type} : (x y : A) → Type where refl : (x : A) → x ≡ x infix 0 _≡_ trans : {A : Type} {x y z : A} → x ≡ y → y ≡ z → x ≡ z trans (refl _) q = q ap : {A B : Type} {x y : A} → (f : A → B) → x ≡ y → f x ≡ f y ap f (refl _) = refl _ sym : {A : Type} {x y : A} → x ≡ y → y ≡ x sym (refl _) = refl _ _≡⟨_⟩_ : {A : Type} → (p : A) {y z : A} → p ≡ y → y ≡ z → p ≡ z p ≡⟨ q ⟩ r = trans q r _∎ : {A : Type} → (a : A) → a ≡ a a ∎ = refl a infixr 0 _≡⟨_⟩_ infix 1 _∎ _∘_ : {A B C : Type} → (f : B → C) → (g : A → B) → A → C _∘_ f g x = f (g x) _ℕ+_ : ℕ → ℕ → ℕ zero ℕ+ b = b suc a ℕ+ b = suc (a ℕ+ b) _ℕ*_ : ℕ → ℕ → ℕ zero ℕ* b = zero suc a ℕ* b = (a ℕ* b) ℕ+ b ℕ+1-is-suc : (n : ℕ) → n ℕ+ 1 ≡ suc n ℕ+1-is-suc zero = refl 1 ℕ+1-is-suc (suc n) = ap suc (ℕ+1-is-suc n) ℕ+-right-cancel : (n : ℕ) → n ℕ+ 0 ≡ n ℕ+-right-cancel zero = refl _ ℕ+-right-cancel (suc n) = ap suc (ℕ+-right-cancel n) ℕ+-step : (n m : ℕ) → n ℕ+ suc m ≡ suc (n ℕ+ m) ℕ+-step zero m = refl (suc m) ℕ+-step (suc n) m = ap suc (ℕ+-step n m) ℕ+-comm : (n m : ℕ) → n ℕ+ m ≡ m ℕ+ n ℕ+-comm zero m = sym $ ℕ+-right-cancel m ℕ+-comm (suc n) m = (suc n ℕ+ m) ≡⟨ refl _ ⟩ suc (n ℕ+ m) ≡⟨ sym $ ℕ+-step n m ⟩ (n ℕ+ suc m) ≡⟨ ℕ+-comm n (suc m) ⟩ (suc m ℕ+ n) ≡⟨ sym $ ℕ+-step m n ⟩ (m ℕ+ suc n) ∎ data Bool : Type where true false : Bool _≤b_ : ℕ → ℕ → Bool zero ≤b b = true suc a ≤b zero = false suc a ≤b suc b = a ≤b b if_then_else_ : {A : Type} → Bool → A → A → A if true then a else _ = a if false then _ else b = b regardless : {A : Type} {b : Bool} {a a' p : A} → (a ≡ p) → (a' ≡ p) → if b then a else a' ≡ p regardless {b = true} p q = p regardless {b = false} p q = q passforward : {A : Type} → (b : Bool) → (b ≡ true → A) → (b ≡ false → A) → A passforward true l r = l (refl true) passforward false l r = r (refl false) _∸_ : ℕ → ℕ → ℕ a ∸ zero = a zero ∸ suc b = zero suc a ∸ suc b = a ∸ b -ℕ_ : ℕ → ℤ -ℕ zero = pos zero -ℕ suc a = -[ a ]-1 -_ : ℤ → ℤ - (pos x) = -ℕ x - -[ x ]-1 = pos (suc x) double-neg : (x : ℤ) → x ≡ - (- x) double-neg (pos zero) = refl (pos 0) double-neg (pos (suc x)) = refl (pos (suc x)) double-neg -[ x ]-1 = refl (-[ x ]-1) _⊝_ : ℕ → ℕ → ℤ a ⊝ b = if (a ≤b b) then (-ℕ (b ∸ a)) else pos (a ∸ b) ℕ-minus-flips : (a b : ℕ) → - (a ⊝ b) ≡ b ⊝ a ℕ-minus-flips zero zero = refl (pos 0) ℕ-minus-flips (suc a) zero = refl (-[ a ]-1) ℕ-minus-flips zero (suc b) = refl (pos (suc b)) ℕ-minus-flips (suc a) (suc b) = ℕ-minus-flips a b minus-self-zero : (a : ℕ) → a ⊝ a ≡ pos 0 minus-self-zero zero = refl (pos 0) minus-self-zero (suc a) = minus-self-zero a _+_ : ℤ → ℤ → ℤ pos a + pos b = pos (a ℕ+ b) pos a + -[ b ]-1 = a ⊝ (suc b) -[ a ]-1 + pos b = b ⊝ (suc a) -[ a ]-1 + -[ b ]-1 = -[ suc (a ℕ+ b) ]-1 _-_ : ℤ → ℤ → ℤ pos a - pos b = a ⊝ b -[ a ]-1 - pos b = -[ a ℕ+ b ]-1 pos a - -[ b ]-1 = pos a + pos (suc b) -[ a ]-1 - -[ b ]-1 = b ⊝ a _*_ : ℤ → ℤ → ℤ pos zero * b = pos zero pos (suc x) * b = (pos x) * b + b -[ zero ]-1 * pos x = -ℕ x -[ zero ]-1 * -[ x ]-1 = pos (suc x) -[ suc x ]-1 * b = -[ x ]-1 * b - b +-left-cancel : (z : ℤ) → (pos 0) + z ≡ z +-left-cancel (pos x) = refl (pos x) +-left-cancel -[ x ]-1 = refl (-[ x ]-1) +-right-cancel : (z : ℤ) → z + (pos 0) ≡ z +-right-cancel (pos x) = ap pos (ℕ+-right-cancel x) +-right-cancel -[ x ]-1 = refl _ +-comm : (a b : ℤ) → a + b ≡ b + a +-comm (pos a) (pos b) = ap pos (ℕ+-comm a b) +-comm (pos a) -[ b ]-1 = refl (pos a + -[ b ]-1) +-comm -[ a ]-1 (pos b) = refl (-[ a ]-1 + pos b) +-comm -[ a ]-1 -[ b ]-1 = ap (λ p → -[ suc p ]-1) (ℕ+-comm a b) neg-right-cancel : (z : ℤ) → z - (pos 0) ≡ z neg-right-cancel (pos zero) = refl _ neg-right-cancel (pos (suc x)) = refl _ neg-right-cancel -[ x ]-1 = ap -[_]-1 (ℕ+-right-cancel x) neg-plus-cancel : (z : ℤ) → (- z) + z ≡ pos 0 neg-plus-cancel (pos zero) = refl (pos 0) neg-plus-cancel (pos (suc x)) = minus-self-zero (suc x) neg-plus-cancel -[ x ]-1 = minus-self-zero (suc x) neg-plus-minus-one-neg : (x : ℕ) → (-ℕ x) + -[ 0 ]-1 ≡ -[ x ]-1 neg-plus-minus-one-neg zero = refl -[ 0 ]-1 neg-plus-minus-one-neg (suc x) = ap (-[_]-1 ∘ suc) (ℕ+-right-cancel x) *-right-cancel : (z : ℤ) → z * (pos 0) ≡ (pos 0) *-right-cancel (pos zero) = refl _ *-right-cancel (pos (suc x)) = trans (+-right-cancel (pos x * pos 0)) (*-right-cancel (pos x)) *-right-cancel -[ zero ]-1 = refl _ *-right-cancel -[ suc x ]-1 = trans (neg-right-cancel (-[ x ]-1 * pos 0)) (*-right-cancel -[ x ]-1) *-left-neg : (z : ℤ) → -[ 0 ]-1 * z ≡ - z *-left-neg (pos x) = refl (-ℕ x) *-left-neg -[ x ]-1 = refl (pos (suc x)) *-right-neg : (z : ℤ) → z * -[ 0 ]-1 ≡ - z *-right-neg (pos zero) = refl (pos zero) *-right-neg (pos (suc x)) = pos (suc x) * -[ 0 ]-1 ≡⟨ ap (_+ -[ 0 ]-1) (*-right-neg (pos x)) ⟩ (- pos x) + -[ 0 ]-1 ≡⟨ neg-plus-minus-one-neg x ⟩ (- pos (suc x)) ∎ *-right-neg -[ zero ]-1 = refl (pos 1) *-right-neg -[ suc x ]-1 = -[ suc x ]-1 * -[ 0 ]-1 ≡⟨ ap (_- -[ 0 ]-1) (*-right-neg -[ x ]-1) ⟩ (- -[ x ]-1) - -[ 0 ]-1 ≡⟨ ap (pos ∘ suc) (ℕ+1-is-suc x) ⟩ (- -[ suc x ]-1) ∎ neg-is-+-neg : (x y : ℤ) → x - y ≡ x + (- y) neg-is-+-neg (pos zero) (pos zero) = refl (pos 0) neg-is-+-neg (pos (suc x)) (pos zero) = sym $ ap (pos ∘ suc) (ℕ+-right-cancel x) neg-is-+-neg (pos zero) (pos (suc y)) = refl (pos zero - pos (suc y)) neg-is-+-neg (pos (suc x)) (pos (suc y)) = refl (pos (suc x) - pos (suc y)) neg-is-+-neg -[ x ]-1 (pos zero) = ap -[_]-1 (ℕ+-right-cancel x) neg-is-+-neg -[ x ]-1 (pos (suc y)) = ap -[_]-1 (ℕ+-step x y) neg-is-+-neg (pos zero) -[ y ]-1 = refl (pos zero - -[ y ]-1) neg-is-+-neg (pos (suc x)) -[ y ]-1 = refl (pos (suc x) - -[ y ]-1) neg-is-+-neg -[ x ]-1 -[ y ]-1 = refl (-[ x ]-1 - -[ y ]-1) neg-distrib : (a b : ℤ) → - (a + b) ≡ (- a) + (- b) neg-distrib (pos zero) (pos b) = sym $ +-left-cancel (- pos b) neg-distrib (pos (suc a)) (pos zero) = ap (-[_]-1) (ℕ+-right-cancel a) neg-distrib (pos (suc a)) (pos (suc b)) = ap (-[_]-1) (ℕ+-step a b) neg-distrib (pos zero) -[ b ]-1 = refl (pos (suc b)) neg-distrib (pos (suc a)) -[ b ]-1 = ℕ-minus-flips a b neg-distrib -[ a ]-1 (pos zero) = sym $ ap (pos ∘ suc) (ℕ+-right-cancel a) neg-distrib -[ a ]-1 (pos (suc b)) = ℕ-minus-flips b a neg-distrib -[ a ]-1 -[ b ]-1 = ap (λ y → pos (suc y)) (sym $ ℕ+-step a b) neg-times-right : (a b : ℤ) → (a * (- b)) ≡ (- (a * b)) neg-times-right (pos zero) b = refl (pos zero) neg-times-right (pos (suc x)) b = pos (suc x) * (- b) ≡⟨ refl _ ⟩ pos x * (- b) + (- b) ≡⟨ ap (_+ (- b)) (neg-times-right (pos x) b) ⟩ (- (pos x * b)) + (- b) ≡⟨ sym $ neg-distrib (pos x * b) b ⟩ (- (pos x * b + b)) ≡⟨ refl _ ⟩ (- (pos (suc x) * b)) ∎ neg-times-right -[ zero ]-1 b = -[ zero ]-1 * (- b) ≡⟨ *-left-neg (- b) ⟩ (- (- b)) ≡⟨ sym $ ap (-_) (*-left-neg b) ⟩ (- (-[ zero ]-1 * b)) ∎ neg-times-right -[ suc x ]-1 b = -[ suc x ]-1 * (- b) ≡⟨ refl _ ⟩ -[ x ]-1 * (- b) - (- b) ≡⟨ neg-is-+-neg (-[ x ]-1 * (- b)) (- b) ⟩ -[ x ]-1 * (- b) + (- (- b)) ≡⟨ ap (λ p → p + (- (- b))) (neg-times-right -[ x ]-1 b) ⟩ (- (-[ x ]-1 * b)) + (- (- b)) ≡⟨ sym $ neg-distrib (-[ x ]-1 * b) (- b) ⟩ (- (-[ x ]-1 * b + (- b))) ≡⟨ sym $ ap (-_) (neg-is-+-neg (-[ x ]-1 * b) b) ⟩ (- (-[ x ]-1 * b - b)) ≡⟨ refl _ ⟩ (- (-[ suc x ]-1 * b)) ∎ neg-times-left : (a b : ℤ) → ((- a) * b) ≡ (- (a * b)) neg-times-left (pos zero) b = refl _ neg-times-left (pos (suc a)) b = {!!} neg-times-left -[ zero ]-1 b = pos 0 + b ≡⟨ +-left-cancel b ⟩ b ≡⟨ double-neg b ⟩ (- (- b)) ≡⟨ ap -_ (sym $ *-left-neg b) ⟩ (- (-[ zero ]-1 * b)) ∎ neg-times-left -[ suc x ]-1 b = {!!} *-comm : (a b : ℤ) → a * b ≡ b * a *-comm (pos zero) (pos b) = sym $ *-right-cancel (pos b) *-comm (pos (suc a)) (pos b) = {!!} *-comm (pos zero) -[ b ]-1 = sym $ *-right-cancel (-[ b ]-1) *-comm (pos (suc a)) -[ b ]-1 = {!!} *-comm -[ zero ]-1 (pos b) = {!*-left-neg!} *-comm -[ suc a ]-1 (pos b) = {!!} *-comm -[ zero ]-1 -[ b ]-1 = {!!} *-comm -[ suc a ]-1 -[ b ]-1 = {!!} ℕ+-homo : (a b : ℕ) → pos a + pos b ≡ pos (a ℕ+ b) ℕ+-homo a b = refl _ ℕ*-homo : (a b : ℕ) → pos a * pos b ≡ pos (a ℕ* b) ℕ*-homo zero b = refl (pos zero) ℕ*-homo (suc a) b = pos a * pos b + pos b ≡⟨ ap (_+ pos b) (ℕ*-homo a b) ⟩ pos (a ℕ* b) + pos b ≡⟨ refl (pos (a ℕ* b) + pos b) ⟩ pos ((a ℕ* b) ℕ+ b) ≡⟨ sym (ℕ+-homo (a ℕ* b) b) ⟩ pos (a ℕ* b) + pos b ∎ forced-one : (p z : ℤ) → p * z ≡ p → z ≡ pos 1 forced-one p (pos zero) q = {!!} forced-one p (pos (suc zero)) q = refl (pos 1) forced-one p (pos (suc (suc z))) q = {!trans (sym q) (*-comm p (pos (suc (suc z))))!} forced-one p -[ x ]-1 q = {!!} record Σ {A : Type } (B : A → Type) : Type where constructor _,_ field fst : A snd : B fst open Σ public infixr 0 _,_ Sigma : (A : Type) (B : A → Type) → Type Sigma A B = Σ {A} B syntax Sigma A (λ x → b) = Σ x ꞉ A , b infix -1 Sigma data _∔_ (A B : Type) : Type where inl : (a : A) → A ∔ B inr : (b : B) → A ∔ B infixr 2 _∔_ data _×_ (A B : Type) : Type where _,_ : A → B → A × B _≡_mod_ : ℤ → ℤ → ℕ → Type a ≡ b mod p = Σ k ꞉ ℤ , a ≡ b + k * (pos p) infixr 5 _*_ infixr 4 _+_ infixr 3 _-_ prime : ℤ → Type prime p = (a : ℤ) → (Σ b ꞉ ℤ , a * b ≡ p) → (a ≡ pos 1) ∔ (a ≡ - (pos 1)) ∔ (a ≡ p) ∔ (a ≡ - p) _≤_ : ℤ → ℤ → Type a ≤ b = Σ k ꞉ ℕ , a + (pos k) ≡ b squares-are-non-negative : (a : ℤ) → (pos 0) ≤ (a * a) squares-are-non-negative (pos x) = (x ℕ* x) , sym $ ℕ*-homo x x squares-are-non-negative -[ zero ]-1 = 1 , refl (pos 1) squares-are-non-negative -[ suc x ]-1 = (((x ℕ* x) ℕ+ (2 ℕ* x)) ℕ+ 1) , {!!} where IH : pos 0 ≤ (-[ x ]-1 * -[ x ]-1) IH = squares-are-non-negative -[ x ]-1 diff : ℕ diff = fst IH proof : pos 0 + pos (diff) ≡ -[ x ]-1 * -[ x ]-1 proof = snd IH data ℤ[i] : Type where _+[_]i : ℤ → ℤ → ℤ[i] piecewise : {a b c d : ℤ} → a ≡ c → b ≡ d → a +[ b ]i ≡ c +[ d ]i piecewise (refl _) (refl _) = refl _ -- Need to rename these _+i_ : ℤ[i] → ℤ[i] → ℤ[i] (a +[ b ]i) +i (c +[ d ]i) = (a + b) +[ (c + d) ]i _-i_ : ℤ[i] → ℤ[i] → ℤ[i] (a +[ b ]i) -i (c +[ d ]i) = (a - b) +[ (c - d) ]i _*i_ : ℤ[i] → ℤ[i] → ℤ[i] (a +[ b ]i) *i (c +[ d ]i) = (a * c - b * d) +[ (a * d + b * c) ]i _∣_ : ℤ[i] → ℤ[i] → Type a ∣ b = Σ s ꞉ ℤ[i] , a *i s ≡ b comp_ : ℤ[i] → ℤ[i] comp (a +[ b ]i) = (a +[ (- b) ]i) The norm function N' : ℤ[i] → ℤ[i] N' (a +[ b ]i) = (a +[ b ]i) *i (a +[ (- b) ]i) N : ℤ[i] → ℤ N (a +[ b ]i) = (a * a + b * b) norm-is-non-negative : (z : ℤ[i]) → (pos 0) ≤ N z norm-is-non-negative (pos a +[ pos b ]i) = (a ℕ* a) ℕ+ (b ℕ* b) , pos ((a ℕ* a) ℕ+ (b ℕ* b)) ≡⟨ refl _ ⟩ pos (a ℕ* a) + pos (b ℕ* b) ≡⟨ sym $ ap (pos (a ℕ* a) +_) (ℕ*-homo b b) ⟩ pos (a ℕ* a) + pos b * pos b ≡⟨ sym $ ap (_+ pos b * pos b) (ℕ*-homo a a) ⟩ pos a * pos a + pos b * pos b ∎ norm-is-non-negative (pos a +[ -[ b ]-1 ]i) = {!!} , {!!} norm-is-non-negative (-[ a ]-1 +[ pos b ]i) = {!!} , {!!} norm-is-non-negative (-[ a ]-1 +[ -[ b ]-1 ]i) = {!!} , {!!} norm-simp-lemma : (z : ℤ[i]) → N' z ≡ ((N z) +[ pos 0 ]i) norm-simp-lemma (a +[ b ]i) = piecewise real complex where real : a * a - b * (- b) ≡ a * a + b * b real = a * a - b * (- b) ≡⟨ neg-is-+-neg (a * a) (b * (- b)) ⟩ a * a + (- (b * (- b))) ≡⟨ ap (λ p → a * a + (- p)) (neg-times-right b b) ⟩ a * a + (- (- (b * b))) ≡⟨ ap (a * a +_) (sym $ double-neg (b * b)) ⟩ a * a + b * b ∎ complex : a * (- b) + b * a ≡ pos 0 complex = a * (- b) + b * a ≡⟨ ap (_+ b * a) (neg-times-right a b) ⟩ (- (a * b)) + b * a ≡⟨ ap (- (a * b) +_) (*-comm b a) ⟩ (- (a * b)) + a * b ≡⟨ neg-plus-cancel (a * b) ⟩ pos 0 ∎ N-is-homomorphism : (x y : ℤ[i]) → N (x *i y) ≡ (N x) * (N y) N-is-homomorphism x@(a +[ b ]i) y@(c +[ d ]i) = {!!} We say a number is a unit if it is a divisor of 1. unit : ℤ[i] → Type unit u = Σ y ꞉ ℤ[i] , u *i y ≡ ((pos 1) +[ (pos 0) ]i) u-one : unit ((pos 1) +[ (pos 0) ]i) u-one = (((pos 1) +[ (pos 0) ]i) , refl _) u-neg-one : unit (-[ 0 ]-1 +[ (pos 0) ]i) u-neg-one = (-[ 0 ]-1 +[ (pos 0) ]i) , refl _ u-i : unit ((pos 0) +[ (pos 1) ]i) u-i = (pos 0) +[ -[ 0 ]-1 ]i , refl _ u-neg-i : unit ((pos 0) +[ -[ 0 ]-1 ]i) u-neg-i = ((pos 0) +[ (pos 1) ]i) , refl _ norm-1-unit : {u : ℤ[i]} → N u ≡ pos 1 → unit u norm-1-unit {a +[ b ]i} p = (a +[ - b ]i) , piecewise real complex where real : a * a - b * (- b) ≡ pos 1 real = a * a - b * (- b) ≡⟨ neg-is-+-neg (a * a) (b * (- b)) ⟩ a * a + (- (b * (- b))) ≡⟨ ap (λ y → a * a + - y) (neg-times-right b b) ⟩ a * a + (- (- (b * b))) ≡⟨ ap (a * a +_) (sym $ double-neg (b * b)) ⟩ N (a +[ b ]i) ≡⟨ p ⟩ pos 1 ∎ complex : a * (- b) + b * a ≡ pos 0 complex = a * (- b) + b * a ≡⟨ ap (_+ b * a) (neg-times-right a b) ⟩ - (a * b) + b * a ≡⟨ ap (- (a * b) +_) (*-comm b a) ⟩ - (a * b) + a * b ≡⟨ neg-plus-cancel (a * b) ⟩ pos 0 ∎ unit-norm-1 : (u : ℤ[i]) → unit u → N u ≡ pos 1 unit-norm-1 u@(a +[ b ]i) ((c +[ d ]i) , q) = {!!} all-units : (u : ℤ[i]) → unit u → (u ≡ ((pos 1) +[ (pos 0) ]i)) ∔ (u ≡ (-[ 0 ]-1 +[ (pos 0) ]i)) ∔ (u ≡ ((pos 0) +[ (pos 1) ]i)) ∔ (u ≡ ((pos 0) +[ -[ 0 ]-1 ]i)) all-units u (y , p) = {!!} associate : ℤ[i] → ℤ[i] → Type associate a b = Σ u ꞉ ℤ[i] , (unit u) × (b ≡ a *i u) irreducible : ℤ[i] → Type irreducible z = (a : ℤ[i]) → (a ∣ z) → (unit a) ∔ (associate a z) big-theorem : (z : ℤ[i]) (p : ℤ) → prime p → N z ≡ p → irreducible z big-theorem z p pr-p n-eq a (b , q) = expand $ pr-p (N a) (N b , equality) where equality = sym (trans (sym n-eq) (trans (ap N (sym q)) (N-is-homomorphism a b))) expand : (N a ≡ pos 1) ∔ (N a ≡ (- pos 1)) ∔ (N a ≡ p) ∔ (N a ≡ (- p)) → unit a ∔ associate a z expand (inl x) = inl (norm-1-unit x) expand (inr (inl x)) = {!norm-is-non-negative a!} expand (inr (inr (inl x))) = inr (b , ({!!} , sym q)) expand (inr (inr (inr x))) = {!norm-is-non-negative a!}]]></summary></entry><entry><title type="html">Basic Domain Theory in Agda</title><link href="http://localhost:4000/agda/domain-theory/2025/02/02/basic-domain-theory.html" rel="alternate" type="text/html" title="Basic Domain Theory in Agda" /><published>2025-02-02T23:58:35+00:00</published><updated>2025-02-02T23:58:35+00:00</updated><id>http://localhost:4000/agda/domain-theory/2025/02/02/basic-domain-theory</id><content type="html" xml:base="http://localhost:4000/agda/domain-theory/2025/02/02/basic-domain-theory.html"><![CDATA[<p>Being honest I really didn’t know what to post first, so I just thought I might as well post something I’m currently trying to learn. After all, isn’t one of the best ways you can learn to teach it to others?</p>
 
 <p>In this post I look at formalising some very basic domain theory definitions, namely that of a partially ordered set (or poset for short). I do not claim this to be the best way, but it was the way that made sense to me as I was writing it. I have all the code in the page, but do not explain some of it as it is either self explanatory or can be explored elsewhere for a better explanation than mine. With that said, let’s jump in shall we?</p>
 
@@ -301,7 +686,7 @@ reflexive {A} (_R_) = (x : A) → x R x
 <h4 id="transitivity">Transitivity</h4>
 
 <blockquote>
-  <p>We call a relation, \(\sim\), on a set \(X\) <em>transitive</em>, for all \(x, y, z \in X\) satisfying (x \sim y) and (y \sim z), we have \(x \sim z\).</p>
+  <p>We call a relation, \(\sim\), on a set \(X\) <em>transitive</em>, for all \(x, y, z \in X\) satisfying \(x \sim y\) and \(y \sim z\), we have \(x \sim z\).</p>
 </blockquote>
 
 <p>Similarly to the reflexivity case, we can define transitivity, however we make \(x, y\) and \(z\) here implicit so that then using this definition is more clear later on. This works in this case because the values can be inferred by the relations <code class="language-plaintext highlighter-rouge">x R y</code> and <code class="language-plaintext highlighter-rouge">y R z</code>.</p>
@@ -351,4 +736,4 @@ anti-symmetric {A} (_R_) = {x y : A} → x R y → y R x → x ≡ y
 
 <p>This has been quite a short post, but hopefully it was a worthwhile read (and hopefully it will spur me on to write some more in depth pieces). Thank you for reading and hopefully see you in another post soon!</p>
 
-]]></content><author><name>Anna Williams</name></author><category term="agda" /><category term="domain-theory" /><category term="agda" /><category term="domain-theory" /><summary type="html"><![CDATA[Being honest I really didn’t know what to post first, so I just thought I might as well post something I’m currently trying to learn. After all, isn’t one of the best ways you can learn to teach it to others? In this post I look at formalising some very basic domain theory definitions, namely that of a partially ordered set (or poset for short). I do not claim this to be the best way, but it was the way that made sense to me as I was writing it. I have all the code in the page, but do not explain some of it as it is either self explanatory or can be explored elsewhere for a better explanation than mine. With that said, let’s jump in shall we? Basic Definitions Small note: Although Set is a type, as done in the module I take on Type Theory, I prefer to alias it to Type for clarity of reading. Type = Set Before we jump into any of the mathematics, we first have to define some types to allows us to define and reason about mathematics. We can do this using the standard library but I prefer to start from a clean slate. We define the natural numbers in the usual way, which serve as a nice example as we go through this post. data ℕ : Type where zero : ℕ suc : ℕ → ℕ We also define equality in the usual way, along with ap as a helper function. data _≡_ {A : Type} : A → A → Type where refl : (x : A) → x ≡ x ap : {A B : Type} {x y : A} (f : A → B) → x ≡ y → f x ≡ f y ap f (refl _) = refl (f _) Relations We first start by looking at the mathematical definition of a relation. A relation on a set \(X\) is a subset \(\sim \: \subseteq (X \times X)\). We write \(x \sim y\) to mean that \((x, y) \in \: \sim\). I omit defining this in Agda simply because a subset is a bit subtle to define and involves using the Fin type (while this looks to be a simple type, it is one that can be confusing to understand at first and is not the main focus of this post). Instead we define a relation as an inductive type, where we restrict the set to only the relations we want. To define the relation \(\leq\) for the natural numbers, we give two constructors: z≤n - this is the constructor that says any natural number, \(n\), satisfies \(0 \leq n\). sn&lt;sm - this is the constructor that says if we have a pair of natural numbers \(n, m\) satisfying \(n \leq m\), then we can also say that \(\text{suc}\: n ≤ \text{suc}\: m\), or equivalently \(n + 1 \leq m + 1\). data _≤_ : ℕ → ℕ → Type where z≤n : (n : ℕ) → zero ≤ n sn≤sm : {m n : ℕ} → (n ≤ m) → (suc n) ≤ (suc m) Properties of Relations There are some interesting properties of relations that often crop up, the ones we will focus on here are reflexivity, transitivity, and anti-symmetry. Reflexivity We call a relation, \(\sim\), on a set \(X\) reflexive, if for all \(x \in X\) we have \(x \sim x\). We can define this using a dependent type as follows. Our underlying set is A and our relation is R. We then use this definition to show that \(\leq\) is reflexive. reflexive : {A : Set} → (A → A → Type) → Type reflexive {A} (_R_) = (x : A) → x R x ≤-refl : reflexive (_≤_) ≤-refl zero = z≤n zero ≤-refl (suc n) = sn≤sm (≤-refl n) Transitivity We call a relation, \(\sim\), on a set \(X\) transitive, for all \(x, y, z \in X\) satisfying (x \sim y) and (y \sim z), we have \(x \sim z\). Similarly to the reflexivity case, we can define transitivity, however we make \(x, y\) and \(z\) here implicit so that then using this definition is more clear later on. This works in this case because the values can be inferred by the relations x R y and y R z. transitive : {A : Type} → (A → A → Type) → Type transitive {A} (_R_) = {x y z : A} → x R y → y R z → x R z ≤-trans : transitive (_≤_) ≤-trans (z≤n _) q = z≤n _ ≤-trans (sn≤sm p) (sn≤sm q) = sn≤sm (≤-trans p q) Anti-Symmetry We call a relation, \(\sim\), on a set \(X\) anti-symmetric, if for all \(x, y \in X\), we have that if \(x \sim y\) and \(y \sim x\), then \(x = y\). As with the other two cases, we define anti-symmetry, also making \(x\) and \(y\) implicit like in transitivity. We see the first use of ap here in the proof that \(\leq\) is symmetric, this allows us prove that x ≡ y to show that suc x ≡ suc y, which we can do using recursion. anti-symmetric : {A : Type} → (A → A → Type) → Type anti-symmetric {A} (_R_) = {x y : A} → x R y → y R x → x ≡ y ≤-anti-sym : anti-symmetric (_≤_) ≤-anti-sym (z≤n _) (z≤n .zero) = refl zero ≤-anti-sym (sn≤sm p) (sn≤sm q) = ap suc (≤-anti-sym p q) Defining an ordering Combining these three properties together we form what is a partial order on a set. A partial order on a set is a relation that is reflexive, transitive and anti-symmetric. We usually shorten partial order to poset. To combine these conditions into one we require that data Poset (A : Type) (_f_ : A → A → Type) : Set₁ where poset-axioms : (re : reflexive _f_) → (tr : transitive _f_) → (as : anti-symmetric _f_) → Poset A (_f_) For example, the natural numbers with \(\leq\) as we have defined is a poset. We use our earlier proofs to show that \(\leq\) satisfies the required properties. ℕ-≤-poset : Poset ℕ (_≤_) ℕ-≤-poset = poset-axioms ≤-refl ≤-trans ≤-anti-sym End Notes This has been quite a short post, but hopefully it was a worthwhile read (and hopefully it will spur me on to write some more in depth pieces). Thank you for reading and hopefully see you in another post soon!]]></summary></entry></feed>
+]]></content><author><name>Anna Williams</name></author><category term="agda" /><category term="domain-theory" /><category term="agda" /><category term="domain-theory" /><summary type="html"><![CDATA[Being honest I really didn’t know what to post first, so I just thought I might as well post something I’m currently trying to learn. After all, isn’t one of the best ways you can learn to teach it to others? In this post I look at formalising some very basic domain theory definitions, namely that of a partially ordered set (or poset for short). I do not claim this to be the best way, but it was the way that made sense to me as I was writing it. I have all the code in the page, but do not explain some of it as it is either self explanatory or can be explored elsewhere for a better explanation than mine. With that said, let’s jump in shall we? Basic Definitions Small note: Although Set is a type, as done in the module I take on Type Theory, I prefer to alias it to Type for clarity of reading. Type = Set Before we jump into any of the mathematics, we first have to define some types to allows us to define and reason about mathematics. We can do this using the standard library but I prefer to start from a clean slate. We define the natural numbers in the usual way, which serve as a nice example as we go through this post. data ℕ : Type where zero : ℕ suc : ℕ → ℕ We also define equality in the usual way, along with ap as a helper function. data _≡_ {A : Type} : A → A → Type where refl : (x : A) → x ≡ x ap : {A B : Type} {x y : A} (f : A → B) → x ≡ y → f x ≡ f y ap f (refl _) = refl (f _) Relations We first start by looking at the mathematical definition of a relation. A relation on a set \(X\) is a subset \(\sim \: \subseteq (X \times X)\). We write \(x \sim y\) to mean that \((x, y) \in \: \sim\). I omit defining this in Agda simply because a subset is a bit subtle to define and involves using the Fin type (while this looks to be a simple type, it is one that can be confusing to understand at first and is not the main focus of this post). Instead we define a relation as an inductive type, where we restrict the set to only the relations we want. To define the relation \(\leq\) for the natural numbers, we give two constructors: z≤n - this is the constructor that says any natural number, \(n\), satisfies \(0 \leq n\). sn&lt;sm - this is the constructor that says if we have a pair of natural numbers \(n, m\) satisfying \(n \leq m\), then we can also say that \(\text{suc}\: n ≤ \text{suc}\: m\), or equivalently \(n + 1 \leq m + 1\). data _≤_ : ℕ → ℕ → Type where z≤n : (n : ℕ) → zero ≤ n sn≤sm : {m n : ℕ} → (n ≤ m) → (suc n) ≤ (suc m) Properties of Relations There are some interesting properties of relations that often crop up, the ones we will focus on here are reflexivity, transitivity, and anti-symmetry. Reflexivity We call a relation, \(\sim\), on a set \(X\) reflexive, if for all \(x \in X\) we have \(x \sim x\). We can define this using a dependent type as follows. Our underlying set is A and our relation is R. We then use this definition to show that \(\leq\) is reflexive. reflexive : {A : Set} → (A → A → Type) → Type reflexive {A} (_R_) = (x : A) → x R x ≤-refl : reflexive (_≤_) ≤-refl zero = z≤n zero ≤-refl (suc n) = sn≤sm (≤-refl n) Transitivity We call a relation, \(\sim\), on a set \(X\) transitive, for all \(x, y, z \in X\) satisfying \(x \sim y\) and \(y \sim z\), we have \(x \sim z\). Similarly to the reflexivity case, we can define transitivity, however we make \(x, y\) and \(z\) here implicit so that then using this definition is more clear later on. This works in this case because the values can be inferred by the relations x R y and y R z. transitive : {A : Type} → (A → A → Type) → Type transitive {A} (_R_) = {x y z : A} → x R y → y R z → x R z ≤-trans : transitive (_≤_) ≤-trans (z≤n _) q = z≤n _ ≤-trans (sn≤sm p) (sn≤sm q) = sn≤sm (≤-trans p q) Anti-Symmetry We call a relation, \(\sim\), on a set \(X\) anti-symmetric, if for all \(x, y \in X\), we have that if \(x \sim y\) and \(y \sim x\), then \(x = y\). As with the other two cases, we define anti-symmetry, also making \(x\) and \(y\) implicit like in transitivity. We see the first use of ap here in the proof that \(\leq\) is symmetric, this allows us prove that x ≡ y to show that suc x ≡ suc y, which we can do using recursion. anti-symmetric : {A : Type} → (A → A → Type) → Type anti-symmetric {A} (_R_) = {x y : A} → x R y → y R x → x ≡ y ≤-anti-sym : anti-symmetric (_≤_) ≤-anti-sym (z≤n _) (z≤n .zero) = refl zero ≤-anti-sym (sn≤sm p) (sn≤sm q) = ap suc (≤-anti-sym p q) Defining an ordering Combining these three properties together we form what is a partial order on a set. A partial order on a set is a relation that is reflexive, transitive and anti-symmetric. We usually shorten partial order to poset. To combine these conditions into one we require that data Poset (A : Type) (_f_ : A → A → Type) : Set₁ where poset-axioms : (re : reflexive _f_) → (tr : transitive _f_) → (as : anti-symmetric _f_) → Poset A (_f_) For example, the natural numbers with \(\leq\) as we have defined is a poset. We use our earlier proofs to show that \(\leq\) satisfies the required properties. ℕ-≤-poset : Poset ℕ (_≤_) ℕ-≤-poset = poset-axioms ≤-refl ≤-trans ≤-anti-sym End Notes This has been quite a short post, but hopefully it was a worthwhile read (and hopefully it will spur me on to write some more in depth pieces). Thank you for reading and hopefully see you in another post soon!]]></summary></entry></feed>
