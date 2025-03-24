@@ -5,7 +5,7 @@ permalink: /media/
 menu: main
 ---
 
-I will list my (very uninformed) opinions on current media I am currently interacting with (Last updated 16/03/25).
+I will list my (very uninformed) opinions on current media I am currently interacting with (Last updated 24/03/25).
 
 ## Literature
 
@@ -37,17 +37,15 @@ A textbook on basics of Category Theory, one which is supposedly an easier read 
 
 ### Song of the Week
 
-This week has been a bit of a throwback in terms of music. This was mainly due to the fantastic cover of [Head Over Heels](https://open.spotify.com/track/2w7MvUzOvRXZCjFEV7tahC?si=a4afe3c1ab994831) by She's in Parties. They have put their lovely ethereal touch on the song, with synths over the original piano. I really love the touch of the lead singers voice - it feels much less talk-y than the original and the song feels overall more smooth.
+Apologies all for the delayed song of the week - I literally did not sleep yesterday (see: https://devpost.com/software/floorplan) so I hope you can appreciate the situation.
 
-This song caused me to remember a cover of [Careless Whisper](https://open.spotify.com/track/0cvW31FIK6B3mUqWLUHorv?si=0e3864cf7d784b54) by Chicago band Brigitte Calls Me Baby. The band themselves feel really nostalgic of the 80s vibes and I cannot recommend their self written songs enough. I originally discovered them on YouTube through a recording of one of their shows in Minneapolis and it is just incredible (see: [here](https://youtu.be/H_OC1Po62Rs?si=XU4pjvf7Y6QemMks)). The singer has such a smooth voice and one that really fits the retro theme of their music.
+Earlier this week I rediscovered the youtube channel of the independent music house State 51 conspiracy. They host small bands and upload recordings of their performances, really cool stuff right? Anyway, I got to watching a lot of the recent stuff, the main highlight being [Getdown Services](https://youtu.be/6HwclLOAe5Y?si=kODPtXeOXtH5pIFi) - the remix of Dancing Queen is quite something! All this reminded me of one of the craziest recordings I had seen - that being of [Tapir!](https://youtu.be/6cNaMVvBrXA?si=cTqwmglQ3sz2Dml6), the set features not only costume theming and set design, but a whole ass set of dancers, so much effort. The first song "Act 1 (The Pilgrim)" is so playful and light one of my favourite parts is just how satisfying and carefree the whistling sounds. The song of the week comes from the album that this song belongs to "The Pilgrim, Their God and The King of My Decrepit Mountain" an interesting mish mash of many different sounds. Cello, trumpet, guitar, drums, keyboard and chorus mix together to make beautiful and truly unique songs. The song of the week plays on Erik Satie's Gymnopédies, one of my favourite classical songs, taking some of the melodies, but also fleshing it out into it's own thing entirely. It's a really interesting take on the song and I cannot recommend it enough.
 
-Before we get to the song of the week, I figured I would mention a song that I have been loving (albeit one that doesn't really fit the theme that seems to have sort of shown up). This is [Photo Day](https://open.spotify.com/track/33xc1xV00ATu5B7yU6TLm1?si=592c4c7835d640fc), the first song in Keg's debut album. This came quite a surprise to me, but it was more than welcome and I have thoroughly enjoyed all the songs on this album. I think this song stood out to me so much because of the quiet, almost solemn, trumpet which slowly builds up with guitars joining in slowly up and up until you are left with a sort of fuzzy sound. This breaks through to Keg's signature cacophony of loud trumpet, guitar and spoken word lyrics. As usual with Keg the lyrics are part of some strange story (see: Kids, Michael Phelps), but I think this song has a nice mix of their classic sound and some more optimistic, light sound, particularly with more soft trumpet mixed into the more heavy.
-
-Recently I saw that the lead singer of Soda Blonde, Faye, sang with David Bowie's band in an orchestra type set up and one of the songs she sang was "Five Years", the smallest snippet of this reminded me of just how great and album this came from. I cannot fault a single song in the nearly 40 minutes playtime and why should I? The album is considered a classic and it really has stood the test of time. From "Starman" to "Ziggy Stardust" and "Moonage Daydream" the songs just hit every time. For this week I chose the song that reminded me of the album "Five Years". I really love the storytelling over the whole album and this song sets the scene so well. Earth has used up all of its resources and will be destroyed in five years (feels somewhat relevant eh?). It's quite a melancholy song, but it's dramatic and actually quite beautiful in of itself.
+Aside from this I've been enjoying Divorce's debut album "Drive to Goldenhammer", an album that I regret not mentioning in previews weeks. From "Jet Show" to "Hangman" to and finally to "Mercy", this album really does not miss. I'm so so impressed with the quality that this band puts out and really can't wait to see what they put out next. My favourite song from the album is [Old Broken String](https://open.spotify.com/track/106QxLbImPeGaatF3TecJf?si=1ac9d5f87ec840ff), when I first listened to it I was eating breakfast and idly staring out the window. The song has a slow drum beat and strings, with a beautiful duet and in this first listen just felt like it just enveloped me inside of it.
 
 The track of the week:
 
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1JIzFhI9Lt5FyslawmHCBi?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2nG9BddUCV1MsPnmQ5U00f?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
 To see an archive of the songs I have previously added, see here:
 
