@@ -1,0 +1,828 @@
+\documentclass[12pt, a4paper]{article}
+\input{preamble.tex}
+
+\title{Category Theory and the \(\lambda\)-Calculus}
+\author{Anna Williams - 2404375}
+\date{}
+
+\addbibresource{bibliography.bib}
+
+% Some notation conventions
+% Styling:
+% - Categories denoted by bold font name
+% - Important parts of definitions are using emph
+
+% Naming:
+% - Categories consist of objects and morphisms
+% - The objects of a category are denoted by obj(C) and are upper-case letters
+% - Morphisms of a category are lower-case letters, typically starting at f, g, ...
+% - We will denote initial objects 0 and terminal objects 1
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+Proof assistants are computer programs which can be used to prove mathematical theorems. They are particularly interesting because they link theory from mathematics and computer science together, namely that of category theory and type theory. One famous example of the use of proof assistants was the proof of the Four Colour Theorem by Georges Gonthier using the proof assistant Coq. The initial proof by Appel and Haken was quite controversial as it involved a large number of computer verified cases. These were difficult to verify and hard to trust due to the nature of programming being error prone \autocite{Gonthier}. The new proof by Gonthier used similar methods to Appel and Haken, but instead used Coq for the proof; this proof was more widely accepted as only the core of the program had to be trusted in order to trust the whole proof.
+
+In this project we will explore some of the theory behind proof assistants, in particular category theory and type theory through the lens of the simply typed \(\lambda\)-calculus, a model of computation. At the end of the paper we combine these and study the category of the simply type \(\lambda\)-calculus.
+
+\section{Key Ideas in this Project}
+
+In this section we look at sets along with set functions in order to illustrate some of key concepts of category theory.
+
+\subsection{\Universal{} Property}
+
+One common idea in category theory is that of a \universal{} property. The idea of this is that we can show properties of `objects' (things we want to study) based upon relations between them. For example, if we consider the Cartesian product in sets, the common set-theoretic definition is as given below.
+
+\begin{definition}
+	Let \(A, B\) be sets, then the \emph{Cartesian product}, denoted \(A \times B\) is defined as 
+	\[
+		A \times B = \{(a, b) \mid a \in A, b \in B\}.
+	\] 
+	We let \(\pi_1\) and \(\pi_2\) denote the projections defined by
+	\[
+		\genfrac{}{}{0pt}{0}{\pi_1 : A \times B \to A}{\pi_1(a, b) \mapsto a} \quad \genfrac{}{}{0pt}{0}{\pi_2 : A \times B \to B}{\pi_2(a, b) \mapsto b}
+	\] 
+\end{definition}
+ 
+\noindent However, we can instead define this property based upon relations between sets. This is done using the following definition.
+
+\begin{definition} \label{productset}
+	Let \(\pi_1 : A \times B \to A\) and \(\pi_2 : A \times B \to B\). Then for every set, \(C\), for which there exists \(f : C \to A\) and \(g : C \to B\), there exists a unique \(u : C \to A \times B\) such that \(\pi_1 \circ u = f\) and \(\pi_2 \circ u = g\).
+\end{definition}
+
+\begin{note}
+	We can define this \(u\) for sets by \(u(x) = (f(x), g(x))\).
+\end{note}
+
+\subsection{Commutative Diagrams}
+
+One other important idea in Category Theory is that of a commutative diagrams.
+
+\begin{definition}
+	A diagram \highlight{commutes} if for any path from set \(A\) to \(B\) composing the functions on the labels gives equal functions. For example, the following diagram is said to commute if \(g \circ f = f' \circ g'\).
+	\vspace{-0.5cm}
+	\begin{figure}[H]
+		\centering
+		\tikz\graph[quick]{
+			"A"/"$A$" ->["$f$"] "B"/"$B$"[x=2] -> ["$g$"] "D"/"$D$"[x=2, y=-2];
+			"A" ->["$g'$"'] "C"/"$C$"[y=-2] -> ["$f'$"'] "D";
+		};
+		\caption{A commutative square}
+        \label{fig:square}
+	\end{figure}
+\end{definition}
+
+These are of particular interest because they give us a method of proof that is more clear than typical reasoning. For example, if we wanted to show that \(g \circ f = f' \circ g'\), then proving that Figure \ref{fig:square} commutes and exactly gives the proof.
+
+\section{Category Theory}
+
+\subsection{Categories}
+
+\begin{definition}
+	A \highlight{category}, denoted \(\cat{C}\), consists of
+	\begin{enumerate}[(i)]
+		\item
+			a collection of \highlight{objects}, denoted \(\obj\cat{C}\),
+		\item
+			a collection of \highlight{morphisms}, denoted \(\mor\cat{C}\), which have a domain and codomain in \(\obj\cat{C}\). Additionally, if \(f\) has domain \(A\) and codomain \(B\), then we write \(f : A \to B\),
+		\item
+			a composition operation, \(\circ\), such that for morphisms \(f, g \in \mor\cat{C}\) satisfying \(\dom f = \cod g\), \(f \circ g\) is a morphism from \(\dom g\) to \(\cod f\), and
+		\item
+			an identity morphism for every object \(A \in \obj\cat{C}\), denoted \(1_A : A \to A\).
+	\end{enumerate}
+
+	\noindent Where we require the following axioms hold:
+
+	\begin{description}
+		\item[(Associativity)]
+			Let \(A, B, C, D \in \obj\cat{C}\) and \(f : C \to D, g : B \to C, h : A \to B \in \mor\cat{C}\). \\ \noindent Then			
+			\[
+				f \circ (g \circ h) = (f \circ g) \circ h.
+			\] 
+		\item[(Identity)]
+			Let \(A, B \in \obj{\cat{C}}\) and \(f : A \to B \in \mor{\cat{C}}\). Then
+			\[
+				f \circ 1_A = f = 1_B \circ f.
+			\] 
+	\end{description}
+\end{definition}
+
+\begin{notation}
+	We typically use upper-case letters \(A, B, C, \dots\) to denote objects and use lower-case letter \(f, g, h, \dots\) to denote morphisms.
+\end{notation}
+
+\begin{figure*}[t!]
+	\centering
+	\begin{subfigure}[t]{0.4\textwidth}
+		\centering
+		\tikz\graph[quick]{
+			"A"/"$A$" ->["$h$"] "B"/"$B$"[x=2];
+			"C"/"$C$"[x=2, y=-2] ->["$f$"'] "D"/"$D$"[x=4, y=-2];
+			"B" ->["$g$"] "C";
+			"A" ->["$g \circ h$"'] "C";
+			"B" ->["$f \circ g$"] "D";
+		}; 
+		\caption{Associativity axiom}\label{fig:assoc}
+	\end{subfigure}%
+	~
+	\begin{subfigure}[t]{0.4\textwidth}
+		\centering
+		\tikz\graph[quick]{
+			"A1"/"$A$" ->["$1_A$"] "A2"/"$A$"[x=2];
+			"B1"/"$B$"[x=2, y=-2] ->["$1_B$"'] "B2"/"$B$"[x=4, y=-2];
+			"A1" ->["$f$"'] "B1";
+			"A2" ->["$f$"] "B1";
+			"A2" ->["$f$"] "B2";
+		};
+		\caption{Identity axiom}\label{fig:identity}
+	\end{subfigure}
+	\caption{Commutative Diagrams for the Axioms of a Category}
+\end{figure*}
+
+\pagebreak
+
+\noindent We can express the axioms using commutative diagrams \autocite{Asperti}. As Figure \ref{fig:assoc} commutes, we can see that \((f \circ g) \circ h\) is equivalent to \(f \circ (g \circ h)\). This is exactly the axiom of associativity. The axiom of identity is shown in Figure \ref{fig:identity} similarly.
+
+\begin{examples}\(\,\)
+	\begin{enumerate}[(i)]
+		\item
+			One simple example would be the category on one object, \(A\)
+			\begin{figure}[H]
+				\centering
+				\tikz\graph[quick]{
+					"A" --["$1_A$", loop above] "A";
+				};
+			\end{figure}
+
+		\item
+			A more concrete example is the category \(\cat{Set}\), for which all objects are sets and morphisms are functions between sets.
+		\item
+			Another example is the category \(\cat{Vec}\), for which all objects are vector spaces and morphisms are linear transformations.
+	\end{enumerate}
+\end{examples}
+
+\begin{definition}
+    Let \(\cat{C}\) be a category, then we define the \highlight{dual} of \(\cat{C}\), denoted \(\cat{C}^{\op}\), by the operation of reversing all morphisms. More formally, for every morphism \(f : A \to B\) in \(\cat{C}\) there exists a corresponding dual morphism \(\bar{f} : \bar{B} \to \bar{A}\) in \(\cat{C}^{\op}\), where \(\bar{A}, \bar{B}\) in \(\cat{C}^{\op}\) correspond to the objects \(A, B\).
+\end{definition}
+
+\begin{example}
+    Define the category \(\cat{C}\) with \(\obj\cat{C} = \{A, B, C\}\) and \(\mor\cat{C} = \{f, g, h\}\), where \(f : A \to B\), \(g : A \to C\) and \(h : B \to C\). We can then form the dual as shown in Figure \ref{fig:opdiagram} (we omit the identity morphisms from the diagram for clarity).
+	\begin{figure}[H]
+		\centering
+        \begin{subfigure}[t]{0.4\textwidth}
+            \centering
+            \tikz\graph[quick]{
+                "A"/"$A$" ->["$f$"] "B"/"$B$"[x=2];
+                "A" ->["$g$"'] "C"/"$C$"[x=2, y=-2];
+                "B" ->["$h$"] "C";
+            };
+            \caption{The unmodified category}
+	    \end{subfigure}%
+		~
+        \begin{subfigure}[t]{0.4\textwidth}
+            \centering
+            \tikz\graph[quick]{
+                "A"/"$\bar{A}$" <-["$\bar{f}$"] "B"/"$\bar{B}$"[x=2];
+                "A" <-["$\bar{g}$"'] "C"/"$\bar{C}$"[x=2, y=-2];
+                "B" <-["$\bar{h}$"] "C";
+            };
+            
+            \caption{The opposite category}
+	    \end{subfigure}	
+        \caption{A pair of diagrams showing a category and its dual}
+        \label{fig:opdiagram}
+	\end{figure}
+\end{example}
+
+\pagebreak
+
+\begin{definition}[\cite{Crole}]
+	Let \(\cat{C}\) and \(\cat{D}\) be categories, then a \highlight{functor}, \(F : \cat{C} \to \cat{D}\) is a pair of maps
+	\begin{enumerate}[(i)]
+		\item
+			\(F_\obj : \obj\cat{C} \to \obj\cat{D}\), and
+		\item
+			\(F_\mor : \mor\cat{C} \to \mor\cat{D}\) (we write \(F f\) to mean the morphism given by \(F_\mor (f)\), where \(f \in \mor\cat{C}\)).
+	\end{enumerate}
+
+    We denote by \(F f\), \(F_\mor f\) and by \(F A\), \(F_\obj A\).
+
+	\noindent These maps are such that for any morphisms \(f : B \to C, g : A \to B \in \mor\cat{C}\) we have that
+			\begin{enumerate}[(a)]
+				\item
+					\(F f\) is a morphism from \(F B\) to \(F C\), that is \(F f : F B \to F C\),
+				\item
+					\(F (f \circ g) = (F f) \circ (F g)\), and
+				\item
+					\(F(1_A) = 1_{F A}\).
+			\end{enumerate}
+\end{definition}
+
+\begin{examples}\(\,\)
+	\begin{itemize}
+		\item
+			One simple functor is the inclusion functor. This includes a smaller category into a larger one. For example we could have the category with one object, the set of natural numbers, and map it to the category \(\cat{Set}\).
+		\item
+            Now that we have the idea of a functor, we can define the category \(\cat{Cat}\), the category of categories, where objects are categories and morphisms are functors. We can use this category to define an interesting example of a functor, this being \(F : \cat{Cat} \to \cat{Gph}\), where \(\cat{Gph}\) denotes the category of digraphs. This functor takes a category to its underlying digraph, where vertices are mapped to objects and edges are mapped to morphisms between objects.
+		\item
+			Another example is the forgetful functor that `forgets' the structure of objects contained within it. For example if we have the category \(\cat{Grp}\) whose objects are groups and morphisms are group homomorphisms, then the forgetful functor maps each group to a set and each homomorphism to a mapping.
+	\end{itemize}
+\end{examples}
+
+\subsection{Morphisms}
+
+To introduce properties of morphisms, we first understand some properties of functions on sets. Which will help in the understanding of their categorical generalisations.
+
+\subsubsection{Properties of Functions}
+
+\begin{proposition}
+	Let \(A, B\) be sets and \(f\) be a function \(f : A \to B\). Then \(f\) is injective if and only if for all \(g, h : C \to A\)
+	\[
+		f \circ g = f \circ h \implies g = h.
+	\] 
+\end{proposition}
+
+\begin{proof} \(\,\)
+
+	\noindent (\(\implies\)) Let \(f\) be injective, we have for all \(c \in C\) that
+	\[
+		f \circ g (c) = f \circ h (c) \implies f(g(c)) = f(h(c)).
+	\] 
+	Then by definition of injectivity for \(f\),
+	\[
+		g(c) = h(c)
+	\] 
+	for all \(c \in C\). Therefore \(g = h\) as required.
+
+	\noindent (\(\impliedby\)) Let \(f \circ g = f \circ h \implies g = h\) for all \(g, h : C \to A\). Choose \(g, h\) surjective with \(f \circ g = f \circ h\). Then for all \(c \in C\),
+	\[
+		f(g(c)) = f(h(c)) \implies f \circ g (c) = f \circ h (c) \implies g(c) = h(c).
+	\]
+
+	As \(g, h\) surjective, \(g(C) = A\) and thus we have that \(f\) is injective as \(f(a) = f(b) \implies a = b\) for all \(a, b \in A\).
+\end{proof}
+
+\begin{proposition}
+	Let \(A, B\) be sets and \(f : A \to B\) be a function. Then \(f\) is surjective if and only if 
+	\[
+		g \circ f = h \circ f \implies g = h.
+	\]
+\end{proposition}
+
+\begin{proof} \(\,\)
+
+	\noindent (\(\implies\)) Let \(f\) be surjective, then given that \(g \circ f = h \circ f\)
+	\[
+		g \circ f (a) = h \circ f (a)
+	\] 
+	 for all \(a \in A\). As \(f\) is surjective \(f(A) = B\), so we have that
+	\[
+		g (b) = h(b)
+	\] 
+	for all \(b \in B\). Therefore \(g = h\)	as required.
+
+	\noindent (\(\impliedby\)) Let \(g \circ f = h \circ f \implies g = h\), then define \(g\) and \(h\) by the following
+	\[
+		g(x) = \begin{cases} 1 \text{ if } x \in \im(f) \\ 0 \text{ otherwise}\end{cases}
+	\]
+	\[
+		h(x) = 1
+	\] 
+	We then have that \(g \circ f = h \circ f \implies g = h\), that is that \(g(x) = 1 = h(x)\). Thus \(\im(f) = B\), so \(f\) is surjective as required.
+\end{proof}
+
+In this definition, we bring about the idea of monomorphisms and epimorphisms, which correspond to injective and surjective functions respectively.
+
+\begin{definition}
+	Let \(\cat{C}\) be a category and \(f : A \to B\) be a morphism in \(\mor\cat{C}\). Then we say that
+	\begin{itemize}
+		\item		
+			\(f\) is a \highlight{monomorphism} if and only if
+			\[
+				f \circ g = f \circ h \implies g = h
+			\]
+			for all morphisms \(g, h : C \to A\), and
+		\item
+			\(f\) is an \highlight{epimorphism} if and only if
+			\[
+				g \circ f = h \circ f \implies g = h
+			\] 
+			for all morphisms \(g, h : B \to C\).
+	\end{itemize}
+\end{definition}
+
+\begin{definition}
+	We call \(f : A \to B\) an \highlight{isomorphism} if and only if there exists some morphism \(g : B \to A\) such that
+	\[
+		g \circ f = 1_A \text{ and } f \circ g = 1_B
+	\] 
+\end{definition}
+
+\pagebreak
+
+\begin{proposition}
+	An isomorphism is both a monomorphism and an epimorphism.
+\end{proposition}
+
+\begin{proof}
+	Let \(f : A \to B\) be an isomorphism, where \(g : B \to A\) is such that \(g \circ f = 1_A\) and \(f \circ g = 1_B\). Then notice that for \(h, h' : C \to A\) such that \(f \circ h = f \circ h'\), we have that
+	\begin{align*}
+		f \circ h &= f \circ h' \\
+		g \circ f \circ h &= g \circ f \circ h' \\
+		1_A \circ h &= 1_A \circ h' \\
+		h &= h'
+	\end{align*}
+	that is, \(f\) is a monomorphism. Similarly for \(m, m' : B \to C\), if \(m \circ f = m' \circ f\) then
+	\begin{align*}
+		m \circ f &= m' \circ f \\
+		m \circ f \circ g &= m' \circ f \circ g \\
+		m \circ 1_B &= m' \circ 1_B \\
+		m &= m'
+	\end{align*}
+	that is, \(f\) is an epimorphism. Therefore \(f\) is both a monomorphism and an epimorphism as required.
+\end{proof}
+
+\begin{remark}
+	The reverse implication is true in \(\cat{Set}\) (this is because monomorphisms are exactly injective functions and epimorphisms are surjective functions \autocite{Awodey}), but this is not true in general.
+\end{remark}
+
+\subsection{Initial and Terminal Objects}
+
+In sets, the empty set and singleton sets have unique properties. The empty set is defined by the property that there is only one function from the empty set to every other set. The singleton set is defined by the property that there is one function from every set to the singleton set. It is these properties that give us \universal{} properties for initial and terminal objects.
+
+\begin{proposition}
+	The property that there is a single function from the empty set defines the empty set uniquely.
+\end{proposition}
+
+\begin{proof}
+	The proof, with ideas from \citet{Walters} is as follows. Assume that there is some other set with this property \(Z\). Then there exists two functions from \(Z\), \(1_Z : Z \to Z\) and \(\alpha : Z \to \emptyset\) and two functions from the empty set \(1_\emptyset : \emptyset \to \emptyset\) and \(\beta : \emptyset \to Z\). We thus have
+	\[
+		\alpha \circ \beta : Z \to Z \text{ and } \beta \circ \alpha : \emptyset \to \emptyset.
+	\] 
+	As the functions \(1_Z\) and \(1_\emptyset\) are unique, we must have that
+	\[
+		\alpha \circ \beta = 1_Z \text{ and } \beta \circ \alpha = 1_\emptyset.
+	\] 
+	Therefore \(Z = \emptyset\) as required.
+\end{proof}
+
+\begin{note}
+	The proof for the defining property of the singleton set is similar, though note that each set with the property is not equal, but isomorphic.
+\end{note}
+
+\pagebreak
+
+\begin{definition}
+	Let \(\cat{C}\) be a category. Then
+	\begin{itemize}
+		\item
+			an \highlight{initial} object, denoted \(0\), in \(\cat{C}\) is the object for which there is a unique morphism \(f : 0 \to A\) to every object \(A \in \obj\cat{C}\) and
+		\item
+			a \highlight{terminal} object, denoted \(1\), in \(\cat{C}\) is the object for which every object, \(A\), has a unique morphism, denoted \(! : A \to 1\).
+	\end{itemize}
+\end{definition}
+
+\begin{note}
+	Terminal and initial objects need not exist in categories.
+\end{note}
+
+\begin{examples} \(\,\)
+	\begin{itemize}
+		\item
+			One example, as we have seen, is that of the empty set and the singleton set for \(\cat{Set}\).
+		\item
+			In the category \(\cat{Grp}\) of groups, the trivial group is both an initial and a terminal object. It is initial because the single element in the trivial group is the identity, so it must therefore map to the identity in any other group, making this morphism unique for each group. It is terminal because it has one element, so there is only one map to it.
+	\end{itemize}
+\end{examples}
+
+\section{Cartesian Closed Categories}
+
+In this section we look at how the ideas of Cartesian product and functions on sets present themselves in a categorical form. We use this to define the product of objects and the exponential of objects respectively.
+
+\subsection{Products}
+
+In sets we have the idea of a Cartesian product and as explained in the introduction (Definition \ref{productset}), there is a \universal{} property which models this. It is this property which is used to expand the idea into category theory.
+
+\begin{definition}
+	The \highlight{categorical product of objects} \(A, B\) is the object \(A \times B\) with morphisms \(\pi_1 : A \times B \to A\) and \(\pi_2 : A \times B \to B\) such that for any object \(C\) with morphisms \(f : C \to A\) and \(g : C \to B\) there exists a unique morphism \(u : C \to A \times B\) such that \(\pi_1 \circ u = f\) and \(\pi_2 \circ u = g\). That is, the following diagram commutes:
+
+	\begin{figure}[H]
+		\centering
+
+		\tikz\graph[quick]{
+			"C"/"$C$" ->["$u$"] "AB"/"$A\times B$"[y=-2];
+			"C" ->["$f$"'] "A"/"$A$"[x=-2, y=-2];
+			"C" ->["$g$"] "B"/"$B$"[x=2, y=-2];
+			"AB" ->["$\pi_1$"] "A";
+			"AB" ->["$\pi_2$"'] "B";
+		};
+	\end{figure}
+\end{definition}
+
+\begin{definition}[\cite{Asperti}]
+	A Cartesian Category (CC) is a category which has
+	\begin{enumerate}[(i)]
+		\item
+			a terminal object, and
+		\item
+			a categorical product for each pair of objects.
+	\end{enumerate}
+\end{definition}
+
+\subsection{Exponentials}
+
+In set theory, we might want to look at encoding functions into sets. Following Awodey (\citeyear{Awodey}) consider the value of the function \(f : A \times B \to C\) at \((x , y)\)
+\[
+	f(x, y) : C.
+\]
+Let us fix some value \(a \in A\) and let \(y \in B\) vary then
+\[
+	f(a, y) : B \to C.
+\] 
+Introducing the notation \(C^{B}\) to be the set of functions \(B \to C\), we have that \(f(a, y) \in C^{B}\). Letting \(a \in A\) vary, we can then define some function \(\tilde{f} : A \to C^{B}\), where \(a \mapsto f(a, y)\). We call the function that gives such a corresponding function in general \(\Lambda\). That is, \(\Lambda(f) = \tilde{f}\). If we want to obtain \(f\) from \(\Lambda(f)\), we can do the following.
+\[
+	f(a, b) = \Lambda(f)(a)(b)
+\]
+
+\noindent We can therefore see the correspondence between functions on \(A \times B \to C\) and \(A \to C^{B}\). This property is that of \highlight{currying}. Using this and an evaluation function \(\eval\), we can define the \universal{} property of exponentials for sets.
+
+\begin{definition}
+    For any set \(A\) and functions \(\Lambda : (C \times A \to B) \to (C \to B^{A})\), \(f : A \times B \to C\), and \(\eval : B^{A} \times A \to B\), we have that
+    \[
+        \eval \circ (\Lambda(f) \times 1_B) = f
+    \] 
+    or equivalently
+    \[
+        \eval(\Lambda(f)(a), b) = f(a, b).
+    \] 
+\end{definition}
+
+Using this property we can describe the idea of an exponential, which encodes morphisms of a category in objects as follows.
+
+\begin{definition}[\cite{Asperti}]
+	The \emph{exponent} of objects \(A\) and \(B\) is the object \(B^{A}\) along with maps \(\epsilon : B^{A} \times A \to B\), called the evaluation map, and \(\Lambda : (A \times B \to C) \to (A \to C^{B})\). Such that
+
+	\begin{enumerate}[i)]
+		\item
+			\(\epsilon(\Lambda(f) \times 1_B) = f\)
+		\item
+			\(\Lambda (\epsilon (h \times 1_A)) = h\)
+	\end{enumerate}
+
+	We can express these properties using the following commutative diagram.
+	\begin{figure}[H]	
+		\centering
+		\tikz\graph[quick]{
+			"C"/"$C$"[y=-3] ->["$\Lambda(f)$"] "BA"/"$B^{A}$";
+
+			"C2"/"$C$"[y=-3, x=3] ->["$\Lambda(f) \times 1_C$"] "BAA"/"$B^{A} \times A$"[x=3] ->["$\epsilon_{A, B}$"] "B"/"$B$"[x=6];
+			"C2" ->["$f$"'] "B";	
+		};
+	\end{figure}
+\end{definition}
+
+\begin{definition}[\cite{Asperti}]
+	A category \(\cat{C}\) is a Cartesian Closed Category (CCC) if
+	\begin{enumerate}[(i)]
+		\item
+			\(\cat{C}\) is Cartesian, and
+		\item
+			every pair of objects has an exponent.
+	\end{enumerate}
+\end{definition}
+
+\section{The Simply Typed \(\lambda\)-Calculus}
+
+The simply typed \(\lambda\)-calculus is a language (set of strings) used to model computation. It consists of function definitions, function applications, variables and pairs. In this section we describe the language which represents the simply typed \(\lambda\)-calculus and explore the corresponding category. The highpoint we reach is that the category of the simply typed \(\lambda\)-calculus is in fact a Cartesian closed category.
+
+\iffalse
+\subsection{Context Free Grammars}
+
+A context free grammar (CFG) is a tool which is used to describe how expressions in a given language (a set of strings of symbols) can be constructed. Each grammar consists of:
+\begin{itemize}
+	\item
+		\highlight{non-terminals} - an intermediary symbol used to show that part of an expression has not been fully expanded,
+	\item
+		\highlight{terminals} - a symbol that cannot be expanded further,
+	\item
+		\highlight{rules} - this describes the set of expressions that a non-terminal can be expanded to,
+	\item
+		\highlight{a start symbol} - the non-terminal which we begin with to expand and form our expression (typically denoted by an arrow pointing to it).
+\end{itemize}
+
+\begin{example}
+	To help develop an understanding of how CFGs work we explore a grammar which describes algebraic expressions involving natural numbers and addition. To define the grammar we give the rules for each non terminal, where each expansion is split by the symbol \(\mid\), as follows:
+	\begin{align*}
+		\to T &::= T + T \mid (T) \mid N \\
+		N &::= 1 \mid 2 \mid 3 \mid \dots
+	\end{align*}
+
+	The first line \(T ::= T + T \mid (T) \mid N\), means that the non-terminal \(T\) can be expanded to \(T + T\), \((T)\) or \(N\). The second line \(N ::= 1 \mid 2 \mid 3 \mid \dots\), means that \(N\) can be expanded into any natural number. 
+
+	The set of terminals here are the symbols \(\{+, (, ), 1, 2, 3, \dots\}\), these cannot be expanded. We define the start symbol to be \(T\).
+
+	To show how expansion works we construct the algebraic expression `\((1 + 2)\)'. At each step we show the rule used on the LHS, the current expression on the RHS and put a dot on the non-terminal being expanded.
+	\begin{figure}[H]
+		\centering
+		\begin{tabular}{c|c}
+			start symbol & \(\dot{T}\) \\
+			\(T = (T)\) & \((\dot{T})\) \\
+			\(T = T + T\) & \((\dot{T} + T)\) \\
+			\(T = N\) & \((\dot{N} + T)\) \\
+			\(N = 1\) & \((1 + \dot{T})\) \\
+			\(T = N\) & \((1 + \dot{N})\) \\
+			\(N = 2\) & \((1 + 2)\)
+		\end{tabular}	
+	\end{figure}
+
+	The end expression \((1 + 2)\) contains no non-terminals, so it is fully expanded and therefore a valid expression described by the grammar.
+\end{example}
+
+\subsubsection{Types}
+
+A type is a collection of items which typically fit a certain set of properties. For example we could have the type `natural number' or the type `boolean' (a true or false value). These are very useful in computer science because they describe the inputs on which a function will work and what kind of output they give.
+
+\begin{align*}
+	T &::= A \mid T \times T \mid T \to T \\
+	\to M &::= \lambda x . M \mid M M \mid x \mid \langle M , M\rangle \mid \fst M \mid \snd M
+\end{align*}
+
+
+\fi
+
+\subsection{Describing the Language}
+
+We give the language recursively by showing the different possible ways that a term can be written, as well as its intended computational meaning which we make precise later. An \(M\) represents a term that is in the language.
+
+\begin{itemize}
+	\item
+		\(\lambda x . M\) - an abstraction, this defines a function with input \(x\) and that is taken into \(M\),
+	\item
+	    \(M\: M\) - an application, the right term applied to the left,
+	\item
+		A variable from the set of infinite variables,
+	\item
+		\(\langle M , M\rangle\) - a pair of terms,
+	\item
+		\(\fst M\) - represents the projection of the first element from a pair of terms,
+	\item
+		\(\snd M\) - represents the projection of the second element from a pair of terms.
+\end{itemize}
+
+\begin{examples}
+    We first look at some example term derivations to show how we can build up term.
+    \begin{itemize}
+        \item
+            If we look at the term \(\lambda x . \fst x\), we derive it in the following way:
+            \begin{figure}[H]
+                \centering
+                \begin{tabular}{c | c}
+                    Current Term & Step from previous term \\
+                    \hline
+                    M & The start term \\
+                    \(\lambda x . M \)& Expanding \(M\) to be a lambda abstraction\\
+                    \(\lambda x . \fst M \)& Expanding \(M\) to be \(\fst M\)\\
+                    \(\lambda x . \fst x \)& Expanding \(M\) to be a variable, \(x\)
+                \end{tabular}
+            \end{figure} 
+        \item
+            If we look at the term \(\langle y , z\rangle \), we derive it in the following way:
+            \begin{figure}[H]
+                \centering
+                \begin{tabular}{c | c}
+                    Current Term & Step from previous term \\
+                    \hline
+                    \(M\) & The start term\\
+                    \(\langle M , M\rangle\) & Expanding \(M\) to be a pair of terms\\
+                    \(\langle y , M\rangle\) & Expanding the first \(M\) to be a variable \(y\) \\
+                    \(\langle y , z\rangle\)  & Expanding the second \(M\) to be the variable \(z\)
+                \end{tabular}
+            \end{figure}
+    \end{itemize}
+\end{examples}
+
+\subsubsection{Types}
+
+When talking about computation, it is often useful to reason about the \emph{type} of a given function. A type is a collection of items which typically fit a certain set of properties. For example, the natural numbers can be added together or rational numbers can be divided, it is useful to distinguish these because division is not always defined on the natural numbers.
+
+To give the collection of types of terms, we introduce a set of ground types, which are the types we wish to study computation on. Then for any two types \(S, T\), we introduce the pair of types, \(S \times T\) which corresponds to the pair of terms of types \(S\) and \(T\) and the function type \(S \to T\), which corresponds to an abstraction term, where \(x\) is of type \(S\) and \(M\) is of type \(T\).
+
+\subsection{Semantics}
+
+Now that we have defined the language, we need some way to reason precisely about the meanings of terms. To do this we look at free variables, variable substitution, and term equivalences.
+
+\subsubsection{Free Variables}
+
+When talking about terms, we would like to know which variables are defined within the term, and those which aren't. The variables which are defined outside of the scope of a term are known as free variables (FV). We can derive the free variables of a term as follows.
+
+\begin{align*}
+	FV(x) &= \{x\} \\
+	FV(\langle N, M \rangle) &= FV(N) \cup FV(M) \\
+    FV(\fst M) &= FV(M) \\
+	FV(\snd M) &= FV(M) \\
+	FV(\lambda x.M) &= FV(M) \setminus \{x\} \\
+	FV(M N) &= FV(M) \cup FV(N)
+\end{align*}
+
+\begin{note}
+    Usually it is clear from context what the free variables are. For example the term \(\lambda x . y x\) has \(y\) as a free variable. However both for computational reasons and for clarity it is worth defining how free variables are derived. See that,
+    \begin{align*}
+        FV(\lambda x . y x) &= FV(yx) \setminus \{x\} \\
+                            &= FV(y) \cup FV(x) \setminus \{x\} \\
+                            &= \{y\} \cup \{x\} \setminus \{x\} \\
+                            &= \{y, x\} \setminus \{x\} \\
+                            &= \{y\}.
+    \end{align*}
+\end{note}
+
+\subsubsection{Computationally Equivalent Terms}
+
+When looking at terms of computation it seems natural to define what one step in this computation would be. We do this via a relation called ``beta reduction", the symbol \(\to_\beta\) denoting one step of beta reduction. The beta reductions are defined below
+
+\begin{itemize}
+    \item
+        \((\lambda x . M) N \to_{\beta} M\) with all occurrences of \(x\) replaced with the term \(N\) - this is the application rule, allowing us to apply an argument to a lambda term,
+    \item
+        \(\fst \langle M , N\rangle \to_\beta M\) - this projects the first term in a pair, and
+    \item
+        \(\snd \langle M , N\rangle \to_\beta N\) - this projects the second term in a pair.
+\end{itemize}
+
+We then give an equivalence based on whether two terms beta reduce, or compute, to the same value, the first three equivalences given by their beta reductions and the last two known as \(\eta\)-reductions.
+
+\begin{itemize}
+	\item
+		\((\lambda x . M) N = M\) with all occurrences of \(x\) replaced with the term \(N\)  - derived from the \(\beta\) reduction
+	\item
+		\(\fst \langle M, N\rangle = M\) - derived from the \(\beta\) reduction
+	\item
+		\(\snd \langle M, N\rangle = N\) - derived from the \(\beta\) reduction.
+	\item
+		\(\langle \fst M, \snd M\rangle = M\) - This rule allows us to simplify pairs
+	\item
+		\(\lambda x. Mx = M\) where \(x \notin FV(M)\) - This rule anticipates application
+\end{itemize}
+
+\section{Categorical Semantics}
+
+\subsection{Definition of the Category}
+
+\begin{definition}
+	We define the category of the simply typed \(\lambda\)-calculus to have objects be types and morphisms be lambda terms. We then define the identity morphism to be the lambda term \(\lambda x . x\) and the composition operation \(f \circ g\) to be the lambda term \(\lambda x . f (g x))\) \autocite{Awodey}.
+\end{definition}
+
+\noindent We now prove that this definition satisfies the axioms for a category.
+\begin{description}
+    \item[(Associativity)]
+        Let \(A, B, C, D\) be types and \(f : C \to D, g : B \to C, h : A \to B\) be lambda terms. Then we need to show that \(f \circ (g \circ h) = (f \circ g) \circ h)f \circ (g \circ h) = (f \circ g) \circ h)\).
+        \begin{align*}
+            f \circ (g \circ h) &= f \circ (\lambda x . g (h x)) \\
+                                &= \lambda y . f ((\lambda x . g (h x)) y) \\
+                                &= \lambda y . f (g (h y)) \\
+                                &= \lambda y . (\lambda x . f (g x)) (h y) \\
+                                &= (\lambda x . f (g x)) \circ h \\
+                                &= (f \circ g) \circ h
+        \end{align*}
+    \item[(Identity)]
+        Let \(A, B\) be types and \(f : A \to B\) be a lambda term, then we need to show that \(f \circ 1_A = f = 1_B \circ f\). Firstly, we show that \(f \circ 1_A = f\).
+            \begin{align*}
+                f \circ 1_A &= \lambda x . f (1_A x) \\
+                            &= \lambda x . f ((\lambda y . y) x) \\
+                            &= \lambda x . f x \\
+                            &= f
+            \end{align*}
+
+            \noindent Then we show that \(f = 1_B \circ f\).
+            \begin{align*}
+                f &= \lambda x . (f x) \\
+                  &= \lambda x . (\lambda y . y) (f x) \\
+                  &= \lambda x . 1_B (f x) \\
+                  &= 1_B \circ f	
+            \end{align*}
+\end{description}
+
+\noindent The morphisms and objects satisfy the axioms, therefore the category we have defined is valid.
+
+\subsection{Cartesian Property}
+
+The Cartesian property of a category encapsulates the idea of pairs being objects. We have a pair type for every two types and the pair of any two terms as a term, therefore it feels natural to say that the simply typed \(\lambda\)-calculus is in fact a Cartesian category. We prove this in the following proposition.
+
+\begin{proposition}
+
+	The category of the simply typed \(\lambda\)-calculus is a Cartesian category.
+\end{proposition}
+
+
+\begin{proof}
+	To show that a category is Cartesian, we have to show that every pair of a objects has a product and that the category has a terminal object.
+
+	For an object \(C\) with morphisms \(f : C \to A\) and \(g : C \to B\), we define the unique morphism \(c : C \to A \times B\) to be the lambda term \(c = \lambda x . \langle fx , gx\rangle\) and projections \(\pi_1 = \lambda x . \fst x\) and \(\pi_2 = \lambda x . \snd x\). It now suffices to show that \(\pi_1 \circ c = f\) and \(\pi_2 \circ c = g\) and prove uniqueness of this term.
+
+	We first show that \(\pi_1 \circ c = f\). By definition \(c \circ \pi_1\) is \(\lambda x . \pi_1\: c \: x\). We now show that this is equivalent to \(f\).
+	\begin{align*}
+		\lambda x . \pi_1 \: c \: x &= \lambda x . \pi_1 \: (\lambda y . \langle fy, gy \rangle \: x \\
+									&= \lambda x . \pi_1 (\langle fx, gx \rangle) \\
+									&= \lambda x . (\lambda z . \fst z) (\langle fx, gx\rangle \\
+									&= \lambda x . \fst \langle fx, gx\rangle \\ 
+									&= \lambda x . fx \\
+									&= f
+	\end{align*}
+	as required. We now show that \(\pi_2 \circ c = g\). By definition \(c \circ \pi_2\) is \(\lambda x . \pi_2 c x\). We now show that this is equivalent to \(g\).
+	\begin{align*}
+		\lambda x . \pi_2 c x &= \lambda x . \pi_2 (\lambda y. \langle fy, gy\rangle x \\
+							  &= \lambda x . \pi_2 \langle fx, gx\rangle \\
+							  &= \lambda x . (\lambda z . \snd z) \langle fx, gx\rangle \\
+							  &= \lambda x . \snd \langle fx, gx\rangle \\
+							  &= \lambda x . g x \\
+							  &= g
+	\end{align*}
+
+	To show that \(c\) is unique, assume there is some other function \(d\) with this property i.e. \(\pi_1 \circ d = f\) and \(\pi_2 \circ d = g\). Then
+	\begin{align*}
+		c &= \lambda x . \langle fx, gx\rangle \\
+		  &= \lambda x . \langle (\pi_1 \circ d) x, (\pi_2 \circ d) x\rangle \\
+		  &= \lambda x . \langle (\lambda y . \pi_1 (d y)) x, (\lambda z . \pi_2 (d z)) x \rangle \\
+		  &= \lambda x . \langle (\lambda y . (\lambda a . \fst a) (d y)) x, (\lambda z . (\lambda b . \snd b) (d z)) x\rangle \\
+		  &= \lambda x . \langle (\lambda y . \fst (d y)) x, (\lambda z . \snd (d y)) x \rangle \\
+		  &= \lambda x . \langle \fst (d x), \snd (d x)\rangle \\
+		  &= \lambda x . d x \\
+		  &= d
+	\end{align*}
+
+	We have shown that \(c\) is unique and satisfies the required properties therefore a product must exist between each pair of objects. The terminal object, denoted \(1\), is the type in the base types which has one element, therefore any morphism from an object \(A\) is necessarily unique as it maps all elements of \(A\) to the single element of \(1\).
+	
+\end{proof}
+
+\subsection{Cartesian Closed Property}
+
+The key idea of Cartesian closed categories is capturing not just pairs as objects, but also functions as objects. By definition for any two types we have the type of a function between them, therefore it seems reasonable that the category of the simply typed \(\lambda\)-calculus is in fact Cartesian closed. We prove this with the following proposition.
+
+\begin{proposition}
+	The category of the simply typed \(\lambda\)-calculus is a Cartesian closed category.
+\end{proposition}
+
+\begin{proof}
+	Following \citet{Awodey}, we define eval to be
+	\[
+		\epsilon := \lambda x. (\fst x)(\snd x)
+	\] 
+	and \(\Lambda\) to be
+	\[
+		\Lambda := \lambda a . \lambda z . \lambda x . a \langle z, x\rangle.
+	\] 
+
+	It then suffices to show that \(\epsilon \circ (\Lambda f \times 1_A) = f\) and also that \(\Lambda(\epsilon \circ (h \times 1_A)) = h\). We first prove that \(\epsilon \circ (\Lambda f \times 1_A) = f\).
+	\begin{align*}
+		\epsilon \circ (\Lambda(f) \times 1_A) &= \epsilon \circ [((\lambda a . \lambda z . \lambda x . a \langle z, x\rangle) f) \times (\lambda y . y)] \\
+											  &= \epsilon \circ [(\lambda z . \lambda x . f \langle z, x\rangle) \times (\lambda y . y)] \\
+											  &= \epsilon \circ [\lambda w . \langle \lambda z . \lambda x. f \langle z, x\rangle \fst w, (\lambda y. y) \snd w\rangle] \\
+											  &= \lambda v . \epsilon ([\lambda w . \langle \lambda z . \lambda x. f \langle z, x\rangle \fst w, \snd w\rangle] v) \\
+											  &= \lambda v . \epsilon (\langle \lambda z . \lambda x . f \langle z, x\rangle \fst v, \snd v\rangle) \\
+											  &= \lambda v . \epsilon (\langle \lambda x . f \langle \fst v, x\rangle, \snd v \rangle) \\
+											  &= \lambda v . (\lambda x . (\fst x)(\fst x)) \langle \lambda x . f \langle \fst v, x\rangle, \snd v \rangle \\
+											  &= \lambda v . (\fst \langle \lambda x . f \langle \fst v, x\rangle, \snd v \rangle, \snd \langle \lambda x . f \langle \fst v, x\rangle, \snd v \rangle) \\
+											  &= \lambda v . (\lambda x . f \langle \fst v, x\rangle) (\snd v) \\
+											  &= \lambda v . f \langle \fst v, \snd v\rangle \\
+											  &= \lambda v . f v \\
+											  &= f.
+	\end{align*}
+	And now show that \(\Lambda (\epsilon \circ (h \times 1_A)) = h\)
+	\begin{align*}
+		\Lambda(\epsilon \circ (h \times 1_A)) &= \Lambda(\epsilon \circ [\lambda x . \langle h(\fst x) , 1_A(\snd x)\rangle]) \\
+											   &= \Lambda (\epsilon \circ [\lambda x . \langle h (\fst x) , (\lambda y . y)(\snd x)\rangle]) \\
+											   &= \Lambda (\epsilon \circ [\lambda x . \langle h (\fst x) , \snd x\rangle])  \\
+											   &= \Lambda (\lambda w . \epsilon ((\lambda x . \langle h (\fst x) , \snd x\rangle) w)) \\
+											   &= \Lambda (\lambda w . \epsilon (\langle h (\fst w) , (\snd w)\rangle)) \\
+											   &= \Lambda (\lambda w . (\lambda x . (\fst x)(\snd x))(\langle h (\fst w) , (\snd w)\rangle)) \\
+											   &= \Lambda (\lambda w . (\fst \langle h (\fst w) , (\snd w)\rangle)(\snd \langle h (\fst w), (\snd w)\rangle)) \\
+											   &= \Lambda (\lambda w . h (\fst w) (\snd w)) \\
+											   &= \lambda a . \lambda z . \lambda x . a\langle z, x\rangle) (\lambda w . h (\fst w) (\snd w)) \\
+											   &= \lambda z . \lambda x . (\lambda w . h (\fst w) (\snd w)) \langle z , x\rangle  \\
+											   &= \lambda z . \lambda x . h (\fst \langle z , x\rangle) (\snd \langle z , x\rangle) \\
+											   &= \lambda z . \lambda x . h z x \\
+											   &= \lambda z . h z \\
+											   &= h
+	\end{align*}
+\end{proof}
+
+\section{Further Work}
+
+In this project we have seen a lot of the theory behind proof assistants, but how does this work in practice? The key idea is given by that of the Curry-Howard correspondence. This correspondence links type theory --- our lambda calculus --- and propositions. Therefore it is important that we provide some way for a computer to check the type and validity of a term. We can check term validity through a concept known as well typed terms. The type of a term is checked through a process known as type checking; based on the way a term is structured we can check whether a given type makes sense. For example, if we have the lambda term \(\lambda x . \fst x\) and we say it has type \(\mathbb{N} \times \mathbb{Q} \to \mathbb{N}\), then we can check this type is correct. Indeed \(x\) must be a pair, because we apply \(\fst\) to it and since we project the first element of the pair, we must return the first type in the pair. Therefore our given type is considered valid, because we take in a pair type and return the first type in the pair. Through the Curry-Howard correspondence, we give meaning to types in the following way:
+
+\begin{itemize}
+    \item
+        A pair of types corresponds to logical \emph{and} of the two propositions.
+    \item
+        A function from type \(T\) to \(S\), is the statement that \(T\) implies \(S\).
+\end{itemize}
+
+The type of the term is thought to give the statement of a proposition and the body of the term to give the proof of the proposition. We can introduce more types and terms to make our type system more rich, allowing us to describe more propositions. This includes concepts such as existential quantification and the logical \emph{or} of two propositions.
+
+The last step is to extend the Curry-Howard correspondence to the Curry-Howard-Lambek correspondence \autocite{Lambek} which adds links from both type theory and propositions to Cartesian closed categories. The link between type theory and category theory is shown by the fact that the category of the simply typed \(\lambda\)-calculus is in fact a Cartesian closed category.
+
+\printbibliography
+
+\end{document}
