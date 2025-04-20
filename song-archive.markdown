@@ -4,6 +4,22 @@ title: Song of the Week Archive
 permalink: /media/song-archive
 ---
 
+## 13/04/25
+
+This week has been a bit strange, losing the structure of lectures and travelling around has made it feel like a mish mash of time. So getting to today and realising I had to pick a song of the week was a little bit of a jumpscare. Therefore just like this week has felt, I've put together a mish mash of random songs (most of these have come to me just today).
+
+Earlier in the week I went to see Black Country, New Road live. They've been a band that I've been interested in for a long time, initially for their darker post punk noise with lead singer Isaac Wood and now for their much more optimistic sound without him. I think the vibe has very much stayed the same, but with the more open playing field they can experiment with their wide range of instruments (I mean a *wide* range - they have drums, piano, saxophone, guitar, bass, flute and recorder to name a few). This experimentation really pays off in their new album "Forever Howlong", which has a lot of the same feel to their Live album at Bush Hall, but has been developed into a more rounded and interesting sound. In particular I recommend [Happy Birthday](https://open.spotify.com/track/56Vk4WrIrTr3Jg7hReNZVb?si=2fb19dcee5c34b21) and [Nancy Takes the Night](https://open.spotify.com/track/3vtceW4EYrv3enjfz7MTff?si=a7471c6b80ee4915).
+
+Now for a more random one - Geordie Greep. I don't remember exactly how he came up in conversation, but relistening to his debut album it's actually much more interesting than I originally gave it time for at release. The debut single [Holy Holy](https://open.spotify.com/track/4AiTTqrljm1r8zKr68cxPk?si=68a9e78ce83c4a32) from the album is a catchy, funky tune and the [accompanying video](https://youtu.be/A4EU_0vFzuU?si=teZ3yQUvFHuNKEre) is kinda funny - it's just Greep in a bowling alley. The most interesting sound from this is the samba vibes in some of the songs, one which is very different from previous work with black midi.
+
+Ok this is a short one, but I wanted to share just how much I love Remi Wolf's [tiny desk](https://youtu.be/X_myO7_7KKk?si=EJ1QQJT6K8vabsYJ), especially the bossa nova cover of "Sexy Villain". I generally prefer recorded versions of songs, but the laid back soft vibe really fits Remi's songs and makes for a great tiny desk.
+
+The last artist I want to talk about today, and the one the song of the week comes from, is Lucia and The Best Boys. Oh man gothic pop the genre you are. I originally discovered Lucia and the Best Boys through their song "Summertime". It's a nice light pop feeling song and I quite enjoyed it, but boy did I not know what I was in for. Some of Lucia and the Best Boys highlights include [Blueheart](https://open.spotify.com/track/2tYefVtZYM82eB4pdFtxmR?si=51337cda1c584c90) and [When You Dress Up](https://open.spotify.com/track/1dy0yjSUuYOqirPLWm2sXy?si=e1e9432f5c7244e2).
+
+The track of the week:
+
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4L4RGrbgXsRzrqrAtnj7Dg?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
 ## 06/04/25
 
 On Saturday I has a 3 hour coach journey, so I planned ahead on something fun to do. I settled on picking a theme for my song of the week and trying to make a playlist that fit to this, then choosing my favourite to become the song of the week. The theme I chose was "Long songs", one which was very heavily inspired (read: stolen) from my wonderful friend [Sof](https://deltzabar.github.io/) (see their playlist [here](https://open.spotify.com/playlist/6DhX6VblGRJbne6GlyUAI5?si=ee97acb650704e28))! As an arbitrary rule, I let myself pick songs that were 8 minutes or longer (and hey who was I to judge if a few that were close enough got through).
