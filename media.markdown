@@ -38,32 +38,24 @@ I have been really enjoying what I have read of this book so far. I think partia
 
 > To see the archive of previous weeks, see here: [Archive](/media/song-archive)
 
-To quote someone's dad:
+I don't have a lot to write this week mainly because I'm really tired. Therefore I'm gonna do a small deep-dive on a band I've been discovering lately.
 
-> RISE  
-  RISE  
-  Where's your anger?  
-  Where's your fucking rage?  
+The band BODEGA have always been on just the outside of my listening circle. I've heard their ever popular "Statuette on the Console", a song I'm not too bothered by, it feels quite generic and not that exciting, but it's an ok listen. For this reason I never really bothered to look into their stuff too much more, a bit of a shame, but arguably not my fault as such.
 
-If you haven't got it already I'm going to choose some songs that feel angry and feisty. This was precipitated by the fucking terrible day I had earlier in the week, mostly because of the terrible terrible media coverage of the supreme courts ruling, but also because my bank fucking sucks (go figure). Before we jump into some tracks, I'll outline what I look for in these types of song, mainly this is:
-- Heavy drums
-- Growling and loud guitar
-- Screaming/Loud shouting lyrics (extra points for having lyrics I can *really* get behind)
-- Distortion
+My recent discovery comes completely separate from Statuette on the Console, in the form of the song [Doers](https://open.spotify.com/track/2L0FeqfIAs0Cc6x2sLfsCh?si=7e61331a37584898). This song really got me hooked and was the song that got me to listen to more of BODEGA's stuff. I really like the bassline and the special attention to different details in the background with all the different sound effects, especially the echoing of doers (do-do-do-do-doerrrs). I think my favourite part is the 'planning part' particularly the "10 minutes - planning my next 10 minutes". It seems so silly but damn could I imagine this being a real thing.
 
-I've introduced them before, but because this song felt extremely relevant to the current moment I have chosen Lambrini Girls' [Terf Wars](https://open.spotify.com/track/7aNvsOmhlc4V07PdT4YgtN?si=34991ad5697248cc) as my song of the week. When I went to a concert of theirs a couple weeks ago, I really couldn't have felt more at home. The room was full of trans people and alternative looking people. The main singer, Phoebe, really knew how to work the crowd and made sure people felt safe and included. I think the chants she did felt extremely cathartic and it really felt like a proper community. It was one of the first times I haven't felt so helpless about the state of the world in a long time.
+The next song on the album, [Territorial Call of the Female](https://open.spotify.com/track/72KVDc2IbRHukPqJ9CzKTX?si=0ac07d36fec0463b), is also a great song. The bass is fun, the repeating bird call in the background is a unique and fitting choice and the repetitive lyrics with weird pronunciation I find really interesting. It really gives me a sort of oscillating feeling, the enunciation of words adding to this vibe. I'm not sure why it feels kind of familiar, but I like it.
 
-Supporting Lambrini Girls at the concert was Alien Chicks, a band I had thoroughly enjoyed before seeing them live, but one I was very happy to see perform. I have chosen their song [Candlestick Maker](https://open.spotify.com/track/2a4u1DkUlDNRnkWBVQoeer?si=79161c7b32cd4d78) in particular because I love the scream/shout they include. It feels very satisfying to catch it in time and the instrumentation throughout the song feels heavy in the right way. The voice on the edge of screaming, the mish mash of instruments in kinda the best way and the best of it all cowbell (the holy grail in post punk bands imo).
+The song of the week is purely vibes based, mainly because I just find the lyrics so satisfying. I mean if you really think about ATMs they are weird right?
 
-The third band I want to focus on is Coach Party, with two of their songs [Micro Aggression](https://open.spotify.com/track/0AoVDlD4Da25HVGUpM0liK?si=74e312acccc14639) and [Parasite](https://open.spotify.com/track/4EDSWFoLE7TgCrl0Eol9dV?si=5b9c75272a5644e3). For Parasite, there is not much more to say than it fits all my required categories. It is unfortunately not too long, but I can forgive them because it really is just a scream filled song. In terms of Micro Aggression, it's just a classic indie rock kinda feel, with some added screams/shouts for fun, with a message I can (obviously) get behind - great! 
-
-Less of a song recommendation, more of a whole fuck off album. The debut album by Model/Actriz, [Dogsbody](https://open.spotify.com/album/1DWLFwBZxTSBWw7G9uhpok?si=06PXTio5Qkuv6Rwmr5M10Q), has become my go to "put me in the mines" album. I turn my headphones right up, blast the songs out and can't have any other thoughts but work (maybe not the healthiest thing, but I do at least enjoy the music). It may not directly fit into the rage theme, but if I was already angry I could really channel it through this (~~probably to send like a slightly angry email~~).
-
-Here's to hoping next week is more of a positive note - though I am still looking to channel my rage at the right people do not worry. See you next week!
+> STICK IN PLASTIC, TYPE IN CODE,   
+  TAKE WHAT I WANT FROM YOU AND HIT THE ROAD,   
+  IF YOU GET WHAT YOU WANT, YOU'LL PAY A FEE,   
+  TOUCHING BUTTONS NEVER FREE
 
 The track of the week:
 
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7aNvsOmhlc4V07PdT4YgtN?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4jkJUXrUF5t0jDFDOjOybf?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
 To see an archive of the songs I have previously added, see here:
 
