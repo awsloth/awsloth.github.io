@@ -5,7 +5,7 @@ permalink: /media/
 menu: main
 ---
 
-I will list my (very uninformed) opinions on current media I am currently interacting with (Last updated 20/04/25).
+I will list my (very uninformed) opinions on current media I am currently interacting with (Last updated 29/04/25).
 
 ## Literature
 
