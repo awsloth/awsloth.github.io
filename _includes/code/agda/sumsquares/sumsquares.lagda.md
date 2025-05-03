@@ -28,6 +28,14 @@ f $ a = f a
 
 infix 1 _$_
 
+data 𝟘 : Type where
+
+𝟘-nondep-elim : {A : Type} → 𝟘 → A
+𝟘-nondep-elim ()
+
+¬_ : (A : Type) → Type
+¬ A = A → 𝟘
+
 {-# BUILTIN NATURAL ℕ #-}
 {-# BUILTIN INTEGER        ℤ    #-}
 {-# BUILTIN INTEGERPOS     pos    #-}
@@ -205,17 +213,16 @@ neg-plus-minus-one-neg (suc x) = ap (-[_]-1 ∘ suc) (ℕ+-right-cancel x)
                            (- -[ x ]-1) - -[ 0 ]-1 ≡⟨ ap (pos ∘ suc) (ℕ+1-is-suc x) ⟩
                            (- -[ suc x ]-1) ∎
 
-
-neg-is-+-neg : (x y : ℤ) → x - y ≡ x + (- y)
-neg-is-+-neg (pos zero) (pos zero) = refl (pos 0)
-neg-is-+-neg (pos (suc x)) (pos zero) = sym $ ap (pos ∘ suc) (ℕ+-right-cancel x)
-neg-is-+-neg (pos zero) (pos (suc y)) = refl (pos zero - pos (suc y))
-neg-is-+-neg (pos (suc x)) (pos (suc y)) = refl (pos (suc x) - pos (suc y))
-neg-is-+-neg -[ x ]-1 (pos zero) = ap -[_]-1 (ℕ+-right-cancel x)
-neg-is-+-neg -[ x ]-1 (pos (suc y)) = ap -[_]-1 (ℕ+-step x y)
-neg-is-+-neg (pos zero) -[ y ]-1 = refl (pos zero - -[ y ]-1)
-neg-is-+-neg (pos (suc x)) -[ y ]-1 = refl (pos (suc x) - -[ y ]-1)
-neg-is-+-neg -[ x ]-1 -[ y ]-1 = refl (-[ x ]-1 - -[ y ]-1)
+neg-is-plus-neg : (x y : ℤ) → x - y ≡ x + (- y)
+neg-is-plus-neg (pos zero) (pos zero) = refl (pos 0)
+neg-is-plus-neg (pos (suc x)) (pos zero) = sym $ ap (pos ∘ suc) (ℕ+-right-cancel x)
+neg-is-plus-neg (pos zero) (pos (suc y)) = refl (pos zero - pos (suc y))
+neg-is-plus-neg (pos (suc x)) (pos (suc y)) = refl (pos (suc x) - pos (suc y))
+neg-is-plus-neg -[ x ]-1 (pos zero) = ap -[_]-1 (ℕ+-right-cancel x)
+neg-is-plus-neg -[ x ]-1 (pos (suc y)) = ap -[_]-1 (ℕ+-step x y)
+neg-is-plus-neg (pos zero) -[ y ]-1 = refl (pos zero - -[ y ]-1)
+neg-is-plus-neg (pos (suc x)) -[ y ]-1 = refl (pos (suc x) - -[ y ]-1)
+neg-is-plus-neg -[ x ]-1 -[ y ]-1 = refl (-[ x ]-1 - -[ y ]-1)
 
 neg-distrib : (a b : ℤ) → - (a + b) ≡ (- a) + (- b)
 neg-distrib (pos zero) (pos b) = sym $ +-left-cancel (- pos b)
@@ -238,30 +245,53 @@ neg-times-right -[ zero ]-1 b = -[ zero ]-1 * (- b) ≡⟨ *-left-neg (- b) ⟩
                                 (- (- b)) ≡⟨ sym $ ap (-_) (*-left-neg b) ⟩
                                 (- (-[ zero ]-1 * b)) ∎
 neg-times-right -[ suc x ]-1 b = -[ suc x ]-1 * (- b) ≡⟨ refl _ ⟩
-                                 -[ x ]-1 * (- b) - (- b) ≡⟨ neg-is-+-neg (-[ x ]-1 * (- b)) (- b) ⟩
+                                 -[ x ]-1 * (- b) - (- b) ≡⟨ neg-is-plus-neg (-[ x ]-1 * (- b)) (- b) ⟩
                                  -[ x ]-1 * (- b) + (- (- b)) ≡⟨ ap (λ p → p + (- (- b))) (neg-times-right -[ x ]-1 b) ⟩
                                  (- (-[ x ]-1 * b)) + (- (- b)) ≡⟨ sym $ neg-distrib (-[ x ]-1 * b) (- b) ⟩
-                                 (- (-[ x ]-1 * b + (- b))) ≡⟨ sym $ ap (-_) (neg-is-+-neg (-[ x ]-1 * b) b) ⟩
+                                 (- (-[ x ]-1 * b + (- b))) ≡⟨ sym $ ap (-_) (neg-is-plus-neg (-[ x ]-1 * b) b) ⟩
                                  (- (-[ x ]-1 * b - b)) ≡⟨ refl _ ⟩
                                  (- (-[ suc x ]-1 * b)) ∎
 
 neg-times-left : (a b : ℤ) → ((- a) * b) ≡ (- (a * b))
 neg-times-left (pos zero) b = refl _
-neg-times-left (pos (suc a)) b = {!!}
+neg-times-left (pos (suc zero)) b = (- pos 1) * b ≡⟨ *-left-neg b ⟩
+                                    (- b) ≡⟨ ap -_ (sym $ +-left-cancel b) ⟩
+                                    (- (pos 1 * b)) ∎
+neg-times-left (pos (suc a@(suc a'))) b = -[ a ]-1 * b ≡⟨ refl _ ⟩
+                                          -[ a' ]-1 * b - b ≡⟨ neg-is-plus-neg (-[ a' ]-1 * b) b ⟩
+                                          ((- pos a) * b) + (- b) ≡⟨ ap (_+ (- b)) (neg-times-left (pos a) b) ⟩
+                                          (- (pos a * b)) + (- b) ≡⟨ sym $ neg-distrib (pos a * b) b ⟩
+                                          (- (pos a * b + b)) ∎
 neg-times-left -[ zero ]-1 b = pos 0 + b ≡⟨ +-left-cancel b ⟩
                                b ≡⟨ double-neg b ⟩
                                (- (- b)) ≡⟨ ap -_ (sym $ *-left-neg b) ⟩
                                (- (-[ zero ]-1 * b)) ∎
-neg-times-left -[ suc x ]-1 b = {!!}
+neg-times-left -[ suc zero ]-1 b = (- -[ 1 ]-1) * b ≡⟨ refl _ ⟩
+                                   (pos 0 + b) + b ≡⟨ ap (_+ b) (+-left-cancel b) ⟩
+                                   b + b ≡⟨ ap (_+ b) (double-neg b) ⟩
+                                   - (- b) + b ≡⟨ ap ((_+ b) ∘ -_) (sym $ *-left-neg b) ⟩
+                                   - (-[ 0 ]-1 * b) + b ≡⟨ ap (- (-[ 0 ]-1 * b) +_) (double-neg b) ⟩
+                                   (- (-[ 0 ]-1 * b)) + (- (- b)) ≡⟨ sym $ neg-distrib (-[ 0 ]-1 * b) (- b) ⟩
+                                   (- (-[ 0 ]-1 * b + (- b))) ≡⟨ ap -_ (sym $ neg-is-plus-neg (-[ 0 ]-1 * b) b) ⟩
+                                   (- (-[ 0 ]-1 * b - b)) ≡⟨ refl _ ⟩
+                                   (- (-[ 1 ]-1 * b)) ∎
+neg-times-left -[ suc x@(suc x') ]-1 b = (- -[ suc x ]-1) * b ≡⟨ refl _ ⟩
+                                         (pos x * b + b) + b ≡⟨ refl _ ⟩
+                                         (- -[ suc x' ]-1) * b + b ≡⟨ ap (_+ b) $ neg-times-left (-[ x ]-1) b ⟩
+                                         (- (-[ x ]-1 * b)) + b ≡⟨ ap (- (-[ x ]-1 * b) +_) (double-neg b) ⟩
+                                         (- (-[ x ]-1 * b)) + (- (- b)) ≡⟨ sym $ neg-distrib (-[ x ]-1 * b) (- b) ⟩
+                                         (- (-[ x ]-1 * b + (- b))) ≡⟨ ap -_ (sym $ neg-is-plus-neg (-[ x ]-1 * b) b) ⟩
+                                         - (-[ x ]-1 * b - b) ≡⟨ refl _ ⟩
+                                         (- (-[ suc x ]-1 * b)) ∎
 
 *-comm : (a b : ℤ) → a * b ≡ b * a
 *-comm (pos zero) (pos b) = sym $ *-right-cancel (pos b)
 *-comm (pos (suc a)) (pos b) = {!!}
 *-comm (pos zero) -[ b ]-1 = sym $ *-right-cancel (-[ b ]-1)
 *-comm (pos (suc a)) -[ b ]-1 = {!!}
-*-comm -[ zero ]-1 (pos b) = {!*-left-neg!}
+*-comm -[ zero ]-1 (pos b) = sym $ *-right-neg (pos b)
 *-comm -[ suc a ]-1 (pos b) = {!!}
-*-comm -[ zero ]-1 -[ b ]-1 = {!!}
+*-comm -[ zero ]-1 -[ b ]-1 = sym $ *-right-neg -[ b ]-1
 *-comm -[ suc a ]-1 -[ b ]-1 = {!!}
 
 ℕ+-homo : (a b : ℕ) → pos a + pos b ≡ pos (a ℕ+ b)
@@ -274,11 +304,15 @@ neg-times-left -[ suc x ]-1 b = {!!}
                     pos ((a ℕ* b) ℕ+ b) ≡⟨ sym (ℕ+-homo (a ℕ* b) b) ⟩
                     pos (a ℕ* b) + pos b ∎
 
-forced-one : (p z : ℤ) → p * z ≡ p → z ≡ pos 1
-forced-one p (pos zero) q = {!!}
-forced-one p (pos (suc zero)) q = refl (pos 1)
-forced-one p (pos (suc (suc z))) q = {!trans (sym q) (*-comm p (pos (suc (suc z))))!}
-forced-one p -[ x ]-1 q = {!!}
+forced-one : (p z : ℤ) → ¬ (p ≡ pos 0) → p * z ≡ p → z ≡ pos 1
+forced-one (pos zero) z q r = 𝟘-nondep-elim $ q (refl (pos 0))
+forced-one (pos (suc x)) (pos zero) q r = {!!}
+forced-one (pos (suc x)) (pos (suc zero)) q r = refl (pos 1)
+forced-one (pos (suc x)) (pos (suc (suc a))) q r = {!!}
+forced-one (pos (suc x)) -[ x₁ ]-1 q r = {!!}
+forced-one -[ x ]-1 (pos zero) q r = {!!}
+forced-one -[ x ]-1 (pos (suc a)) q r = {!!}
+forced-one -[ x ]-1 -[ x₁ ]-1 q r = {!!}
 
 record Σ {A : Type } (B : A → Type) : Type  where
  constructor
@@ -379,7 +413,7 @@ norm-simp-lemma : (z : ℤ[i]) → N' z ≡ ((N z) +[ pos 0 ]i)
 norm-simp-lemma (a +[ b ]i) = piecewise real complex
   where
     real : a * a - b * (- b) ≡ a * a + b * b
-    real = a * a - b * (- b) ≡⟨ neg-is-+-neg (a * a) (b * (- b)) ⟩
+    real = a * a - b * (- b) ≡⟨ neg-is-plus-neg (a * a) (b * (- b)) ⟩
            a * a + (- (b * (- b))) ≡⟨ ap (λ p → a * a + (- p)) (neg-times-right b b)  ⟩
            a * a + (- (- (b * b))) ≡⟨ ap (a * a +_) (sym $ double-neg (b * b)) ⟩
            a * a + b * b ∎
@@ -416,7 +450,7 @@ norm-1-unit : {u : ℤ[i]} → N u ≡ pos 1 → unit u
 norm-1-unit {a +[ b ]i} p = (a +[ - b ]i) , piecewise real complex
   where
     real : a * a - b * (- b) ≡ pos 1
-    real = a * a - b * (- b) ≡⟨ neg-is-+-neg (a * a) (b * (- b)) ⟩
+    real = a * a - b * (- b) ≡⟨ neg-is-plus-neg (a * a) (b * (- b)) ⟩
            a * a + (- (b * (- b))) ≡⟨ ap (λ y → a * a + - y) (neg-times-right b b) ⟩
            a * a + (- (- (b * b))) ≡⟨ ap (a * a +_) (sym $ double-neg (b * b)) ⟩
            N (a +[ b ]i) ≡⟨ p ⟩
