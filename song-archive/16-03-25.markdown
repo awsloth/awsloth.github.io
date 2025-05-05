@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Song of the Week Archive
+title: Song of the Week
 permalink: /media/song-archive/25/03/16
 ---
 
