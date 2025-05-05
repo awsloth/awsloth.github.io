@@ -1,42 +1,8 @@
 ---
 layout: page
-title: Media
-permalink: /media/
-menu: main
+title: Song of the Week 20th of April
+permalink: /media/song-archive/25/04/20
 ---
-
-I will list my (very uninformed) opinions on current media I am currently interacting with (Last updated 05/05/25).
-
-## Literature
-
-Current papers I am looking at include:
-
-- [Domain Theory: An Introduction](https://arxiv.org/abs/1605.05858)
-- A lot of my friends dissertations
-
-The books I am currently reading include:
-
-> Around the World in 80 Games - Marcus du Sautoy
-
-Although I haven't read much of this book, the section I have read has been captivating and interesting.
-
-> An Introduction to Cybercultures - David Bell
-
-I have been really enjoying what I have read of this book so far. I think partially because it is very of its time (one which I was not yet even alive for), but also because it dives in depth into different section of computing and how people interact with cyberspace. Look forward to a review on this one because it really promises to be interesting!
-
-## Music
-
-<p>
-    The last track I listened to on Spotify was
-    <span data-nowplaying="TrackLink">...</span>
-    by <span data-nowplaying="ArtistsLink">...</span>,
-    <span data-nowplaying="TimeSince">...</span>.
-</p>
-<script src="https://now-playing.akpain.net/script/njuav1quxpqzgp8tyhkfba5on"></script>
-
-### Song of the Week
-
-> To see the archive of previous weeks, see here: [Archive](/media/song-archive)
 
 This week is another short one (I am charging up to write a long one next week, for which I have *plans*). Earlier in the week I saw an announcement for a new track by hit band "The Itch", which was premiering on BBC6. A similar thing had happened the previous week with band Ugly (who released the absolute banger [Next to Die](https://open.spotify.com/track/3k6iUhaXZKHQnnLqcGsNps?si=d10c2d2c820c4dfe)), so I thought hey why not listen along to find the song. I think every now and then the radio can be quite refreshing to listen to (even with the adverse reaction I got from Sof). It's nice to hear more outside of my circle of music and I find the way peoples voices come across through radio quite comforting for some reason.
 
@@ -48,14 +14,5 @@ Song of the Week:
 
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0E7wCSaSGza9HA7mQNVzvL?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
-To see an archive of the songs I have previously added, see here:
-
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3fbq2MJ5qVj6IfPwzSaj2F?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-
-## Films and TV
-
-I have recently been enjoying:
-- Dungeon Meshi (or Delicious in Dungeon)
-- Wheel of Time
-
-I really want to rewatch the original matrix trilogy, but due to the period of 'exam season' existing I have as of yet failed to watch more than 10 minutes of the first film.
+<br>
+See my friend Sof's song of the week [here](https://deltzabar.github.io/song-of-the-week/songs-11.html)!
