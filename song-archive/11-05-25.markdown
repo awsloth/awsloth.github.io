@@ -1,42 +1,8 @@
 ---
 layout: page
-title: Media
-permalink: /media/
-menu: main
+title: Song of the Week
+permalink: /media/song-archive/25/05/11
 ---
-
-Here are my opinions on some current media I am currently consuming! (Last updated 11/05/25)
-
-## Literature
-
-Current papers I am looking at include:
-
-- [A taste of linear logic](https://homepages.inf.ed.ac.uk/wadler/papers/lineartaste/lineartaste-revised.pdf)
-
-The books I am currently reading include:
-
-> Around the World in 80 Games - Marcus du Sautoy
-
-Although I haven't read much of this book, the section I have read has been captivating and interesting.
-
-> An Introduction to Cybercultures - David Bell
-
-I have been really enjoying what I have read of this book so far. I think partially because it is very of its time (one which I was not yet even alive for), but also because it dives in depth into different section of computing and how people interact with cyberspace. Look forward to a review on this one because it really promises to be interesting!
-
-## Music
-
-<p>
-    The last track I listened to on Spotify was
-    <span data-nowplaying="TrackLink">...</span>
-    by <span data-nowplaying="ArtistsLink">...</span>,
-    <span data-nowplaying="TimeSince">...</span>.
-</p>
-<script src="https://now-playing.akpain.net/script/njuav1quxpqzgp8tyhkfba5on"></script>
-
-### Song of the Week
-
-> To see the archive of previous weeks, see here: [Archive](/media/song-archive)
-
 I know I promised that I would write a long one last week (and I still might), but I am delaying that topic because I am having a severe memory gap on that one. I very much still plan to write what I had planned but I haven't got what I want ready for it. 
 
 Ok so, what am I going to cover this week? The oddities, the weirdos, the guys I don't listen to that often. This week in particular I've gotten very bored of my usual music and have branched out into more chill and relaxing songs (not saying I *don't* have those in my normal rotation, just that these are particularly different).
@@ -57,14 +23,8 @@ Song of the Week:
 
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0kKrJbP4oATz98qQp2iXeC?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
-To see an archive of the songs I have previously added, see here:
+--- 
 
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3fbq2MJ5qVj6IfPwzSaj2F?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<br>
+See my friend Sof's song of the week [here](https://deltzabar.github.io/song-of-the-week/songs-12.html)!
 
-## Films and TV
-
-I have recently been enjoying:
-
-- Gilmore Girls (finally getting round to watch more than one episode)
-
-I really want to rewatch the original matrix trilogy, but due to the period of 'exam season' existing I have as of yet failed to watch more than 10 minutes of the first film.
