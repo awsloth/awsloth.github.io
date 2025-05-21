@@ -369,10 +369,6 @@ Modified Dirac.
 
 Modified Dirac.
 
-## Chvátal-Erdős *
-
-...
-
 ## No path of length \\(k, e(G) \le \frac{(k-1)n}{2}\\)
 
 Induct on \\(n\\). Holds if \\(n \le k\\).
@@ -401,56 +397,142 @@ Thus \\(H\\) (and therefore \\(G\\)) contains a copy of \\(K_3\\).
 
 ## \\(r\\)-partite graph then \\(G = T_r(n)\\) or \\(e(G) < e(T_r(n))\\) <--
 
-...
+Assume that \\(G \neq T_r(n)\\). Then there exist \\(i, j\\) such that \\(\|V_j\| - \|V_i\| \ge 2\\).
 
-## For all k, g >= 3, there is G with chi(G) >= k and no cycles of length fewer than g
+### Proof
 
-...
+Then pick any vertex in \\(V_j\\) and move it to \\(V_i\\), then we increase the edges
 
-## e(T_r(n)) = e(T_r(n - r)) + binom(r)(2) + (n - r)(r - 1)
+Repeat these steps to form \\(T_r(n)\\), then \\(e(G) < e(T_r(n))\\)
 
-...
+## \\(e(T_r(n)) = e(T_r(n - r)) + \binom r 2  + (n - r)(r - 1)\\)
 
-## Túran's theorem (Nope)
+### Proof
 
-...
+\\(T_r(n)\\) can be obtained from \\(T_r(n - r)\\) by adding a vertex to each vertex class.
+Thus
+\\[
+\begin{align*}
+    e(T_r(n)) &= e(T_r(n - r)) + \text{edges between} + \text{edges inside}
+              &= e(T_r(n - r)) + \binom r 2 + (n - r)(r - 1)
+\end{align*}
+\\]
 
 ## Turan density decreases
 
-...
+### Proof
+
+\\(G\\) is a \\(H\\) free graph on \\(n + 1\\) vertices, with \\(\\(e(G) = \text{ex}(n+1, H)\\).
+
+For every vertex \\(G - x\\) is a \\(H\\)-free graph on \\(n\\) vertices. So \\(e(G - x) \le \text{ex}(n, H)\\).
+
+Each edge appears in exactly \\((n - 1)\\) of \\(G - x\\).
+
+So
+\\[
+    (n-1)\text{ex}(n + 1, H) = \sum_{x \in V(G)} e(G - x) \le (n + 1)\ex(n, H)
+\\]
+
+Divide by \\((n-1)n(n+1)/2\\).
 
 ## Turan density lower bound
 
+### Statement
+
+Let \\(H\\) be a graph with \\(e(H) \ge 1\\), then \\(\pi(H) \ge 1 - \frac{1}{\chi(H) - 1}\\)
+
+### Proof
+
+Let \\(\chi(H) = r + 1\\), then \\(T_r(n)\\) is \\(H\\) free since \\(\chi(T_r(n)) = r\\). Thus
+\\[
+    \text{ex}(n, H) \ge e(T_r(n)) = \text{ex}(n, K_{r + 1})
+\\]
+
+So \\(\pi(H) \ge \pi(K_{r + 1}) = 1 - \frac{1}{r}\\).
+
+## \\(P(e(G) \ge 1/2 p \binom n 2) \ge 1/2\\)
+
+### Proof
+
+Use Chebyshevs and
+- \\(\mathbb{E}[e(G)] = p\binom n 2\\)
+- \\(\text{Var}[e(G)] = p(1-p)\binom n 2\\)
+
+So
+\\[
+    e(G) \le \frac{1}{2}p\binom n 2 \implies \|e(G) - \mathbb{E}[e(G)]\| \ge \frac{1}{2}p \binom n 2
+\\]
+
+## \\(k\\)-partite subgraph with \\(e(H) \ge (k-1)e(G)/k\\)
+
+### Proof
+
+Take a random partition \\(V_1, \dots, V_K\\) and assign each vertex to a \\(V_i\\) with probability \\(1/k\\).
+
+Let \\(H\\) be the subgraph induced by the partition.
+
+The probability of an edge from \\(G\\) being in \\(H\\) is the probability that its two end vertices are in different classes
+
+Thus \\(P(e \in E(H))) = 1 - 1/k = (k-1)/k\\).
+
+Hence \\(\mathbb{E}[e(H)] = (k-1)e(G)/k\\).
+
+## \\(\alpha(G) \ge \sum_{v \in V(G)} \fraC{1}{d(v) + 1}
+
+### Proof
+
+Assign random labels to \\(V(G)\\) from \\(1\\) up to \\(n\\).
+
+Let \\(X\\) be the set of vertices with lowest number among neighbours.
+
+Then \\(X\\) is an independent set.
+
+Note that \\(x \cup N(x)\\) all have distinct labels.
+
+\\(\mathbb{P}(x \in X) = \frac{1}{d(v) + 1}\\)
+
+Hence
+
+\\(\alpha(G) \ge \mathbb{E}[X] = \sum_{v \in V(G)} \frac{1}{d(v) + 1}\\)
+
+## Upper bound on \\(\text{ex}(n, K_{r + 1}) \le \frac{(r-1)n^2}{2r}\\)
+
+### Proof
+
 ...
 
-## Upper bound on bipartite Túran Number
+## \\(\text{cr}(G) \ge m - k\\), if \\(n \ge 3\\) then \\(\text{cr}(G) \ge m - 3n + 6\\)
 
-... (starry guys)
+### Proof
 
-## P(e(G) >= 1/2 p binom(n)(n)) >= 1/2
+Let \\(H\\) be plane subgraph of \\(G\\) such that \\(e(H)\\) maximal.
 
-...
+Every added edge creates at least one crossing when added.
 
-## Lower bounds on ex(n, K_{s, t})
+Thus
 
-...
+\\(\text{cr}(G) \ge e(G) - e(H)\\)
 
-## k-partite subgraph with e(H) >= (k-1)e(G)/k
+Using previous bound, we know that \\(e(H) \le 3|G| + 6\\), so
 
-...
+\\(\text{cr}(G) \ge e(G) - 3|G| + 6\\)
 
-## Sum for a(G)
+## \\(m \ge 4n\\), then \\(\text{cr}(G) \ge \frac{m^3}{64n^2}\\)
 
-...
+### Proof
 
-## Upper bound on ex(n, K_{r + 1}) <= {(r-1)n^2}/{2r}
+Consider any drawing with \\(\text{cr}(G)\\). Choose each vertex with probability \\(p\\) independently.
 
-...
+We find \\(n', m', \text{cr}'\\) of this new graph, then
 
-## cr(G) >= m = k, n >= 3 then cr(G) >= m - 3n + 6
+\\(\mathbb{E}(cr' - m' + 3n') \ge 0\\).
 
-...
+We can easily see that \\(\mathbb{E}(n') = pn\\), \\(\mathbb{E}(m') = p^2m\\).
 
-## m >= 4n, then cr(G) >= m^3/(64n^2)
+Then we need to choose each vertex in a crossing for it to remain in the new graph, thus \\(\mathbb{E}(cr') \le p^4\text{cr}(G)\\).
 
-...
+\\(0 \le \mathbb{E}(cr', m' + 3n') \le p^4\text{cr}(G) - p^2m + 3pn\\)
+
+Now let \\(p = \frac{4n}{m}\\)
+
+Rearrange for \\(\text{cr}(G)\\).
