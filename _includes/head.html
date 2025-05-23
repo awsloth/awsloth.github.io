@@ -37,6 +37,8 @@
   {% endif %}
   <!-- end open graph -->
 
+  <title>{{ page.title }}</title>
+
   {%- feed_meta -%}
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
     {%- include google-analytics.html -%}
