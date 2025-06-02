@@ -7,7 +7,6 @@ menu: main
 
 Currently I am:
 
-- studying for my horrible set of exams,
-- studying for my exams, and also
-- studying for my exams
-
+- Taking a lovely long break after exams,
+- looking forward to my summer research project and
+- doing lots of reading!

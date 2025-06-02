@@ -1,55 +1,8 @@
 ---
 layout: page
-title: Media
-permalink: /media/
-menu: main
+title: Song of the Week
+permalink: /media/song-archive/25/06/02
 ---
-
-Here are my opinions on some current media I am currently consuming!
-
-## Literature
-
-Current papers I am looking at include:
-
-- [A taste of linear logic](https://homepages.inf.ed.ac.uk/wadler/papers/lineartaste/lineartaste-revised.pdf)
-
-The books I am currently reading include:
-
-> The Jungle - Upton Sinclair
-
-I am re-reading this classic so I can write a review. I think it covers an interesting and important range of topics and I hope to get much out of it than last time I read it. Particularly because I am trying to improve my sense of important themes and ideas from books, a skill I have wanted to have for a while.
-
-> An Introduction to Cybercultures - David Bell
-
-Of what I have read so far Cybercultures covers a good deal of interesting topics. I think the language at times can be difficult to parse because of the academic nature of the text, but I have enjoyed the extra reading and the discussions on various ideas. These include how cyberspace will change communities and how it affects our daily lives. A section I haven't got to yet, but one I am excited for is that of identity.
-
-I think this book offers a particularly interesting view because it is from 2000 and so where predictions occur it is interesting to see how accurate they are. It is also interesting to see how certain topics stay very much the same albeit with different context.
-
-See my goodreads here:
-
-{% include goodreads.html %}
-
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-
-## Music
-
-<p>
-    The last track I listened to on Spotify was
-    <span data-nowplaying="TrackLink">...</span>
-    by <span data-nowplaying="ArtistsLink">...</span>,
-    <span data-nowplaying="TimeSince">...</span>.
-</p>
-<script src="https://now-playing.akpain.net/script/njuav1quxpqzgp8tyhkfba5on"></script>
-
-### Song of the Week
-
-> To see the archive of previous weeks, see here: [Archive](/media/song-archive)
 
 This week's song of the week theme is local! I want to discuss a few local bands (with a few liberties) based near to where I'm from (Leeds!).
 
@@ -89,15 +42,5 @@ Song of the Week:
 
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1weRtwmHCeD8QobtLL3qpO?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
-To see an archive of the songs I have previously added, see here:
-
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3fbq2MJ5qVj6IfPwzSaj2F?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-
-## Films and TV
-
-I have recently been enjoying:
-
-- Gilmore Girls
-- Dungeon Meshi
-
-I would like to get round to rewatching the Matrix trilogy (but not the new one - that's bad).
+<br>
+See my friend Sof's song of the week [here](https://deltzabar.github.io/song-of-the-week/songs-15.html)!
