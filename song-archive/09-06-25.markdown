@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Song of the Week
-permalink: /media/song-archive/25/03/09
+permalink: /media/song-archive/25/06/09
 ---
 
 ## 09/06/25
@@ -21,4 +21,4 @@ The Song of the Week:
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3xoM5gZ2RVQqLkjqEgrJ4x?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
 <br>
-See my friend Sof's song of the week [here](https://deltzabar.github.io/song-of-the-week/songs-02.html)!
+See my friend Sof's song of the week [here](https://deltzabar.github.io/song-of-the-week/songs-16.html)!
