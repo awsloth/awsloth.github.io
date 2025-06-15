@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Song of the Week
-permalink: /media/song-archive/25/03/09
+permalink: /media/song-archive/25/06/09
 ---
 
 ## 09/06/25
