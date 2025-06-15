@@ -19,6 +19,3 @@ Overall it feels very nice to have new music from Ethel that feels both similar 
 The Song of the Week:
 
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3xoM5gZ2RVQqLkjqEgrJ4x?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-
-<br>
-See my friend Sof's song of the week [here](https://deltzabar.github.io/song-of-the-week/songs-02.html)!
