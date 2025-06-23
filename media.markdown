@@ -51,29 +51,19 @@ See my goodreads here:
 
 > To see the archive of previous weeks, see here: [Archive](/media/song-archive)
 
-This weekend I stayed in a quaint countryside town known as Chapel En Le Frith (despite what you might believe that is in fact not in France, but the Peaks) and next week I embark on a four day long distance walking journey. So I've decided this week to turn my attention to some songs that remind me of nature and greenery, this way you can sit down, close your eyes and imagine being there alongside me experiencing the wonderful British countryside. I've made a playlist, but I've selected a few from it to talk about here.
+This week I decided to pick back up my liked songs playlist. I try to put songs on there if they particularly mean something to me at the time I come across them. So it was an interesting hodgepodge of feelings listening back to the playlist. I've picked out a few that felt similar to what I was feeling this week or just wanted to talk about.
 
-"And I felt like the sea" - Green Gardens
+A couple songs from Flyte caught my eye, I think their folk indie vibe can be really emotional and they really lean into this. Their cover of [Archie, Marry me](https://open.spotify.com/track/0rcwROyUguj5RQa5pPKajI?si=7612b969c57e435d) from Alvvays is so different that I can listen to the cover and the original as songs in their own right. It was this song that got me into their music, with the long drawn out echoey vocals all on their own, joined later by backing vocals and then finally synths that feel almost organ like, it's really beautiful.
 
-If you've seen my green gardens [t-shirt](https://f4.bcbits.com/img/0038893677_10.jpg) you might have thought it was some sort of nudist resort, well I'm here to confirm that is not the fact and they are actually a small indie-rock band hailing from Leeds. I think this band have a really inseparable link to the countryside for some reason, perhaps it was their music video for [Home in the Books](https://www.youtube.com/watch?v=0WZC6F2T-t8) (interesting viewing lol) I watched which was partially filmed in the countryside, or perhaps it's just the kind of vibes I get from their music. Either way I just can't help but picture green rolling hills, moorland or a serene riverbank when I listen to their music.
+I think with Flyte I relate less with the lyrics, but kinda of wallow about in their sound and absorb the emotions and feelings they emanate. I've saved [Faithless](https://open.spotify.com/track/2zElUqN4ITr3sU2AliHuyK?si=f218a3cbaa1745d8) and [I've Got a Girl](https://open.spotify.com/track/3ySqbiPCsnKAL6BCq4aOrD?si=57ab538307054835), the latter coming form their album "This is Really Going to Hurt", a really tragic and depressing album, about the singer falling out of a relationship. This isn't something I relate to loads, but you can feel the amount of emotion poured into this song and others on this album.
 
-I like this song so much because you can listen to it in the background and let it be, it's very calming and also very evocative of the sort of calmness you feel from just being outside for a while.
+Another song that caught my eye was [Golden Dream](https://open.spotify.com/track/57tFTt7bkxQ1vvaPy1kgSF?si=55b8a56b9eb7463a), a song which I'm not too sure about the lyrics. For me they are there to sing along to and feel the song along to. Mainly I think the ending is why I liked the song in the first place, the little build up to the elongated singing of "stupid, stupid, stupid me, me, me, me". It's simple, but it's raw and it feels, a lot.
 
-"Storm To Pass" - Katy J Pearson
+The last song, and the song of the week is [Sinking Feeling](https://open.spotify.com/track/0fuaSbG0dUdtfKCKQWCA3s?si=91b7aad1133b4ba3). Unlike the other songs I've picked I think I relate to the lyrics of this one almost too much. I think hearing it when I was only a year older than that mentioned in the song ("I'm only nineteen, already burned out") it really hit. I think there's some sort of expectation to have everything together all the time and it seems ridiculous to write it down, but it's nice to know that I'm not alone in this feeling. Overall, I think it's really a cathartic song to just hear some of your fears sang by someone else, it makes you feel a lot less alone. I chose this song because everything is feeling kinda up in the air right now and it's stressing me out a lot. I'm not sure exactly what "sinking feeling" Chloe is describing, but a strong pit in the stomach certainly feels something like what I would say is a sinking feeling.
 
-This was the song that sparked the idea for this week's song of the week. I think Katy has an interesting style which feels so calming which, particularly this song, evokes to mind a slow amble through soft grass with a warm breeze and the sun starting to set. I think the slow horns over the song and Katy's great vocals blend so well into this song that feels reflective and beautiful.
+Song of the Week:
 
-"Cowboy Nudes" - Geese
-
-Ok, this is maybe not English countryside, but it really does feel like I'm outside and having a good time, sat round a campfire with good friends. The title kinda hits it on the nail to be honest, it really evokes a cowboy sort of feel in all. I really appreciate the funky vibe which really adds to the summery vibes.
-
-Link to the playlist:
-
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0mKI7m2Pbyf6cMchGsqqrV?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-
-Song of the week:
-
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/42kvpWdntuKYw3LhfLp0pD?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0fuaSbG0dUdtfKCKQWCA3s?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
 To see an archive of the songs I have previously added, see here:
 
@@ -85,5 +75,20 @@ I have recently been enjoying:
 
 - Gilmore Girls
 - Dungeon Meshi
+- Heartbreak High (particularly enjoying the autism representation)
 
-I would like to get round to rewatching the Matrix trilogy (but not the new one - that's bad).
+I would like to get round to re watching the Matrix trilogy (but not the new one - that's bad).
+
+I recently also watched (in a movie marathon) all of the star wars episodes from 1-9. I will now give my ranking of these films (with a little comment for each), I hope you enjoy :)
+
+1. A New Hope: A classic and well written film, good fun!
+2. Return of the Jedi: The film is well written, interesting and cool to watch. Bonus points for ewoks, I love those guys.
+3. The Phantom Menace: I have a lot of nostalgia from playing the lego star wars podracing which means I'm a bit biased, but also this is a great film anyway (if you just ignore jar jar binks existing and the stupid "there's always a bigger fish line" what were they on about)
+4. The Empire Strikes Back: I do not like that the problem the whole time was just the millennium falcon breaking, stupid and annoying, I don't like Han.
+5. The Clone Wars: C3PO getting turned into a robot was pretty fun
+6. Revenge of the Sith: Noo, nooo, NOOOOO! You shall die (this did not justify why Anakin switched to the dark side at all, he just kinda went yup I guess I'll do that)
+7. The Force Awakens: I thought the little attempt at looking at how stormtroopers were actually people was interesting until that dialogue abruptly just stopped.
+8. The Last Jedi: Felt like a rehash of the empire strikes back but much worse (why did Leia just fly through space what the hellll)
+9. The Rise of Skywalker: We watched this film at 1.5x speed to make it in any way watchable
+
+I also recently watched The Accountant 2... I think we all know how that went based off of the less than great autism representation in the first film.
