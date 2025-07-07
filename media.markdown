@@ -49,46 +49,16 @@ See my goodreads here:
 
 ### Song of the Week
 
-> To see the archive of previous weeks, see here: [Archive](/media/song-archive)
+I was working up this week to write a long post, which will now have to wait til next week as it has become more work than I expected and I want to do it justice. Therefore this week I will talk about a couple new songs that have been released recently that I've been enjoying (only 2 because I've left this quite late).
 
-This weekend I've been getting stuck into the coverage of glastonbury (at least that which the bbc felt it didn't have to intervene in for some strange reason). I've really enjoyed experiencing lots of different sets from the comfort of my home, especially while I get ready to move soon, because what's better for chores than good music. So I've picked out a few of my favourite songs from various sets to share.
+The first time I saw Big Special was when they were supporting Deadletter and they were so incredibly different from anything I had seen before. It is very much spoken word, and even more so when live. Joe (the 'singer') stands with his mic loose in his hand and steps back and forth in a rocking motion, bellowing each word down the mic - you can tell he means every word. Meanwhile Callum (the drummer) sits at the back smashing the drum set to the words and a backing track accompanies them, but it just fills the blank space and doesn't take away from the pair's performance. It all culminates in an astounding sight and sound, one which is addictive and very encapsulating. Somewhat soon after this they released their first album, "Post Industrial Hometown Blues", which I really enjoyed. I think the songs themselves hold up well, but it's the lyrics that are so fun to explore and speak along to. They are enunciated with such power, almost as if performed as part of slam poetry.
 
-### God Gave Me Feet For Dancing - Ezra Collective
+After this success I forgot about Big Special for a while until just the other day I stumbled upon a music video for [God Save The Pony](https://open.spotify.com/track/3QrvKxTmQWIpI9cGE3HakK?si=38aa5db3b7e44f8a), from their new album "National Average". This came as a bit of a surprise to me as I had no idea they were releasing new stuff let alone a whole new album. I think this song takes a fun new direction, whilst keeping the key features that make them so good; the strong drums, the lyrics and the pronunciation. What I enjoy from the new additions is the distortion on vocals and the ever catchy bass and relentless staccato of the synth.
 
-Having heard many good things about Ezra Collective and liking a few of their recorded songs, I decided to listen into their set. It's probably of the best vibes I've seen from a live set and that's without even being there. For this particular song (and a couple before it), they brought out a large band from two youth clubs, it was probably the most wholesome thing they could do. You could tell everyone on that stage was enjoying it, bouncing around and dancing to the incredible music they were playing. I could help but dance along too in my own room because it was just so good. If you have the time I highly recommend watching their whole set because it is just so good.
+Last week I watched the Sprints set from Glastonbury and really enjoyed the new song they teased "Descartes". Unfortunately I got distracted by the cover of "Foundations" they played with Kate Nash that they clearly hadn't practised and so was quite cringe to watch. However, they released the track earlier this week and I have been enjoying it a lot since. It's got a lot of the classic Sprints sound to it, the fast guitar over the top, the noisy distorted guitar supporting and heavy drums in the back. I have been a bit annoyed with some of Sprint's stuff because it does feel all a bit similar but I feel they have branched out here more and it's a fun track (especially after having a bit of a stressful meeting).
 
-[The Recorded Version](https://open.spotify.com/track/2mxQ3VWWk47YCo9RB2fkOk?si=effe623e542143df)
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1VOBsB3ozaoQv3i6Uts3O1?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
-### English Teacher - Toothpick
-
-As you may well know by now English Teacher are really special to me - I've seen them maybe 4 or 5 times live, so when I watched their set at Glastonbury I was quite surprised they were playing a new song. I feel like this is quite a rarity for them and I was very excited. It turns out I was rightly so, Lily introduces the song to be "about a shark biting off your leg" which I found quite funny. The song feels like a culmination of all their previous work, especially tracks like Albert Road and This Could Be Texas. It's one of their calmer tracks but it hits so hard and if this is what their new material will sound like, then I am very excited for their future.
-
-Unfortunately there is no recording of this, but the song starts around 14:55 in the bbc recording [here](https://www.bbc.co.uk/iplayer/episode/m002fbns/glastonbury-english-teacher).
-
-### Lola Young - One Thing
-
-I think Lola Young has a lot of very cool stuff coming out at the moment. I really enjoyed her album "This Wasn't Meant For You Anyway", particularly tracks like "You Noticed" (the track I almost picked) and "Wish You Were Dead", and she continues the trend of great music with her new songs coming out. [One Thing](https://open.spotify.com/track/6KFQdIB3njXBQNcg1xUh9U?si=7ca55e35e1d44321) is one of these and you can tell just how much love there is for that song based on the volume of the crowd's singing. I think Lola's love for being on stage also shines through, she is really giving it her all and has some amazing dance moves. The set is such good vibes and I thoroughly enjoyed it!
-
-[One Thing](https://open.spotify.com/track/6KFQdIB3njXBQNcg1xUh9U?si=7aa6d6c30f074dc9)
-
-### Franz Ferdinand & Master Peace - Hooked
-
-The title here is very apt - I am hooked on this music. The staccato synth in the background, the strong leading guitar and Alex Kapranos' vocals all just give such a catchy fun song. Although the recorded version does not feature Master Peace, they had him as a guest for Glastonbury (and apparently also Glasgow), I think the mix of rap and rock is such a fun and interesting combination. One similar track I like in this style is the collaboration between the Arctic Monkeys and Dizzee Rascal, [Temptation Greets You Like Your Naughty Friend](https://open.spotify.com/track/3fcJX31CLvMOzcWR0HFn8B?si=c86e056aad29493a), a combination which seems really weird on paper but meshes so insanely well. I feel this same vibe is brought across here and goes so well in the live form, a brilliant performance from both artists.
-
-[Live at Glasgow with Master Peace](https://open.spotify.com/track/3naPOrv5B1BZ5HBrpCpSg1?si=549a2f58f4da4f31)
-
-### Other
-
-Some general sets I liked (and perhaps a song I recommend):
-
-- Wolf Alice
-- CMAT ([Take A Sexy Picture Of Me](https://open.spotify.com/track/0gQpTmVvkNauZzh5YSIrHY?si=ddbf6a01105f4b23))
-- Lucy Dacus ([Best Guess](https://open.spotify.com/track/2u6VEZjUu5P3GVfUMDIIbu?si=505b9a027f6f4030))
-- Amyl and The Sniffers ([Jerkin](https://open.spotify.com/track/3AeJxiUEE7wOYKjYt7M7X2?si=fdfaa146898a4d35))
-
-Song of the Week:
-
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2mxQ3VWWk47YCo9RB2fkOk?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 To see an archive of the songs I have previously added, see here:
 
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3fbq2MJ5qVj6IfPwzSaj2F?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
