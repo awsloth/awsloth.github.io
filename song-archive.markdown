@@ -4,6 +4,7 @@ title: Song of the Week Archive
 permalink: /media/song-archive
 ---
 
+- [12/08/25](/media/song-archive/25/08/12)
 - [04/08/25](/media/song-archive/25/08/04)
 - [22/07/25](/media/song-archive/25/07/22)
 - [16/07/25](/media/song-archive/25/07/16)
