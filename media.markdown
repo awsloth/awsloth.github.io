@@ -51,51 +51,17 @@ See my goodreads here:
 
 > To see the archive of previous weeks, see here: [Archive](/media/song-archive)
 
-If you know me well enough you know that I am completely normal about Ethel Cain, by which I really mean I am totally obsessed with her and really enjoy her music. So when her new album released last Friday I was completely absorbed and to be honest still am. In fact as of writing I have listened to the album 20 times, totaling nearly 30 hours of listening to just songs off the album. So, yes, obsessed is a little bit of an understatement. With that said, I wanted to explore the individual songs on what I think is a truly amazing and interesting album.
+This week we're bringing it back to the basics and just focusing on a few songs I've been enjoying recently.
 
-#### Janie
+Alright first up, some new stuff! Earlier this week I discovered a band called Slow Fiction. I say discovered, but I know of their most popular track, Apollo, but this was the first time I listened to them as a band specifically. In particular, I've been listening to their EP "Crush". It's a fun mix of indie rock and different paces, from the high energy [Monday](https://open.spotify.com/track/7xPq717gjyeHgvsreftBHr?si=e37585c82e1344bf) to the slower [There Were Stars in Your Eyes](https://open.spotify.com/track/01ZyxPFB1XvG5x3E5gtoMW?si=2f32f06c006e4bb8). I have been enjoying Monday in particular, it has a sort of Sprints energy to it, with these sort of rushed feeling lyrics that let loose at the chorus with a strong "Get Out!", the guitars run wild and fast in the background and the drums are great.
 
-We start with a very simple guitar, slow and thoughtful, that really sets the tone for the new album. Ethel's voice comes in, full of emotion and lyrics to match it, particularly "please leave open your most quiet door". This whole song feels very typical of Ethel's style and is a really nice introduction to the album which settles you in for the long ride.
+Now an oldie, this week I've travelled a fair amount because I've been on holiday. On one of my long train journeys I stumbled back across Lime Garden, a band I've loved for a long time (probably close to 4 years), but have forgotten about recently. Easily my favourtie song of theirs is [Clockwork](https://open.spotify.com/track/3BOiQtFYI4EE27CyNwm9rU?si=405accc621424e15), in particular I love the strong drums, which hit even more hard live. I really remember the last time I saw them just really getting into this song and mostly because the drums just felt so good to hear live and loud. It helps that the lyrics are very fun to sing along to too.
 
-#### Willoughby's Theme
+Ok, a bit of a rogue one here for the last song. As I was looking more into Slow Fiction I realised they had a single with Speedy Wunderground, a label run by Dan Carey who do singles with lots of up and coming bands. I often like these singles so it's fun to look at the new ones and the past singles have some huge names: Moreish Idols, English Teacher, Kae Tempest, Black Country, New Road and Royel Otis. Anyway I was looking up who Dan Carey had produced for because that list is also pretty crazy and through this I rediscovered Black Midi, more specifically their album "Hellfire". This was an album I listened to a lot a couple years back, but haven't really listened to since, it's a really interesting punky and weird album. One of my favourite songs from this album is [Welcome To Hell](https://open.spotify.com/track/5ON8SSEFQtnhftaRAOt9Wl?si=7132b9242e9a4cf1), it's got a weird squealy intro which descends into Greep's typical storytelling-esque voice. I love the grandiose feel to the song and the chaotic repetitive guitars and drums throughout. It's so strange but so fun to listen to because it's ever changing, but it all blends so well together.
 
-Janie fades out and in comes a song which is one of my favourites on the album. It feels very much like we get to play with elements from Perverts (Ethel's previous EP), which felt like a standalone, but seems to have (very happily) found it's way in here. We start with this very empty space filled only by piano all alone and very raw - you can hear the notes carry as they are played, something that reminds me of a piano I used to play at a relative's - it's very vulnerable but playful. Then out of the darkness creeps this rolling and rippling, growling guitar which plays together with the piano. They're such different textures but they mix together in this beautiful and interesting way. The piano becomes this quick repeated set of two notes along with the simple melody from the start. It's a really fun and interesting song, as Hayden says "I wanted to try and sonically capture the nauseating, dizzying fear and rush of falling in love" and I really believe you can tell it's in here.
+Song of the week:
 
-#### Fuck Me Eyes
-
-As I've said before, this really feels like the 'American Teenager' of this album. It's very much the only pop-like song on the album, but it's a fun one and I like it. The lyrics are clear to hear and interesting to follow. I like the drums, the vocals and the sort of flashing synths - flashing in the sense that sparkling lights flash up on a christmas tree.
-
-#### Nettles
-
-If you don't already know how I feel about this one read [my review](/media/song-archive/25/06/09)!
-
-#### Willoughby's Interlude
-
-This is the first song that I thought wasn't outstanding. Don't get me wrong I do like it, but I feel like there's not loads to go off of. I like to lie down and close my eyes and let this one just wash over me. It starts with some distorted voices, very familiar to songs like [Pulldrone](https://open.spotify.com/track/2SB4wRBpN4C1lssIGqKD4d?si=b7473496c25a402a) in perverts, then it builds with these large sounds that echo and thrum over the track. Throughout the track these dissonant sounds become more clear and harmonise out, before settling down towards the end.
-
-#### Dust Bowl
-
-Going off the listens on spotify this track has the most listens outside of the singles, which is really interesting to me, because it is certainly not my favourite. My suspicion is that these listens has come from spotify adding just this track to release playlists. This is an interesting choice to me, I suppose out of the non single tracks it's probably the most widely "acceptable", though I agree with Sof's review that Janie would be a better choice here (or at least one that I enjoy more).
-
-#### A Knock At The Door
-
-I really enjoy this track, it feels really quite different from others on the album. You get to hear the squeaks and scratches as the guitar player's hand moves up and down the strings, with the soft acoustic sounds it plays out. This all sang over by Ethel's simply beautiful voice.
-
-#### Radio Towers
-
-This is my favourite track on the album. Which feels weird to say, there's no singing and really the song itself is not that complex, but I'm just so endlessly enamoured by it. I get drawn back in for more every listen I take. The constant beep in the background, the thunder, the screeching and whistling sounds of wind, and the simple synths all layered on top. The atmosphere from it is truly incredible and I can really imagine just being sat in the dark on a stormy night watching out onto an empty road. I really truly love this song.
-
-#### Tempest
-
-The smooth transition into this song from Radio Towers really joins the two together for me and I really enjoy listening to them back to back. The drums here feel incredible and everything else sort of echoes around them. The vocals are long and echoey, along with all the instruments which echo and distort in the background, making the whole thing feel sort of disorientating. The vocals however really cut through the instruments, especially towards the end and the slow rise and fade of the synths at each drum hit drag along before it all just cuts out completely and we are left with nothing.
-
-#### Waco, Texas
-
-The last song on the album and what a song. As Sof said "I put it on and somehow it seems to finish immediately", which is truly impressive given that this song is 15 minutes long! I really like the plainness of this song, you can hear all the lyrics and the simplicity of the instruments throughout feels comforting in a way. The song takes it's time, but it just passes through you as it goes, plodding on. Not so slow it is annoying, but also not so fast that you feel it is running away from you, the perfect pace to enjoy it as it comes through and really appreciate it's beauty in full. What an ending!!
-
-Song of the Week:
-
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2SUDMF8bzAYZZduDUfY59p?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5ON8SSEFQtnhftaRAOt9Wl?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
 To see an archive of the songs I have previously added, see here:
 
