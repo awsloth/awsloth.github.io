@@ -7,6 +7,6 @@ menu: main
 
 Currently I am:
 
-- Taking a lovely long break after exams,
-- looking forward to my summer research project and
-- doing lots of reading!
+- Getting back into the swing of university
+- Finally finishing my jumper (it's getting cold again yippee!)
+- Trying to climb more V5 boulders
