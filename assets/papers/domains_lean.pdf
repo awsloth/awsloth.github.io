@@ -1,0 +1,83 @@
+\documentclass[12pt, a4paper]{article}
+
+\emergencystretch=1em
+
+\usepackage[margin=2cm]{geometry}
+\usepackage[colorlinks, allcolors=blue]{hyperref}
+
+\usepackage{amsthm, amsmath, amssymb}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{graphs}
+
+\usepackage{trimclip}
+
+\makeatletter
+\newcommand{\twoheaddownarrow}{\mathrel{\mathpalette\twoheaddownarrow@\relax}}
+\newcommand{\twoheaddownarrow@}[2]{%
+  \begingroup
+  \sbox\z@{$\m@th#1\downarrow$}%
+  \vphantom{\copy\z@}% keep the bounding box
+  \ooalign{\copy\z@\cr\hidewidth\clipdownarrow@{#1}\hidewidth\cr}%
+  \endgroup
+}
+\newcommand{\clipdownarrow@}[1]{%
+  \raisebox{0.25\ht\z@}{\clipbox{-3pt 0pt -3pt {0.5\height}}{\copy\z@}}%
+}
+
+\newcommand{\below}{{\twoheaddownarrow}\,}
+
+\newcommand{\squb}{\sqsubseteq}
+\newcommand{\dir}{\textnormal{dir}}
+
+\newtheorem{theorem}{Theorem}[section]
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem*{notation}{Notation}
+\newtheorem{example}{Example}
+
+\theoremstyle{remark}
+\newtheorem*{note}{Note}
+
+\usepackage[utf8x]{inputenc}
+\usepackage{amssymb}
+\usepackage{listings}
+
+\usepackage{color}
+\definecolor{keywordcolor}{rgb}{0.7, 0.1, 0.1}   % red
+\definecolor{tacticcolor}{rgb}{0.0, 0.1, 0.6}    % blue
+\definecolor{commentcolor}{rgb}{0.4, 0.4, 0.4}   % grey
+\definecolor{symbolcolor}{rgb}{0.0, 0.1, 0.6}    % blue
+\definecolor{sortcolor}{rgb}{0.1, 0.5, 0.1}      % green
+\definecolor{attributecolor}{rgb}{0.7, 0.1, 0.1} % red
+
+\def\lstlanguagefiles{lstlean.tex}
+% set default language
+\lstset{language=lean}
+
+\title{Formalising Domain Theory with Lean}
+\author{Anna Williams}
+\date{}
+
+\usepackage[backend=biber,style=alphabetic,sorting=nty]{biblatex}
+\addbibresource{bibliography.bib}
+
+\begin{document}
+
+\maketitle
+
+\input{sections/intro.tex}
+
+\input{sections/domain.tex}
+
+\input{sections/lean.tex}
+
+\input{sections/conclusion.tex}
+
+\nocite{*}
+
+\printbibliography
+
+\end{document}
