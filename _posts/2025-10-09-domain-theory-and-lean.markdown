@@ -2,7 +2,7 @@
 layout: post
 title:  "Formaising Domain Theory with Lean"
 author: Anna Williams
-date:   2025-10-09 13:15:00 +0000
+date:   2025-10-08 13:15:00 +0000
 tags: lean domain-theory
 categories: proof-assistants
 ---
