@@ -84,7 +84,10 @@ body {
 
 /* Goodreads styling */
 .gr_grid_container {
-  /* customize grid container div here. eg: width: 500px; */
+    /* customize grid container div here. eg: width: 500px; */
+    width: 500px;
+    height: 170px;
+    padding: 10px;
 }
 
 .gr_grid_book_container {
@@ -94,4 +97,9 @@ body {
   height: 160px;
   padding: 0px 0px;
   overflow: hidden;
+}
+
+iframe {
+    padding: 5px 10px;
+    width: calc(100% - 20px);
 }
