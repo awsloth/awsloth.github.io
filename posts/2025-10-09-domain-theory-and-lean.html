@@ -1,0 +1,103 @@
+<html>
+<head>
+  <script type="text/javascript" id="MathJax-script" async
+	src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <title>Domain Thory and Lean - Blog</title>
+</head>
+<body>
+
+<h1> Domain Theory and Lean </h1>
+
+<p>
+Over the summer I had a research project where I learnt some basic domain theory alongside formalising it in lean. It was a really good opportunity to get stuck into the subject, especially with my existing familiarity with proof assistants meaning that I could focus more on the learning side with domain theory. I also think that formalising mathematics is one of the best ways to understand a topic well. At the end of the project I wrote a paper (which is <a href="/assets/papers/domains_lean.pdf">here</a>). I wanted to go a little more in depth on some of the decisions I made during formalisation that I felt didn’t quite fit the scope of the paper, which was more aimed at people new to proof assistants. The codebase is <a href="https://codeberg.org/awsloth/LeanDomainTheory">here</a>.
+</p>
+
+<h2>Subsets</h2>
+
+<p>
+To represent subsets we have to use a predicate, which tells us whether each given item is in the subset or not. If it is in the subset, we return <code>True</code> and if it isn’t we return <code>False</code>. We can therefore define the notion of a subset on a given type <code>X</code> as follows, namely a function from <code>X</code> to <code>Prop</code> as we described above.
+</p>
+
+<pre class="lean">
+<code>
+def Subset (X : Type) : Type :=
+  X → Prop
+</code>
+</pre>
+
+<h2>Elements of subsets or having key properties</h2>
+
+<p>
+Often in a definition or theorem we want items which belong to a certain subset or have a certain property. For example, when defining a directed set, we say that each pair of items in the subset has a least upper bound also in the subset. That is, a subset \(A\) is directed if
+</p>
+
+\[
+    \forall x, y  \in A, \exists z \in A, x \sqsubseteq z \text{ and } y \sqsubseteq z.
+\]
+
+<p>
+At the start of the project I would write it like as follows, where <code>pred</code> was the predicate determining that any given item was in the subset.
+</p>
+
+<pre class="lean">
+<code>
+pairwiseUB : ∀ x y : D, pred x → pred y → ∃ z : D, pred z → x ⊑ z ∧ y ⊑ z
+</code>
+</pre>
+
+<p>
+This meant that the last section <code>x ⊑ z ∧ y ⊑ z</code>, reads well but all the preamble is kinda weird and finicky to read (every element in \(D\), such that it is also in this subset, …). Throughout the project this became kind of annoying and I thought it looked quite ugly and unintuitive. I therefore decided to wrap up together the element in \(D\) and the proof it was that it satisfied the predicate into one.
+</p>
+
+<pre class="lean">
+<code>
+def inAndProof (pred : Pred D) : Type :=
+  Σ a : D, pred a
+
+pairwiseUB : ∀ x y : inAndProof pred, ∃ z : inAndProof pred, x.fst ⊑ z.fst ∧ y.fst ⊑ z.fst
+</code>
+</pre>
+
+<p>
+I don’t think the choice of name <code>inAndProof</code> was the best, but this is much cleaner. Once you get past the naming of things it becomes much clearer what is happening here and looks more natural. So the last step was to rename the wrapper <code>inAndProof</code> to <code>inSubset</code> and rename our predicate <code>pred</code> to be some subset <code>S</code>.
+</p>
+
+<pre class="lean">
+<code>
+def inSubset (pred : Pred D) : Type :=
+  Σ a : D, pred a
+
+pairwiseUB : ∀ x y : inSubset S, ∃ z : inSubset S, x.fst ⊑ z.fst ∧ y.fst ⊑ z.fst
+</code>
+</pre>
+
+<p>
+I think this now looks much better and more readable to the mathematical eye now. My one problem is that of the last half - <code>x.fst ⊑ z.fst ∧ y.fst ⊑ z.fst</code>. I think this can be remedied, by redefining <code>⊑</code>, so that it automatically compares just the first elements of the pairs <code>x</code> and <code>y</code>, but this might get confusing and there is only so far we can go in the name of readability.
+</p>
+
+<h2>The whole <code>lessThanLub</code> of it all</h2>
+
+<p>
+To express the notion of \(a \ll b\), we have to express that \(b \sqsubseteq \bigsqcup D\), for some directed set \(D\). As we are working in a dcpo and every directed set has a least upper bound, it would make sense that we can take this least upper bound and have this as a proposition. Annoyingly Lean has this thing called “proof irrelevance”, which means that onceyou have an element of <code>∃ a, p a</code>, it removes all the data associated with it. This means that we can’t simply take the item that is the least upper bound and work with that. Now I’m pretty sure I could do this in agda and it would be completely fine but we’ll have to work around it. To do this we define a new property, that of being less than a least upper bound (well <em>the</em>, as they are unique in fact) as follows.
+</p>
+
+<pre class="lean">
+<code>
+def lessThanLub (ds : isDirected p) (y : D) : Prop :=
+    ∃ a : D, LeastUpperBound p a ds.fst ∧ y ⊑ a
+</code>
+</pre>
+
+<p>
+This feels a little bit janky, but it’s the best solution I could come up with for the moment (lmk if you have any better ideas!).
+</p>
+
+<h2>Dcpo proofs</h2>
+
+<p>
+I think these were the biggest obstacle to my proofs, I wanted to prove these all constructively, but it turns out this is with the current representation. I haven’t read Tom de Jong’s paper on solving this because I haven’t had time, but I would like to soon. This problem led to some pretty ugly code in the proof that the two item set is a dcpo, where I had to prove that any given subset was in \(\{\{\}, \{\bot\}, \{\top\}, \{\bot, \top\}\}\), so I had lots of different lemmas to show this. This wasn’t difficult but takes up a significant amount of the file for something that feels like it should be pretty simple.
+</p>
+
+</body>
+</html>

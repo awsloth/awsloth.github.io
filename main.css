@@ -1,0 +1,83 @@
+/* Sort of works */
+body {
+    background-color: #aaccaa;
+    width: min(1200px, 95%);
+    margin-left: calc(50% - (min(1200px, 95%) / 2));
+}
+
+.sidebar {
+    margin: 0;
+    padding: 5px;
+    width: 200px;
+    position: fixed;
+    height: 97%;
+    overflow: auto;
+    background-color: white;
+    border-radius: 3px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+.webring {
+    border-top: 1px solid black;
+    align-self: center;
+    margin-top: auto;
+}
+
+.main {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 100%;
+    width: auto;
+}
+
+.home-block {
+    height: auto;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.block-title {
+    border-bottom: 1px solid black;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.grid {
+    padding: 10px;
+    margin: 10px;
+    display: grid;
+    gap: 15px;
+    align-items: center;
+    grid-template-columns: auto auto;
+}
+
+.grid-img {
+    justify-self: end;
+}
+
+.category-title {
+    border-bottom: 2px solid black;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+/* Reactive sidebar */
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .main {margin-left: 0;}
+}
+
+.page-title {
+    font-size: 30px;
+}
