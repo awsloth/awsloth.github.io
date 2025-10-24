@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title>Anna's Blog</title>
-  <link href="http://anna-maths.xyz/feed.xml" rel="self"/>
+  <link href="https://anna-maths.xyz/feed.xml" rel="self"/>
   <updated>2025-10-24T15:00:38+01:00</updated>
   <author>
     <name>Anna Williams</name>
@@ -11,7 +11,7 @@
 
   <entry>
     <title>Pi Day</title>
-    <link href="http://anna-maths.xyz/posts/2025-03-14-pi-day.html"/>
+    <link href="https://anna-maths.xyz/posts/2025-03-14-pi-day.html"/>
     <id>http://anna-maths.xyz/posts/2025-03-14-pi-day.html</id>
     <updated>2025-03-14T16:45:00+01:00</updated>
     <summary>A post calculating an estimation of pi for pi day!</summary>
@@ -19,7 +19,7 @@
 
   <entry>
     <title>Ten Pointless Facts About Me</title>
-    <link href="http://anna-maths.xyz/posts/2025-05-06-ten-questions.html"/>
+    <link href="https://anna-maths.xyz/posts/2025-05-06-ten-questions.html"/>
     <id>http://anna-maths.xyz/posts/2025-05-06-ten-questions.html</id>
     <updated>2025-05-06T00:00:00+01:00</updated>
     <summary>A post in which I answer ten random questions about myself.</summary>
@@ -27,7 +27,7 @@
 
   <entry>
     <title>Formalising Domain Theory with Lean</title>
-    <link href="http://anna-maths.xyz/posts/2025-10-09-domain-theory-and-lean.html"/>
+    <link href="https://anna-maths.xyz/posts/2025-10-09-domain-theory-and-lean.html"/>
     <id>http://anna-maths.xyz/posts/2025-10-09-domain-theory-and-lean.html</id>
     <updated>2025-10-09T16:45:00+01:00</updated>
     <summary>A more in depth look at some of the problems I encountered in my summer research project.</summary>
