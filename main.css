@@ -3,6 +3,7 @@ body {
     background-color: #aaccaa;
     width: min(1200px, 95%);
     margin-left: calc(50% - (min(1200px, 95%) / 2));
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 .sidebar {
