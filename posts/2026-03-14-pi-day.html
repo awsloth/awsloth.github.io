@@ -1,0 +1,74 @@
+<html>
+<head>
+  <script type="text/javascript" id="MathJax-script" async
+	src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <title>Pi Day - Blog</title>
+  <link rel="stylesheet" href="../main.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.1/purify.min.js" integrity="sha512-uHOKtSfJWScGmyyFr2O2+efpDx2nhwHU2v7MVeptzZoiC7bdF6Ny/CmZhN2AwIK1oCFiVQQ5DA/L9FSzyPNu6Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="module" src="https://cdn.jsdelivr.net/gh/dpecos/mastodon-comments@6fe36e7e308412cc02f26ae1477987a75d32e58f/mastodon-comments.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-titles">
+            <div class="category-title">About Me</div>
+            <a href="/index.html">Home</a></br>
+            <a href="/now.html">Now</a></br>
+            <a href="/media.html">Media</a>
+            
+            <div class="category-title">Academic Work</div>
+            <a href="/assets/papers/rsm.pdf">Research Project</a></br>
+            <a href="/assets/papers/domains_lean.pdf">Summer Project</a>
+        </div>
+        <div class="webring"> <a href="https://piturnah.xyz/">Peter</a> | webring | <a href="https://www.akpain.net/">Abi</a> </div>
+    </div>
+
+    <div class="main">
+        <div class="home-block">
+           <div class="block-title">Pi Day</div>
+           <p>Hello everyone, I've been super busy recently (should I be doing my coursework? shut up) and so was completely unprepared for Pi day. That being said, it did not mean that I didn't think about ideas that I could pursue to celebrate pi day. I think after last year, I realised that a lot of common methods for calculating pi (at least in a fun way) have already been done a lot. So I think a lot of the novelty of calculating pi comes from the way you sample data randomly. Be that via shotgun, hot dogs or flipping coins.</p>
+
+           <p>Over the past few months (as my friends will reliably tell you), I have been getting really quite into ice hockey (go caps!). So this felt like a good way to sample data. In fact, this was something I realised the other week, when I was looking at the data sets for each game to see if I could track how a single player was doing (Brady Tkachuk count your days, I <i>am</i> hate watching your stats). What I find really cool is that they track where things happen on the ice, from shots on goal, to penalties to even the mysterious and rare "failed-shot-attempt" (coming from shootouts or a penalty shot).</p>
+
+           <p>I thought it would be fun to try the dartboard monte carlo method to estimate pi using these pseudo-random points on the ice (heavy on the <i>pseudo</i> (we'll get onto that)). I threw together some very rough code and fetched the data from NHL games starting from the first of January last year, right up to the games yesterday. I then grabbed the coordinates of each event which had them and threw it into matplotlib, just to see roughly what was going on. It's quite a mess, but also very clearly biased... which I decided to ignore.</p>
+
+           <figure style="display: block; margin-left: auto; margin-right: auto; width: 50%">
+               <img src="../assets/without_faceoffs.png" alt="Graph showing frequency of events occuring in a given space on the ice. There are large peaks around the nets, but otherwise the graph is fairly flat." height=300px/>
+               <figcaption>Frequency of events over the ice (cleaned up).</figcaption>
+           </figure>
+
+            <p>Furthermore, it is clear that some data should be discarded. For example, faceoffs always occur in one of the same 6 spots across the ice, similarly failed shot attempts occur more often in front of the net. I got rid of both of these, but to be honest the rest of the data is mostly random (ish), at least if we take the right subset of it.</p>
+
+            <figure style="display: block; margin-left: auto; margin-right: auto; width: 50%">
+               <img src="../assets/initial_bars.png" alt="Graph showing frequency of events occuring in a given space on the ice. There are large peaks at the face off dots." height=300px/>
+               <figcaption>Frequency of events over the ice. Large peaks, where the faceoff dots are.</figcaption>
+            </figure>
+
+            <p>I decided to take a subsection of the data from roughly in front of the net. Then we cut out a square and the circle that fits inside the square, then the ratio of points in the circle to points in the square converges to \(\pi/4\). Implementing this into my code, and sampling over both the defending and offensive sides of the rink, we get the following.</p>
+
+            \[
+                3.167986961100263
+            \]
+
+            <p>Wow, that's better than last year... Which is... something.</p>
+
+            <p>Woohoo!</p>
+
+            <h4>Bonus Section</h4>
+
+            Some curiosities in the data.
+
+            <ul>
+                <li>
+                    There was a weird misplaced slap shot.
+
+                    <figure>
+                    <img src="../assets/slap_shot.png" height=300px/>
+                    </figure>
+
+                </li>
+                <li>Goals that occured, which weren't hit from the offensive zone. My favourite being <a href="https://www.nhl.com/video/min-edm-draisaitl-scores-goal-against-marc-andre-fleury-6365026472112">this one</a>.</li>
+            </ul>
+        </div>
+    </div>
+</body>
