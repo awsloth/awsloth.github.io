@@ -1,3 +1,4 @@
 *.agdai
 *.lagda.md~
 _site/*
+report/
