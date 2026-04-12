@@ -205,6 +205,8 @@ function detGame(rw, otw, otl, rl, top_goals, goal_diff) {
                 return otl + points;
             case "RL":
                 if (-game.goalDiff <= goal_diff) {
+                    console.log(game.goalDiff);
+                    console.log(goal_diff);
                     return rl + points + 1;
                 } else {
                     return rl + points;
@@ -290,7 +292,7 @@ function runFrame(ftype) {
     if (bptc) {
         var bpt = parseInt(document.getElementById("BPT").value);
     } else {
-        var bpt = 100;
+        var bpt = -100;
     }
 
     var lbdTwo = new Standings(detGame(w, otw, otl, l, bp, bpt), "otherranking");
