@@ -8,16 +8,63 @@ function addGames(a, b) {
     return [a[0] + b[0], a[1] + b[1], a[2] + b[2], a[3] + b[3], a[4] + b[4]];
 }
 
-function findDiff(a) {
+function findDiff(a, pos) {
     var name = a;
 
     var table = document.getElementById("ranking");
 
     for (let i = 0; i < table.rows.length; i++) {
-        if (table.rows[i].cells[1].innerHTML == name) {
-            return i;
+        if (table.rows[i].cells[0].innerHTML == name) {
+            return i - pos;
         }
     }
+}
+
+class OStandings {
+  // detPoints : game -> (abbrev: points, abbrev: points)
+  constructor(detPoints, tableID) {
+      this.detPoints = detPoints;
+      this.standings = {};
+      this.tableID = tableID;
+
+      for (let i = 0; i < data.length; i++) {
+          var game = detPoints(data[i]);
+          if (game[0][0] in this.standings) {
+              this.standings[game[0][0]] = addGames(this.standings[game[0][0]], game[0][1]);
+          } else {
+              this.standings[game[0][0]] = game[0][1];
+          }
+
+          if (game[1][0] in this.standings) {
+              this.standings[game[1][0]] = addGames(this.standings[game[1][0]], game[1][1]);
+          } else {
+              this.standings[game[1][0]] = game[1][1];
+          }
+      }
+  }
+
+  showStandings() {
+    // sort standings
+    const sortedDict = Object.fromEntries(Object.entries(this.standings).sort(sortFunc));
+
+    var table = document.getElementById(this.tableID);
+
+    var row = table.insertRow(0);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+
+    cell2.innerHTML = "PTS"
+
+    for (var key in sortedDict) {
+        var row = table.insertRow(-1);
+
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+
+        cell1.innerHTML = key;
+        cell2.innerHTML = this.standings[key][0];
+    }
+  }
 }
 
 class Standings {
@@ -57,6 +104,7 @@ class Standings {
     cell1.innerHTML = "POS"
     cell3.innerHTML = "PTS"
 
+    let i = 0;
     for (var key in sortedDict) {
         var row = table.insertRow(-1);
 
@@ -64,9 +112,21 @@ class Standings {
         var cell2 = row.insertCell(1);
         var cell3 = row.insertCell(2);
 
+        var diff = findDiff(key, i);
+
+        if (diff < 0) {
+            cell1.innerHTML = -diff;
+            cell1.style.color = "red";
+        } else if (diff > 0) {
+            cell1.innerHTML = diff;
+            cell1.style.color = "green";
+        } else {
+            cell1.innerHTML = "-";
+        }
+
         cell2.innerHTML = key;
-        cell1.innerHTML = findDiff(key);
         cell3.innerHTML = this.standings[key][0];
+        i ++;
     }
   }
 
@@ -83,8 +143,17 @@ class Standings {
         var cell1 = row.cells[0];
         var cell2 = row.cells[1];
         var cell3 = row.cells[2];
+        var diff = findDiff(key, i);
 
-        cell1.innerHTML = findDiff(key);
+        if (diff < 0) {
+            cell1.innerHTML = "↓" + (-diff).toString();
+            cell1.style.color = "red";
+        } else if (diff > 0) {
+            cell1.innerHTML = "↑" + diff.toString();
+            cell1.style.color = "green";
+        } else {
+            cell1.innerHTML = "-";
+        }
         cell2.innerHTML = key;
         cell3.innerHTML = this.standings[key][0];
         i++;
@@ -126,7 +195,7 @@ function detGame(x, rw, otw, otl, l) {
     }
 }
 
-const lbd = new Standings(a => detGame(a, 2, 2, 1, 0), "ranking");
+const lbd = new OStandings(a => detGame(a, 2, 2, 1, 0), "ranking");
 var lbdTwo = new Standings(a => detGame(a, 3, 2, 1, 0), "otherranking");
 
 lbd.showStandings();
