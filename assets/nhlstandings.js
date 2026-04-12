@@ -58,7 +58,7 @@ class Standings {
   }
 }
 
-import data from "./assets/nhldata.json" with {type: "json"};
+import data from "./nhldata.json" with {type: "json"};
 
 function detGame(x) {
     const RW = 2;
