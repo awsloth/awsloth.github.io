@@ -155,19 +155,19 @@ class Standings {
         this.showRankings(sortedDict);
     }
 
-    showConferences() {
-        var east = Object.fromEntries(Object.entries(this.standings).filter((([,a]) => a.conference == "Eastern")));
+    showConference(chosenConf) {
+        var conf = Object.fromEntries(Object.entries(this.standings).filter((([,a]) => a.conference == chosenConf)));
 
-        const sortedDict = Object.fromEntries(Object.entries(east)
+        const sortedDict = Object.fromEntries(Object.entries(conf)
                                  .sort(([,a],[,b]) => sortFunc(a, b, this.gameEval)));
 
         this.showRankings(sortedDict);
     }
 
-    showDivisions() {
-        var metro = Object.fromEntries(Object.entries(this.standings).filter((([,a]) => a.div == "Metropolitan")));
+    showDivision(chosenDiv) {
+        var division = Object.fromEntries(Object.entries(this.standings).filter((([,a]) => a.div == chosenDiv)));
 
-        const sortedDict = Object.fromEntries(Object.entries(metro)
+        const sortedDict = Object.fromEntries(Object.entries(division)
                                  .sort(([,a],[,b]) => sortFunc(a, b, this.gameEval)));
 
         this.showRankings(sortedDict);
@@ -182,94 +182,11 @@ class Standings {
 
         this.showRankings(sortedDict);
     }
-}
 
-/*
-
-class Standings {
-  // detPoints : game -> (abbrev: points, abbrev: points)
-  constructor(detPoints, tableID) {
-      this.detPoints = detPoints;
-      this.standings = {};
-      this.tableID = tableID;
-
-      for (let i = 0; i < data.length; i++) {
-          var game = detPoints(data[i]);
-          if (game[0][0] in this.standings) {
-              this.standings[game[0][0]] = addGames(this.standings[game[0][0]], game[0][1]);
-          } else {
-              this.standings[game[0][0]] = game[0][1];
-          }
-
-          if (game[1][0] in this.standings) {
-              this.standings[game[1][0]] = addGames(this.standings[game[1][0]], game[1][1]);
-          } else {
-              this.standings[game[1][0]] = game[1][1];
-          }
-      }
-  }
-
-  showStandings() {
-    // sort standings
-    const sortedDict = Object.fromEntries(Object.entries(this.standings).sort(sortFunc));
-
-    var table = document.getElementById(this.tableID);
-
-    var row = table.insertRow(0);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
-
-    cell1.innerHTML = "POS"
-    cell3.innerHTML = "PTS"
-
-    let i = 0;
-    for (var key in sortedDict) {
-        var row = table.insertRow(-1);
-
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
-
-        var diff = findDiff(key, i);
-
-        if (diff < 0) {
-            cell1.innerHTML = -diff;
-            cell1.style.color = "red";
-        } else if (diff > 0) {
-            cell1.innerHTML = diff;
-            cell1.style.color = "green";
-        } else {
-            cell1.innerHTML = "-";
-        }
-
-        cell2.innerHTML = key;
-        cell3.innerHTML = this.standings[key][0];
-        i ++;
+    clear() {
+        this.table.innerHTML = "";
     }
-  }
-
-  updateStandings() {
-    // sort standings
-    const sortedDict = Object.fromEntries(Object.entries(this.standings).sort(sortFunc));
-
-    var table = document.getElementById(this.tableID);
-
-    let i = 1;
-    for (var key in sortedDict) {
-        var row = table.rows[i];
-
-        var cell1 = row.cells[0];
-        var cell2 = row.cells[1];
-        var cell3 = row.cells[2];
-        
-        cell2.innerHTML = key;
-        cell3.innerHTML = this.standings[key][0];
-        i++;
-    }
-  }
 }
-*/
 
 // Gives a function that determines
 // the points for a game
@@ -301,19 +218,33 @@ function detGame(rw, otw, otl, rl, top_goals, goal_diff) {
 var state = "S";
 
 const lbd = new Standings(detGame(2, 2, 1, 0, 100, 100), "ranking");
+const lbd1 = new Standings(detGame(2, 2, 1, 0, 100, 100), "ranking1");
+const lbd2 = new Standings(detGame(2, 2, 1, 0, 100, 100), "ranking2");
+const lbd3 = new Standings(detGame(2, 2, 1, 0, 100, 100), "ranking3");
+
 var lbdTwo = new Standings(detGame(3, 2, 1, 0, 100, 100), "otherranking");
+var lbdTwo1 = new Standings(detGame(3, 2, 1, 0, 100, 100), "otherranking1");
+var lbdTwo2 = new Standings(detGame(3, 2, 1, 0, 100, 100), "otherranking2");
+var lbdTwo3 = new Standings(detGame(3, 2, 1, 0, 100, 100), "otherranking3");
 
 lbd.showStandings();
 lbdTwo.showStandings();
-addDiff(state);
+addDiff(state,"");
 
-function addDiff(state) {
+var table1Title = document.getElementById("table1");
+var table2Title = document.getElementById("table2");
+var table3Title = document.getElementById("table3");
+var table4Title = document.getElementById("table4");
+
+table1Title.innerHTML = "National Hockey League";
+
+function addDiff(state, depth) {
     if (state == "W") {
         return 1;
     }
 
-    var tableL = document.getElementById("ranking");
-    var tableR = document.getElementById("otherranking");
+    var tableL = document.getElementById("ranking"+depth);
+    var tableR = document.getElementById("otherranking"+depth);
 
     for (let i = 0; i < tableR.rows.length; i++) {
         var cell1 = tableR.rows[i].insertCell(0);
@@ -345,22 +276,80 @@ function runFrame(ftype) {
     var otl = parseInt(document.getElementById("OTL").value);
     var l = parseInt(document.getElementById("L").value);
 
-    var lbdTwo = new Standings(detGame(w, otw, otl, l, 100, 100), "otherranking");
+    var bpc = document.getElementById("BPC").checked;
+
+    if (bpc) {
+        var bp = parseInt(document.getElementById("BP").value);
+    } else {
+        var bp = 100;
+    }
+
+    var lbdTwo = new Standings(detGame(w, otw, otl, l, bp, 100), "otherranking");
+    var lbdTwo1 = new Standings(detGame(w, otw, otl, l, bp, 100), "otherranking1");
+    var lbdTwo2 = new Standings(detGame(w, otw, otl, l, bp, 100), "otherranking2");
+    var lbdTwo3 = new Standings(detGame(w, otw, otl, l, bp, 100), "otherranking3");
 
     state = ftype;
 
     switch (ftype) {
         case "S":
+            table1.innerHTML = "National Hockey League";
+            table2.innerHTML = "";
+            table3.innerHTML = "";
+            table4.innerHTML = "";
+
             lbd.showStandings();
             lbdTwo.showStandings();
+
+            lbd1.clear();
+            lbdTwo1.clear();
+
+            lbd2.clear();
+            lbdTwo2.clear();
+
+            lbd3.clear();
+            lbdTwo3.clear();
             break;
         case "C":
-            lbd.showConferences();
-            lbdTwo.showConferences();
+            table1.innerHTML = "Eastern";
+
+            lbd.showConference("Eastern");
+            lbdTwo.showConference("Eastern");
+
+            table2.innerHTML = "Western";
+
+            lbd1.showConference("Western");
+            lbdTwo1.showConference("Western");
+
+            table3.innerHTML = "";
+            table4.innerHTML = "";
+
+            lbd2.clear();
+            lbdTwo2.clear();
+
+            lbd3.clear();
+            lbdTwo3.clear();
             break;
         case "D":
-            lbd.showDivisions();
-            lbdTwo.showDivisions();
+            table1.innerHTML = "Atlantic";
+
+            lbd.showDivision("Atlantic");
+            lbdTwo.showDivision("Atlantic");
+
+            table2.innerHTML = "Metropolitan";
+            
+            lbd1.showDivision("Metropolitan");
+            lbdTwo1.showDivision("Metropolitan");
+
+            table3.innerHTML = "Central";
+
+            lbd2.showDivision("Central");
+            lbdTwo2.showDivision("Central");
+
+            table4.innerHTML = "Pacific";
+
+            lbd3.showDivision("Pacific");
+            lbdTwo3.showDivision("Pacific");
             break;
         case "W":
             lbd.showWildCard();
@@ -368,7 +357,10 @@ function runFrame(ftype) {
             break;
     }
 
-    addDiff(state);
+    addDiff(state,"");
+    addDiff(state,"1");
+    addDiff(state,"2");
+    addDiff(state,"3");
 }
 
 
