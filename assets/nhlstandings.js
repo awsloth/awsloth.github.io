@@ -1,10 +1,23 @@
 function sortFunc(a, b) {
-
+    // Sort on points, then games, then regulation wins
     return b[1][0] - a[1][0] || (a[1][1] + a[1][2] + a[1][3] + a[1][4]) - (b[1][1] + b[1][2] + b[1][3] + b[1][4]) || b[1][1] - a[1][1];
 }
 
+// Add together the totals for games
 function addGames(a, b) {
     return [a[0] + b[0], a[1] + b[1], a[2] + b[2], a[3] + b[3], a[4] + b[4]];
+}
+
+function findDiff(a) {
+    var name = a;
+
+    var table = document.getElementById("ranking");
+
+    for (let i = 0; i < table.rows.length; i++) {
+        if (table.rows[i].cells[1].innerHTML == name) {
+            return i;
+        }
+    }
 }
 
 class Standings {
@@ -39,18 +52,21 @@ class Standings {
     var row = table.insertRow(0);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
 
-    cell1.innerHTML = "Team"
-    cell2.innerHTML = "Points"
+    cell1.innerHTML = "POS"
+    cell3.innerHTML = "PTS"
 
     for (var key in sortedDict) {
         var row = table.insertRow(-1);
 
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
 
-        cell1.innerHTML = key;
-        cell2.innerHTML = this.standings[key][0];
+        cell2.innerHTML = key;
+        cell1.innerHTML = findDiff(key);
+        cell3.innerHTML = this.standings[key][0];
     }
   }
 
@@ -66,9 +82,11 @@ class Standings {
 
         var cell1 = row.cells[0];
         var cell2 = row.cells[1];
+        var cell3 = row.cells[2];
 
-        cell1.innerHTML = key;
-        cell2.innerHTML = this.standings[key][0];
+        cell1.innerHTML = findDiff(key);
+        cell2.innerHTML = key;
+        cell3.innerHTML = this.standings[key][0];
         i++;
     }
   }
