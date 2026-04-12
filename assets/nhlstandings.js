@@ -36,6 +36,13 @@ class Standings {
 
     var table = document.getElementById(this.tableID);
 
+    var row = table.insertRow(0);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+
+    cell1.innerHTML = "Team"
+    cell2.innerHTML = "Points"
+
     for (var key in sortedDict) {
         var row = table.insertRow(-1);
 
@@ -53,7 +60,7 @@ class Standings {
 
     var table = document.getElementById(this.tableID);
 
-    let i = 0;
+    let i = 1;
     for (var key in sortedDict) {
         var row = table.rows[i];
 
