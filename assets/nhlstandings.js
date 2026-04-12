@@ -196,9 +196,6 @@ function detGame(rw, otw, otl, rl, top_goals, goal_diff) {
         if (top_goals <= game.goals) {
             points++;
         }
-        if (goal_diff <= game.goal_diff) {
-            points ++;
-        }
         switch (game.outcome) {
             case "RW":
                 return rw + points;
@@ -207,7 +204,11 @@ function detGame(rw, otw, otl, rl, top_goals, goal_diff) {
             case "OTL":
                 return otl + points;
             case "RL":
-                return rl + points;
+                if (-game.goalDiff <= goal_diff) {
+                    return rl + points + 1;
+                } else {
+                    return rl + points;
+                }
             default:
                 return 0;
         }
@@ -217,15 +218,15 @@ function detGame(rw, otw, otl, rl, top_goals, goal_diff) {
 
 var state = "S";
 
-const lbd = new Standings(detGame(2, 2, 1, 0, 100, 100), "ranking");
-const lbd1 = new Standings(detGame(2, 2, 1, 0, 100, 100), "ranking1");
-const lbd2 = new Standings(detGame(2, 2, 1, 0, 100, 100), "ranking2");
-const lbd3 = new Standings(detGame(2, 2, 1, 0, 100, 100), "ranking3");
+const lbd = new Standings(detGame(2, 2, 1, 0, 100, -100), "ranking");
+const lbd1 = new Standings(detGame(2, 2, 1, 0, 100, -100), "ranking1");
+const lbd2 = new Standings(detGame(2, 2, 1, 0, 100, -100), "ranking2");
+const lbd3 = new Standings(detGame(2, 2, 1, 0, 100, -100), "ranking3");
 
-var lbdTwo = new Standings(detGame(3, 2, 1, 0, 100, 100), "otherranking");
-var lbdTwo1 = new Standings(detGame(3, 2, 1, 0, 100, 100), "otherranking1");
-var lbdTwo2 = new Standings(detGame(3, 2, 1, 0, 100, 100), "otherranking2");
-var lbdTwo3 = new Standings(detGame(3, 2, 1, 0, 100, 100), "otherranking3");
+var lbdTwo = new Standings(detGame(3, 2, 1, 0, 100, -100), "otherranking");
+var lbdTwo1 = new Standings(detGame(3, 2, 1, 0, 100, -100), "otherranking1");
+var lbdTwo2 = new Standings(detGame(3, 2, 1, 0, 100, -100), "otherranking2");
+var lbdTwo3 = new Standings(detGame(3, 2, 1, 0, 100, -100), "otherranking3");
 
 lbd.showStandings();
 lbdTwo.showStandings();
@@ -284,10 +285,18 @@ function runFrame(ftype) {
         var bp = 100;
     }
 
-    var lbdTwo = new Standings(detGame(w, otw, otl, l, bp, 100), "otherranking");
-    var lbdTwo1 = new Standings(detGame(w, otw, otl, l, bp, 100), "otherranking1");
-    var lbdTwo2 = new Standings(detGame(w, otw, otl, l, bp, 100), "otherranking2");
-    var lbdTwo3 = new Standings(detGame(w, otw, otl, l, bp, 100), "otherranking3");
+    var bptc = document.getElementById("BPTC").checked;
+
+    if (bptc) {
+        var bpt = parseInt(document.getElementById("BPT").value);
+    } else {
+        var bpt = 100;
+    }
+
+    var lbdTwo = new Standings(detGame(w, otw, otl, l, bp, bpt), "otherranking");
+    var lbdTwo1 = new Standings(detGame(w, otw, otl, l, bp, bpt), "otherranking1");
+    var lbdTwo2 = new Standings(detGame(w, otw, otl, l, bp, bpt), "otherranking2");
+    var lbdTwo3 = new Standings(detGame(w, otw, otl, l, bp, bpt), "otherranking3");
 
     state = ftype;
 
