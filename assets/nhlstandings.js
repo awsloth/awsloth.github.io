@@ -84,6 +84,38 @@ function sortFunc(a, b, gameEval) {
         || b.regulationWins()     - a.regulationWins();
 }
 
+function addDiff(tableId) {
+    if (state == "W") {
+        return 1;
+    }
+
+    var tableL = document.getElementById(tableId.slice(5));
+    var tableR = document.getElementById(tableId);
+
+    for (let i = 0; i < tableR.rows.length; i++) {
+        var cell1 = tableR.rows[i].insertCell(0);
+
+        if (i > 0) {
+        for (let j = 0; j < tableL.rows.length; j++) {
+            if (tableL.rows[j].cells[0].innerHTML == tableR.rows[i].cells[1].innerHTML) {
+                var diff = j - i;
+
+                if (diff < 0) {
+                    cell1.innerHTML = "↓" + (-diff).toString();
+                    cell1.style.color = "red";
+                } else if (diff > 0) {
+                    cell1.innerHTML = "↑" + diff.toString();
+                    cell1.style.color = "green";
+                } else {
+                    cell1.innerHTML = "-";
+                }
+                break;
+            }
+        }
+        }
+    }
+}
+
 class Standings {
     constructor(gameEval, tableID) {
 
@@ -148,11 +180,47 @@ class Standings {
         }
     }
 
+    showMultRankings(ranklist) {
+        this.table.innerHTML = "";
+
+        for (let i=0; i < ranklist.length; i++) {
+            var rankings = ranklist[i];
+
+            var row = this.table.insertRow(-1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+
+            cell1.innerHTML = "Team";
+            cell2.innerHTML = "Points";
+            cell3.innerHTML = "RWs";
+
+            for (var key in rankings) {
+                var row = this.table.insertRow(-1);
+
+
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+
+                var team = rankings[key];
+                cell1.innerHTML = "<img style='height:30px;' src=" + team.image + "> " + team.name;
+                cell2.innerHTML = team.evalPoints(this.gameEval);
+                cell3.innerHTML = team.regulationWins();
+            }
+        }
+
+    }
+
     showStandings() {
         const sortedDict = Object.fromEntries(Object.entries(this.standings)
                                  .sort(([,a],[,b]) => sortFunc(a, b, this.gameEval)));
 
         this.showRankings(sortedDict);
+
+        if (this.table.id[0] == 'o') {
+            addDiff(this.table.id)
+        }
     }
 
     showConference(chosenConf) {
@@ -162,6 +230,10 @@ class Standings {
                                  .sort(([,a],[,b]) => sortFunc(a, b, this.gameEval)));
 
         this.showRankings(sortedDict);
+
+        if (this.table.id[0] == 'o') {
+            addDiff(this.table.id)
+        }
     }
 
     showDivision(chosenDiv) {
@@ -172,15 +244,31 @@ class Standings {
 
         this.showRankings(sortedDict);
 
+        if (this.table.id[0] == 'o') {
+            addDiff(this.table.id)
+        }
     }
 
-    showWildCard() {
-        var east = Object.fromEntries(Object.entries(this.standings).filter((([,a]) => a.conference == "Eastern")));
+    showWildCard(chosenDivL, chosenDivR) {
+        var leftDiv = Object.fromEntries(Object.entries(this.standings).filter((([,a]) => a.div == chosenDivL)));
+        var rightDiv = Object.fromEntries(Object.entries(this.standings).filter((([,a]) => a.div == chosenDivR)));
 
-        const sortedDict = Object.fromEntries(Object.entries(east)
-                                 .sort(([,a],[,b]) => sortFunc(a, b, this.gameEval)));
+        const sortedLDict = Object.entries(leftDiv)
+                                 .sort(([,a],[,b]) => sortFunc(a, b, this.gameEval));
 
-        this.showRankings(sortedDict);
+        const sortedRDict = Object.entries(rightDiv)
+                                 .sort(([,a],[,b]) => sortFunc(a, b, this.gameEval));
+
+        // top 3 leftdiv
+        var top3l = Object.fromEntries(sortedLDict.slice(0, 3));
+
+        // top 3 rightdiv
+        var top3r = Object.fromEntries(sortedRDict.slice(0, 3));
+
+        // rest
+        var rest = Object.fromEntries(sortedLDict.slice(3).concat(sortedRDict.slice(3)));
+
+        this.showMultRankings([top3l, top3r, rest]); 
     }
 
     clear() {
@@ -205,8 +293,6 @@ function detGame(rw, otw, otl, rl, top_goals, goal_diff) {
                 return otl + points;
             case "RL":
                 if (-game.goalDiff <= goal_diff) {
-                    console.log(game.goalDiff);
-                    console.log(goal_diff);
                     return rl + points + 1;
                 } else {
                     return rl + points;
@@ -232,7 +318,7 @@ var lbdTwo3 = new Standings(detGame(3, 2, 1, 0, 100, -100), "otherranking3");
 
 lbd.showStandings();
 lbdTwo.showStandings();
-addDiff(state,"");
+addDiff("otherranking");
 
 var table1Title = document.getElementById("table1");
 var table2Title = document.getElementById("table2");
@@ -240,38 +326,6 @@ var table3Title = document.getElementById("table3");
 var table4Title = document.getElementById("table4");
 
 table1Title.innerHTML = "National Hockey League";
-
-function addDiff(state, depth) {
-    if (state == "W") {
-        return 1;
-    }
-
-    var tableL = document.getElementById("ranking"+depth);
-    var tableR = document.getElementById("otherranking"+depth);
-
-    for (let i = 0; i < tableR.rows.length; i++) {
-        var cell1 = tableR.rows[i].insertCell(0);
-
-        if (i > 0) {
-        for (let j = 0; j < tableL.rows.length; j++) {
-            if (tableL.rows[j].cells[0].innerHTML == tableR.rows[i].cells[1].innerHTML) {
-                var diff = j - i;
-
-                if (diff < 0) {
-                    cell1.innerHTML = "↓" + (-diff).toString();
-                    cell1.style.color = "red";
-                } else if (diff > 0) {
-                    cell1.innerHTML = "↑" + diff.toString();
-                    cell1.style.color = "green";
-                } else {
-                    cell1.innerHTML = "-";
-                }
-                break;
-            }
-        }
-        }
-    }
-}
 
 function runFrame(ftype) {
     var w = parseInt(document.getElementById("RW").value);
@@ -363,15 +417,24 @@ function runFrame(ftype) {
             lbdTwo3.showDivision("Pacific");
             break;
         case "W":
-            lbd.showWildCard();
-            lbdTwo.showWildCard();
+            table1.innerHTML = "Eastern";
+            lbd.showWildCard("Metropolitan", "Atlantic");
+            lbdTwo.showWildCard("Metropolitan", "Atlantic");
+
+            table2.innerHTML = "Western";
+            lbd1.showWildCard("Pacific", "Central");
+            lbdTwo1.showWildCard("Pacific", "Central");
+
+            table3.innerHTML = "";
+            table4.innerHTML = "";
+
+            lbd2.clear();
+            lbdTwo2.clear();
+
+            lbd3.clear();
+            lbdTwo3.clear();
             break;
     }
-
-    addDiff(state,"");
-    addDiff(state,"1");
-    addDiff(state,"2");
-    addDiff(state,"3");
 }
 
 
