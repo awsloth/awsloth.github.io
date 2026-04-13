@@ -85,10 +85,6 @@ function sortFunc(a, b, gameEval) {
 }
 
 function addDiff(tableId) {
-    if (state == "W") {
-        return 1;
-    }
-
     var tableL = document.getElementById(tableId.slice(5));
     var tableR = document.getElementById(tableId);
 
@@ -219,7 +215,7 @@ class Standings {
         this.showRankings(sortedDict);
 
         if (this.table.id[0] == 'o') {
-            addDiff(this.table.id)
+            addDiff(this.table.id);
         }
     }
 
@@ -232,7 +228,7 @@ class Standings {
         this.showRankings(sortedDict);
 
         if (this.table.id[0] == 'o') {
-            addDiff(this.table.id)
+            addDiff(this.table.id);
         }
     }
 
@@ -245,7 +241,7 @@ class Standings {
         this.showRankings(sortedDict);
 
         if (this.table.id[0] == 'o') {
-            addDiff(this.table.id)
+            addDiff(this.table.id);
         }
     }
 
@@ -266,9 +262,13 @@ class Standings {
         var top3r = Object.fromEntries(sortedRDict.slice(0, 3));
 
         // rest
-        var rest = Object.fromEntries(sortedLDict.slice(3).concat(sortedRDict.slice(3)));
+        var rest = Object.fromEntries(sortedLDict.slice(3).concat(sortedRDict.slice(3)).sort(([,a],[,b]) => sortFunc(a, b, this.gameEval)));
 
         this.showMultRankings([top3l, top3r, rest]); 
+
+        if (this.table.id[0] == 'o') {
+            // Need to work this out
+        }
     }
 
     clear() {
