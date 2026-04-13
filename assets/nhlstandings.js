@@ -136,7 +136,7 @@ function addMultDiff(tableId) {
         }
 
 
-        var found = False;
+        var found = false;
         for (let j = start; j < end; j++) {
             if (tableL.rows[j].cells[0].innerHTML == tableR.rows[i].cells[1].innerHTML) {
                 var diff = j - i;
