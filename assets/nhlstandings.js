@@ -104,10 +104,56 @@ function addDiff(tableId) {
                     cell1.style.color = "green";
                 } else {
                     cell1.innerHTML = "-";
+                    cell1.style.color = "grey";
                 }
                 break;
             }
         }
+        }
+    }
+}
+
+function addMultDiff(tableId) {
+    var tableL = document.getElementById(tableId.slice(5));
+    var tableR = document.getElementById(tableId);
+
+    for (let i = 0; i < tableR.rows.length; i++) {
+        var cell1 = tableR.rows[i].insertCell(0);
+
+        if (tableR.rows[i].cells[1].innerHTML == "Team"){
+            continue;
+        }
+
+        if (i < 4) {
+            var start = 1;
+            var end = 4;
+        } else if (i < 8) {
+            var start = 5;
+            var end = 8;
+        } else {
+            var start = 9;
+            var end = 19;
+        }
+
+
+        var found = False;
+        for (let j = start; j < end; j++) {
+            if (tableL.rows[j].cells[0].innerHTML == tableR.rows[i].cells[1].innerHTML) {
+                var diff = j - i;
+                var found = True;
+
+                if (diff < 0) {
+                    cell1.innerHTML = "↓" + (-diff).toString();
+                    cell1.style.color = "red";
+                } else if (diff > 0) {
+                    cell1.innerHTML = "↑" + diff.toString();
+                    cell1.style.color = "green";
+                } else {
+                    cell1.innerHTML = "-";
+                    cell1.style.color = "grey";
+                }
+                break;
+            }
         }
     }
 }
@@ -267,7 +313,7 @@ class Standings {
         this.showMultRankings([top3l, top3r, rest]); 
 
         if (this.table.id[0] == 'o') {
-            // Need to work this out
+            addMultDiff(this.table.id);
         }
     }
 
