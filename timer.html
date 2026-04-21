@@ -6,25 +6,26 @@
 <body style="display: flex; justify-content: center; align-items: center; height: 100%">
 <!-- Display the countdown timer in an element -->
 
-<ul>
-<li>Combinatorics and Communication Theory: <div id="demo"></div></li>
-<li>Advanced Cryptography: <div id="demo1"></div></li>
-<li>Group Theory: <div id="demo2"></div></li>
-<li>Randomness and Computation: <div id="demo3"></div></li>
+<ul id="Dates">
 </ul>
 
 <script>
-// Set the date we're counting down to
-var countDownDate = new Date("May 14, 2026 09:30:00").getTime();
+var examDates = [["Combinatorics and Communication Theory", new Date("May 14, 2026 09:30:00").getTime()],
+                 ["Advanced Cryptography", new Date("May 15, 2026 14:00:00").getTime()],
+                 ["Advanced Topics in Algebra", new Date("May 19, 2026 09:30:00").getTime()],
+                 ["Group Theory", new Date("May 19, 2026 09:30:00").getTime()],
+                 ["Functional and Fourier Analysis", new Date("Jun 01, 2026 09:30:00").getTime()],
+                 ["Randomness and Computation", new Date("Jun 05, 2026 09:30:00").getTime()]
+                ]
 
-// Update the count down every 1 second
-var x = setInterval(function() {
+
+function updateTimers(elem, item) {
 
   // Get today's date and time
   var now = new Date().getTime();
 
   // Find the distance between now and the count down date
-  var distance = countDownDate - now;
+  var distance = item[1] - now;
 
   // Time calculations for days, hours, minutes and seconds
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -33,107 +34,26 @@ var x = setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // Display the result in the element with id="demo"
-  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  elem.innerHTML = item[0] + ": " + days + "d " + hours + "h "
   + minutes + "m " + seconds + "s ";
 
-  // If the count down is finished, write some text
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
-  }
-}, 1000);
-</script>
+  console.log(now);
+}
 
-<script>
-// Set the date we're counting down to
-var countDownDate1 = new Date("May 15, 2026 14:00:00").getTime();
+var list = document.getElementById("Dates");
+var listItems = [];
 
-// Update the count down every 1 second
-var x = setInterval(function() {
+for (let i = 0; i < examDates.length; i++) {
+    // createNewElement
+    let li = document.createElement("li");
+    listItems.push(li);
 
-  // Get today's date and time
-  var now = new Date().getTime();
+    // Update the count down every 1 second
+    var x = setInterval(function() {updateTimers(listItems[i], examDates[i])}, 1000);
+}
 
-  // Find the distance between now and the count down date
-  var distance = countDownDate1 - now;
-
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // Display the result in the element with id="demo"
-  document.getElementById("demo1").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-
-  // If the count down is finished, write some text
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo1").innerHTML = "EXPIRED";
-  }
-}, 1000);
-</script>
-
-<script>
-// Set the date we're counting down to
-var countDownDate2 = new Date("May 19, 2026 09:30:00").getTime();
-
-// Update the count down every 1 second
-var x = setInterval(function() {
-
-  // Get today's date and time
-  var now = new Date().getTime();
-
-  // Find the distance between now and the count down date
-  var distance = countDownDate2 - now;
-
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // Display the result in the element with id="demo"
-  document.getElementById("demo2").innerHTML = "" + days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-
-  // If the count down is finished, write some text
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo2").innerHTML = "EXPIRED";
-  }
-}, 1000);
-</script>
-
-<script>
-// Set the date we're counting down to
-var countDownDate3 = new Date("Jun 05, 2026 09:30:00").getTime();
-
-// Update the count down every 1 second
-var x = setInterval(function() {
-
-  // Get today's date and time
-  var now = new Date().getTime();
-
-  // Find the distance between now and the count down date
-  var distance = countDownDate3 - now;
-
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // Display the result in the element with id="demo"
-  document.getElementById("demo3").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-
-  // If the count down is finished, write some text
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo3").innerHTML = "EXPIRED";
-  }
-}, 1000);
+for (let i = 0; i < listItems.length; i++) {
+    list.appendChild(listItems[i]);
+}
 </script>
 </body>
