@@ -1,0 +1,35 @@
+---
+title: Anna's Website
+description: Home page of Anna's Website
+type: index
+---
+<div class="main">
+    <div class="grid">
+        <div>
+            <b class="page-title">Anna Williams</b>
+            <p>hello (at) anna-maths (dot) xyz</p>
+        </div>
+        <img src="assets/cats.jpg" alt="Picture of some cats snuggling in a bed" width="200" class="grid-img">
+    </div>
+    <div class="home-block">
+        <div class="block-title"> About Me </div>
+            <p>
+                I am a maths and computer science student at the University of Birmingham. Current interests include Category Theory, Type Theory, Proof Assistants, and Domain Theory. In my spare time I enjoy crochet, cooking and celeste.
+            </p>
+            <p>
+                If you want to find me elsewhere I am on <a href="https://mathstodon.xyz/@awsloth">Mastodon</a>, and <a href="https://open.spotify.com/user/njuav1quxpqzgp8tyhkfba5on">Spotify</a>.
+            </p>
+    </div>
+    <div class="home-block">
+        <div class="block-title"> Blog - (subscribe via <a href="https://anna-maths.xyz/feed.xml">RSS</a>)</div>
+
+        Here is a list of my blog posts:
+        <ul>
+            <li> <a href="posts/2026-03-14-pi-day.html">(14/03/26) Pi Day</a> </li>
+            <li> <a href="posts/2025-10-09-domain-theory-and-lean.html">(09/10/25) Domain Theory and Lean</a> </li>
+            <li> <a href="posts/2025-05-06-ten-questions.html">(06/05/25) Ten Questions</a> </li>
+            <!--<li> <a href="posts/2025-02-02-basic-domain-theory.html">Basic Domain Theory</a> </li>-->
+            <li> <a href="posts/2025-03-14-pi-day.html">(14/03/25) Pi Day</a> </li>
+        </ul>
+    </div>
+</div>
