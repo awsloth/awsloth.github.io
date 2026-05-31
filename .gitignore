@@ -2,3 +2,4 @@
 *.lagda.md~
 _site/*
 report/
+.venv
