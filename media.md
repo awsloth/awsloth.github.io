@@ -4,9 +4,7 @@ description: Media page of Anna's Website
 ---
 # Literature
 
-I am currently reading about Alexanda Kollontai, particularly her writings during the Russian revolution and later. This is really interesting to me because she is one of the first people to link freedom and equality of women with socialism. That is, even if women are treated equally to men, because of the system they are under they cannot truly be free, because they are still exploited. Lots of interesting ideas to explore here!
-
-I am also midway through the Beartown series, for which I haven't read something as moving, as beautifully written in so many years. It is so wonderful, everyone should read it now !!
+Currently I am finishing off James Baldwin's "Go Tell It on the Mountain" which is an interesting exploration of the church and religion. I really enjoy the flow and ingenuity of Baldwin's writing. It's so emotive and thought provoking even in the way the words flow. Having read Giovanni's Room already, I can see the way he writes comes across similarly and it's really beautiful. Read whatever Baldwin you can find!
 
 Below is my currently reading shelf on goodreads.
 
@@ -61,6 +59,6 @@ To see an archive of the songs I have previously added, see here:
 I have recently been enjoying:
 
 - Twin Peaks
-- Leverage
 - Heartbreak High
 - The Pitt
+- Andor
