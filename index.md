@@ -9,7 +9,7 @@ type: index
             <b class="page-title">Anna Williams</b>
             <p>hello (at) anna-maths (dot) xyz</p>
         </div>
-        <img src="assets/cats.jpg" alt="Picture of some cats snuggling in a bed" width="200" class="grid-img">
+        <img src="assets/me.jpg" alt="Picture of some cats snuggling in a bed" width="200" class="grid-img">
     </div>
     <div class="home-block">
         <div class="block-title"> About Me </div>

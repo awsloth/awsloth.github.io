@@ -49,16 +49,21 @@ body {
 }
 
 .grid {
-    padding: 10px;
-    margin: 10px;
     display: grid;
-    gap: 15px;
     align-items: center;
     grid-template-columns: auto auto;
+
+    padding: 10px;
+    margin: 10px;
+    gap: 15px;
+}
+
+.grid div {
+    justify-self: left;
 }
 
 .grid-img {
-    justify-self: end;
+    justify-self: right;
 }
 
 .category-title {
