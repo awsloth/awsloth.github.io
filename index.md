@@ -20,7 +20,7 @@ type: index
                 Outside of research I enjoy doing fibre crafts (crochet and knitting), reading (when I can) and watching sports (ice hockey and baseball). I also play celeste sometimes :)
             </p>
             <p>
-            [Floorplan](https://sigbovik.org/2025/proceedings.pdf#page=288) a fun paper my friends, [Sof](https://deltzabar.github.io/) and [Peter](https://piturnah.xyz/), and I submitted to SIGBOVIK.
+            <a href="https://sigbovik.org/2025/proceedings.pdf#page=288">Floorplan</a> a fun paper my friends, <a href="https://deltzabar.github.io/">Sof</a> and <a href="https://piturnah.xyz/">Peter</a>, and I submitted to SIGBOVIK.
             </p>
             <p>
                 If you want to find me elsewhere I am on <a href="https://mathstodon.xyz/@awsloth">Mastodon</a>.
