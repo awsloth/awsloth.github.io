@@ -109,3 +109,14 @@ iframe {
     padding: 5px 10px;
     width: calc(100% - 20px);
 }
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.column {
+  flex: 50%;
+  padding: 5px;
+}

@@ -30,6 +30,7 @@ type: index
         <div class="block-title"> Blog - (subscribe via <a href="https://anna-maths.xyz/feed.xml">RSS</a>)</div>
         Here is a list of my blog posts:
         <ul>
+            <li> <a href="posts/2026-09-14-trying-things.html">(14/09/26) Trying New Things</a> </li>
             <li> <a href="posts/2026-03-14-pi-day.html">(14/03/26) Pi Day</a> </li>
             <li> <a href="posts/2025-10-09-domain-theory-and-lean.html">(09/10/25) Domain Theory and Lean</a> </li>
             <li> <a href="posts/2025-05-06-ten-questions.html">(06/05/25) Ten Questions</a> </li>
