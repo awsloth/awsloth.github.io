@@ -14,7 +14,7 @@ type: index
     <div class="home-block">
         <div class="block-title"> About Me </div>
             <p>
-                I am a former mathematics and computer science student at the University of Birmingham, soon to be a PhD student at the University of Bath under Pedro H. Azevedo de Amorim. I am excited to do more research in a field I enjoy learning more about and playing with! Also, I am excited to live in a new place after being in Birmingham for four years. My current interests include category theory, proof assistants, programming language theory and domain theory, all of which I hope to explore (in some part) in my time at Bath.
+                I am a PhD student in the Mathematical Foundations of Computation group at Bath, supervised by Pedro H. Azevado de Amorim. The title of my project is "Explorations in Synthetic Domain Theory" I am excited to do more research in a field I enjoy learning more about and playing with! My current interests include category theory, programming language theory and domain theory, all of which I hope to explore (in some part) in my time at Bath.
             </p>
             <p>
                 Outside of research I enjoy doing fibre crafts (crochet and knitting), reading (when I can) and watching sports (ice hockey and baseball). I also play celeste sometimes :)

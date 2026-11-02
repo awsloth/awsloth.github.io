@@ -7,8 +7,8 @@ description: Now page of Anna's website
 
 I am currently
 
-- taking a nice long break after finishing my exams for the final time!
-- trying to learn a bit more german and keep my skills up
-- playing more celeste with the free time I have gained
-- picking back up my fibrecrafts
+- starting my PhD!
+- reading a lot of things about category theory
+- settling in to my new flat
+- doing some embroidery
 - trying to read 26 books in a year (again!)

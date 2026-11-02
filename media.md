@@ -4,7 +4,7 @@ description: Media page of Anna's Website
 ---
 # Literature
 
-Currently I am finishing off James Baldwin's "Go Tell It on the Mountain" which is an interesting exploration of the church and religion. I really enjoy the flow and ingenuity of Baldwin's writing. It's so emotive and thought provoking even in the way the words flow. Having read Giovanni's Room already, I can see the way he writes comes across similarly and it's really beautiful. Read whatever Baldwin you can find!
+I am in a bit of a lull of reading at the moment. I have just finished Babel by R F Kuang, which was incredible, but unfortunately due to being a bit ill and still settling in to my new place I am struggling to find the time/energy to read. For this reason I've picked up Mortal Engines, which I am hoping will be a nice easy read.
 
 Below is my currently reading shelf on goodreads.
 
@@ -28,9 +28,6 @@ Below is my currently reading shelf on goodreads.
 <script src="https://www.goodreads.com/review/grid_widget/65110463.Anna's%20currently-reading%20book%20montage?cover_size=medium&hide_link=true&hide_title=true&num_books=20&order=a&shelf=currently-reading&sort=date_added&widget_id=1748089830" type="text/javascript" charset="utf-8"></script>
 
 # Music
-
-The last track I listened to on Spotify was <span data-nowplaying="TrackLink">...</span> by <span data-nowplaying="ArtistsLink">...</span>, <span data-nowplaying="TimeSince">...</span>.
-<script src="https://now-playing.akpain.net/script/njuav1quxpqzgp8tyhkfba5on"></script>
 
 Find the archive: [here](/archive.html)
 
@@ -56,9 +53,16 @@ To see an archive of the songs I have previously added, see here:
 
 # Movies and TV
 
+I recently finished:
+
+- Riverdale
+
 I have recently been enjoying:
 
 - Twin Peaks
-- Heartbreak High
-- The Pitt
-- Andor
+- Silo
+- Spider-man: Brand New Day
+
+I will be watching:
+
+- V for Vendetta (on Nov 5th of course!)
